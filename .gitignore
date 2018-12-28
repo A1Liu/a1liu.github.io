@@ -1,0 +1,8 @@
+_site/
+archive/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.ruby-version
+.DS_Store
+__pycache__/
