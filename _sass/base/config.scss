@@ -1,0 +1,31 @@
+body {
+	font-family: "Open Sans", sans-serif;
+	// font-family: Consolas, monaco, "Andale Mono", AndaleMono, "Courier New", monospace;
+	font-size: 18px;
+	font-weight: 400;
+	font-style: normal;
+	background: $darkGray;
+	color: $lightGray;
+	padding:0px;
+	margin: 0px;
+}
+
+a {
+	text-decoration: none;
+	font-size: 18px;
+	@include transition(.4s ease-in-out);
+	cursor: pointer;
+	color: $gray !important;
+	font-style: normal;
+
+	&:hover {
+		color: $blue !important;
+		text-decoration: none;
+		@include transition(.4s ease-in-out);
+	}
+}
+
+.container-fluid {
+	// margin: 10px;
+	line-height: 24px;
+}

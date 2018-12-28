@@ -1,0 +1,11 @@
+@mixin translateY($e) {
+	-webkit-transform: translateY($e);
+	-moz-transform: translateY($e);
+		transform: translateY($e);
+}
+
+@mixin transition($e) {
+	-webkit-transform: $e;
+	-moz-transform: $e;
+		transform: $e;
+}
