@@ -8,6 +8,10 @@ yikes: This hasn't been made yet! Yikes.
 
 
 collections:
+    main:
+        output: true
+        permalink: /:name
+
     posts:
         output: true
         permalink: /posts/:year/:month/:day/:title/
@@ -22,10 +26,15 @@ defaults:
     -
         scope:
             type: "posts"
-            path: "/posts/"
+            path: ""
         values:
             layout: "post"
-
+    -
+        scope:
+            type: "main"
+            path: ""
+        values:
+            layout: "page"
 
 # Build settings
 markdown: kramdown
