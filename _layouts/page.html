@@ -1,0 +1,15 @@
+---
+layout: base
+---
+<h1>
+	{{ page.title | capitalize }}
+</h1>
+
+{% assign check_blank = content | strip %}
+{% if check_blank != '' %}
+	{{ content }}
+{% else %}
+	<p>
+		{{ site.yikes }}
+	</p>
+{% endif %}

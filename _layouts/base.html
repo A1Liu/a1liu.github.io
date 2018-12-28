@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title>{{ site.title }}</title>
+		<link href="{{ site.baseurl }}/favicon.ico" rel="shortcut icon">
+		<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/assets/main.css">
+		<link href="{{ site.baseurl }}/assets/favicon.ico" rel="shortcut icon">
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="container">
+				<div class="logo">
+					<!-- {{ page.title | capitalize }} -->
+					Albert Liu
+				</div>
+				<nav>
+					{% include nav_menu.md %}
+				</nav>
+			</div>
+		</div>
+		<div class="site">
+			<article class="main">
+				{{ content }}
+			</article>
+		</div>
+	</body>
+
+</html>
