@@ -1,0 +1,24 @@
+title: Albert's Homepage
+email: al5932@nyu.edu
+description: >-
+    This is my homepage!
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://a1liu.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+
+defaults:
+  -
+    scope:
+      type: "pages"
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
+  -
+    scope:
+      type: "posts"
+      path: "posts/"
+    values:
+      layout: "post"
+
+# Build settings
+markdown: kramdown
