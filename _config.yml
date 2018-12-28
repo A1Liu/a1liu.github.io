@@ -5,6 +5,10 @@ description: >-
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://a1liu.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
+collections:
+  posts:
+    output: true
+    permalink: /posts/:year/:month/:day/:title/
 
 defaults:
   -
@@ -16,7 +20,7 @@ defaults:
   -
     scope:
       type: "posts"
-      path: "posts/"
+      path: "/posts/"
     values:
       layout: "post"
 

@@ -1,18 +1,45 @@
 <!doctype html>
 <html>
 	<head>
-		{% if page.title %}
-			{% assign title = page.title %}
-		{% else %}
-			{% assign title = site.title %}
-		{% endif %}
-		<title>{{ title }}</title>
+		<title>{{ site.title }}</title>
+		<link href="{{ site.baseurl }}/favicon.ico" rel="shortcut icon">
 		<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/assets/main.css">
 		<meta charset="utf-8">
 	</head>
 
 	<body>
-		{{ content }}
+		<header class="header">
+		<div class="container">
+			<div class="logo">
+				{{ page.title }}
+			</div>
+			<nav>
+				<ul>
+					<li class="first">
+					<a href="{{ site.baseurl }}/">Home</a>
+					</li>
+					<li>
+					<a href="{{ site.baseurl }}/about">About Me</a>
+					</li>
+					<li>
+					<a href="{{ site.baseurl }}/projects">Projects</a>
+					</li>
+					<li>
+					<a href="{{ site.baseurl }}/bored">Bored</a>
+					</li>
+					<li class="last">
+					<a href="{{ site.baseurl }}/resources">Resources</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		</header>
+
+		<article class="main">
+			{{ content }}
+		</article>
+
 	</body>
 
 </html>
