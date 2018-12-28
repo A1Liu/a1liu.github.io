@@ -1,3 +1,7 @@
+* {
+	margin: 0px;
+}
+
 body {
 	font-family: "Open Sans", sans-serif;
 	// font-family: Consolas, monaco, "Andale Mono", AndaleMono, "Courier New", monospace;
@@ -7,7 +11,6 @@ body {
 	background: $darkGray;
 	color: $lightGray;
 	padding:0px;
-	margin: 0px;
 }
 
 a {
