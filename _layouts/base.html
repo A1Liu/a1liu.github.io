@@ -13,18 +13,21 @@
 			<div class="container">
 				<div class="logo">
 					<!-- {{ page.title | capitalize }} -->
+					{% if page.logo %}
+					{{ page.logo | capitalize }}
+					{% else %}
 					Albert Liu
+					<!-- Albert's {{ page.title | capitalize }} -->
+					{% endif %}
 				</div>
 				<nav>
 					{% include nav_menu.md %}
 				</nav>
 			</div>
 		</div>
-		<div class="site">
-			<article class="main">
-				{{ content }}
-			</article>
-		</div>
+		<article class="main {{ page.title }}-page">
+			{{ content }}
+		</article>
 	</body>
 
 </html>

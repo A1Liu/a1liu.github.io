@@ -1,3 +1,12 @@
 ---
 title: resources
+layout: base
+logo: resources
 ---
+{% for resource in site.resources %}
+<div id="{{ resource.title | downcase }}">
+	<h3>{{ resource.title | capitalize }}</h3>
+	{{ resource.content | markdownify }}
+	<br/>
+</div>
+{% endfor %}

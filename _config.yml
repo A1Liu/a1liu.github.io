@@ -6,15 +6,16 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://a1liu.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 yikes: This hasn't been made yet! Yikes.
 
-
 collections:
     main:
         output: true
         permalink: /:name
-
     posts:
         output: true
-        permalink: /posts/:year/:month/:day/:title/
+        permalink: /posts/:year/:month/:title/
+    resources:
+        output: true
+        permalink: /resources/:name
 
 defaults:
     -
