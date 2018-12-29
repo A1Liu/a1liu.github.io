@@ -1,5 +1,6 @@
 ---
 title: Purpose of this Blog
+entry: 1
 ---
 I don't think this blog will be very personal, at least to start.
 The aim of this blog right now is simply to document the kind of work I'm doing in my life.

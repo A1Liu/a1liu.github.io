@@ -4,7 +4,7 @@ title: blog
 {% capture page_content %}
 This is my blog! Hi!
 {% for post in site.posts %}
-* [ {{ post.title }} ]( {{ post.url }} )
+* [Entry {{ post.entry }}: {{ post.title }} ]( {{ post.url }} )
 {% endfor %}
 {% endcapture %}
 {{ page_content | markdownify }}
