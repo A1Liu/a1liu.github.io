@@ -26,7 +26,7 @@ defaults:
             layout: "page"
     -
         scope:
-            type: "blog"
+            type: "posts"
             path: ""
         values:
             layout: "post"
