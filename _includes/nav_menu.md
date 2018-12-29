@@ -1,6 +1,6 @@
 {% capture nav_bar %}
 * [Home]({{ site.baseurl }}/)
-* [Posts]({{ site.baseurl }}/posts)
+* [Blog]({{ site.baseurl }}/blog)
 * [Bored]({{ site.baseurl }}/bored)
 * [Resources]({{ site.baseurl }}/resources)
 {% endcapture %}
