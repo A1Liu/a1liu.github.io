@@ -49,8 +49,9 @@ $atom-one-dark-border: #181A1F;
 
 	// Global stuff
 	$global-text-color: $lightGray;//html, body
+	$global-text-color-secondary: $gray; // Anchor tags, header, footer
 	$global-background: $mediumGray;//html, body
-	$anchor-tag-text-color: $gray;
+
 	$anchor-tag-hover: $blue;
 	$main-div-background: $darkGray;
 	$header-footer-background: $black;

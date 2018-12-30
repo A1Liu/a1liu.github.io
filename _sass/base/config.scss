@@ -11,7 +11,7 @@ body {
 	font-size: 20px;
 	font-weight: 300;
 	font-style: normal;
-	color: $lightGray;
+	color: $global-text-color;
 	@include square(100%);
 }
 
@@ -29,11 +29,11 @@ a {
 	font-size: 20px;
 	@include transform(.4s ease-in-out);
 	cursor: pointer;
-	color: $anchor-tag-text-color;
+	color: $global-text-color-secondary;
 	font-style: normal;
 
 	&:hover {
-		color: $anchor-tag-hover !important;
+		color: $anchor-tag-hover;
 		text-decoration: none;
 		@include transform(.4s ease-in-out);
 	}
