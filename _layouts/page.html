@@ -2,7 +2,12 @@
 layout: base
 ---
 <h1>
+	{% if page.nocaps %}
+	{{ page.title }}
+	{% endif %}
+	{% unless page.nocaps %}
 	{{ page.title | capitalize }}
+	{% endunless %}
 </h1>
 
 {% assign check_blank = content | strip %}

@@ -1,5 +1,6 @@
 ---
 title: LaTeX
+nocaps: true
 ---
 * [LaTeX Cheat Sheet](https://www.nyu.edu/projects/beber/files/Chang_LaTeX_sheet.pdf) - PDF that lists some of the common LaTeX expressions
 * [TeX Symbol Recognition](http://detexify.kirelabs.org/classify.html) - Tries to figure out what a symbol is after you draw it

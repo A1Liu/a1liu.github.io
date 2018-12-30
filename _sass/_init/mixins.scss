@@ -7,6 +7,12 @@
     transform: $transforms;
 }
 
+@mixin shadow($args, $color: #ccc) {
+         -moz-box-shadow: $args $color;
+      -webkit-box-shadow: $args $color;
+              box-shadow: $args $color;
+}
+
 // Bounds the object by a dimension i.e. height or width
 @mixin boundDim( $dimension, $min: null, $max: null ) {
 	@if $min { #{'min-'+$dimension}: $min; } // If there's a min, then apply it

@@ -1,6 +1,5 @@
 ---
 title: bored
-logo: BOOOOORRRREEEEEED
 ---
 {% capture list %}
 * [Cult of the Party Parrot](https://cultofthepartyparrot.com/)

@@ -1,11 +1,17 @@
 ---
 title: resources
-layout: base
-logo: resources
+layout: page
 ---
 {% for resource in site.resources %}
 <div id="{{ resource.title | downcase }}">
-	<h3>{{ resource.title | capitalize }}</h3>
+	<h3>
+		{% if resource.nocaps %}
+		{{ resource.title }}
+		{% endif %}
+		{% unless resource.nocaps %}
+		{{ resource.title | capitalize }}
+		{% endunless %}
+	</h3>
 	{{ resource.content | markdownify }}
 	<br/>
 </div>

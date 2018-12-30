@@ -5,8 +5,7 @@
 	max-width: 1000px;
 	background: $main-div-background;
 	height: 100%;
-
-	p { line-height: 1.5; }
+	@include shadow(0px 0px 10px 0px);
 }
 
 @mixin bookend-element {
