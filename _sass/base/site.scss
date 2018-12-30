@@ -1,11 +1,22 @@
 .main {
-	padding: 20px;
+	padding: 50px;
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1000px;
 	background: $main-div-background;
-	height: 100%;
 	@include shadow(0px 0px 10px 0px);
+}
+
+@mixin bookend {
+	@include dynamic-extend('bookend') {
+		@include zero-spaced;
+		height: 90px;
+		position: relative;
+		display: block;
+		overflow: auto;
+		background: $header-footer-background;
+		color: $gray;
+	}
 }
 
 @mixin bookend-element {
@@ -18,6 +29,7 @@
 
 .footer {
 	@include bookend;
+	float: bottom;
 	padding-left: 20px;
 	padding-top: 5px;
 }

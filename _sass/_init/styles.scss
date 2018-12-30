@@ -16,16 +16,3 @@
     	#{$bound+'height'}: $size;
     }
 }
-
-// For header and footer
-@mixin bookend {
-	@include dynamic-extend('bookend') {
-		@include zero-spaced;
-		height: 90px;
-		position: relative;
-		display: block;
-		overflow: auto;
-		background: $header-footer-background;
-		color: $gray;
-	}
-}

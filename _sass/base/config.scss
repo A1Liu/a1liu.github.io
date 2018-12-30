@@ -1,5 +1,7 @@
-html {
+div, span, html, body {
 	@include zero-spaced;
+}
+html {
 	height: 100%;
 	background: $global-background;
 }
@@ -11,16 +13,11 @@ body {
 	font-style: normal;
 	color: $lightGray;
 	@include square(100%);
-	@include zero-spaced;
 }
 
 h1,h2,h3,h4,h5,h6 {
 	margin-top: 0px;
 	margin-bottom: 3px;
-}
-
-ul {
-	margin: 0px;
 }
 
 p {

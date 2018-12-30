@@ -1,5 +1,6 @@
 ---
 title: bored
+description: The internet is a beautiful place. Here's a list of some of the sites I go on when I'm bored.
 ---
 {% capture list %}
 * [Cult of the Party Parrot](https://cultofthepartyparrot.com/)

@@ -9,6 +9,11 @@ layout: base
 	{{ page.title | capitalize }}
 	{% endunless %}
 </h1>
+{% if page.description %}
+<p>
+	{{ page.description }}
+</p>
+{% endif %}
 
 {% assign check_blank = content | strip %}
 {% if check_blank != '' %}
