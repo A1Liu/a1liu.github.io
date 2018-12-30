@@ -1,6 +1,7 @@
 ---
 title: Purpose of this Blog
 entry: 1
+short: true
 categories: [personal]
 tags: [meta]
 ---
