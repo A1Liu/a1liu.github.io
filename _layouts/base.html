@@ -25,7 +25,10 @@
 				</nav>
 			</div>
 		</div>
-		<div class="main {{ page.title }}-page">
+		{% if page.short %}
+		{% assign extra = " short-page" %}
+		{% endif %}
+		<div class="main {{ page.title | replace: " ","-" | downcase }}-page{{ extra }}">
 			{{ content }}
 		</div>
 		<div class="footer">
