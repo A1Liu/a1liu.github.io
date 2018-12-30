@@ -5,6 +5,10 @@ description: >-
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://a1liu.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 yikes: This hasn't been made yet! Yikes.
+collections_dir: collections
+special_chars:
+    newline: "\n"
+    tab: "\t"
 
 collections:
     main:

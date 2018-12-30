@@ -1,0 +1,22 @@
+---
+layout: null
+---
+[
+    {% for collection in site.collections %}
+    {
+        "name": "{{ collection.label }}",
+        "files": [{% for doc in collection.docs %}
+            {
+                "name":"{{ doc.title }}",
+                "url":"{{ doc.url }}",
+                "content":{% capture doc_content %}
+                "{{ doc.content | replace: site.special_chars.newline,"\n" | replace: site.special_chars.tab,"    " }}"
+                {% endcapture %}{{ doc_content | replace: site.special_chars.newline,"" | strip }}
+            },{% endfor %}
+        ]
+    },{% endfor %}
+    {
+        "name":"static",
+        "files": []
+    },
+]
