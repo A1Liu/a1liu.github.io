@@ -23,35 +23,25 @@ $atom-one-dark-black: #21252B;
 $atom-one-dark-border: #181A1F;
 
 // Defining Palette
-	$white: #ffffff;
+// $white: #ffffff;
+//
+// $lightBlue: #3399ff;
+// $red: #ff1755;
 
-	$lightBlue: #3399ff;
-	// $red: #ff1755;
+// Background colors
+// $darkGray: #282C34;
+// $mediumGray: #4B5363;
+$black: #121417;
+$lightGray: #e6e6e6; // body text
 
-	// Background colors
-	$darkGray: #282C34;
-	$mediumGray: #4B5363;
-	$black: #121417;
+// Text Highlighting
+// $gray: #ABB2BF;
 
-	// Text Highlighting
-	$gray: #ABB2BF;
-	$lightGray: #e6e6e6; // body text
-	$blue: #61AFEF;
-	$cyan: #56B6C2;
-	$purple: #C678DD;
-	$green: #98C379;
-	$magenta: #E06C75;
-	$red: #BE5046;
-	$orange: #D19A66;
-	$yellow: #E5C07B;
-
-// Defining theme
-
-	// Global stuff
-	$global-text-color: $lightGray;//html, body
-	$global-text-color-secondary: $gray; // Anchor tags, header, footer
-	$global-background: $mediumGray;//html, body
-
-	$anchor-tag-hover: $blue;
-	$main-div-background: $darkGray;
-	$header-footer-background: $black;
+// $blue: #61AFEF;
+// $cyan: #56B6C2;
+// $purple: #C678DD;
+// $green: #98C379;
+// $magenta: #E06C75;
+// $red: #BE5046;
+// $orange: #D19A66;
+// $yellow: #E5C07B;
