@@ -1,0 +1,47 @@
+.main {
+	padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1000px;
+	background: $main-div-background;
+	height: 100%;
+
+	p { line-height: 1.5; }
+}
+
+@mixin bookend-element {
+	@include dynamic-extend('bookend-element') {
+		position: absolute;
+		top: 50%;
+		@include transform( translateY(-50%) );
+	}
+}
+
+.footer {
+	@include bookend;
+	padding-left: 20px;
+	padding-top: 5px;
+}
+
+.header {
+	@include bookend;
+	.logo {
+		font-size: 30px;
+		left: 15px;
+		@include bookend-element;
+
+	}
+	nav, nav * { @include zero-spaced; }
+	nav {
+		@include bookend-element;
+		float: right;
+		right: 15px;
+
+		ul li {
+			list-style-type: none;
+			display: inline-block;
+			margin-right: 20px;
+			a { font-size: 19px; }
+		}
+	}
+}

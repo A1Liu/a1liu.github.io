@@ -1,0 +1,31 @@
+// No margins, padding, or border
+@mixin zero-spaced {
+	@include dynamic-extend('zero-spaced') {
+		margin: 0px;
+		border: 0px;
+		padding: 0px;
+	}
+}
+
+// This sets the width and height of an object to be a square
+@mixin square($size,$bound: null) { // bound is 'min' or 'max' or whatever precedes 'width' and 'height'
+	@if $bound { $bound: $bound+ '-' } // If we should bound the size, then bound it
+	@else { $bound: ''; }
+    @include dynamic-extend('square-'+$bound+'-'+$size) {
+        #{$bound+'width'}: $size;
+    	#{$bound+'height'}: $size;
+    }
+}
+
+// For header and footer
+@mixin bookend {
+	@include dynamic-extend('bookend') {
+		@include zero-spaced;
+		height: 90px;
+		position: relative;
+		display: block;
+		overflow: auto;
+		background: $header-footer-background;
+		color: $gray;
+	}
+}

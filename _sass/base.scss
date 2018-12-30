@@ -1,5 +1,6 @@
-@import "base/colors";
-@import "base/mixins";
+@import "_init/colors";
+@import "_init/mixins";
+@import "_init/styles";
+
 @import "base/config";
-@import "base/header";
-@import "base/default";
+@import "base/site";

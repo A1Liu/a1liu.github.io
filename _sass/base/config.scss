@@ -1,20 +1,21 @@
+html {
+	@include zero-spaced;
+	height: 100%;
+	background: $global-background;
+}
+
 body {
-	font-family: "Open Sans", sans-serif;
-	// font-family: Consolas, monaco, "Andale Mono", AndaleMono, "Courier New", monospace;
-	font-size: 18px;
-	font-weight: 400;
+	font-family: Menlo, Consolas, DejaVu Sans Mono, monospace;// Atom editor default fonts
+	font-size: 20px;
+	font-weight: 300;
 	font-style: normal;
-	background: $darkGray;
 	color: $lightGray;
-	padding:0px;
-	margin: 0px;
+	@include square(100%);
+	@include zero-spaced;
 }
 
 h1,h2,h3,h4,h5,h6 {
 	margin-top: 0px;
-}
-
-h1,h2,h3,h4,h5,h6 {
 	margin-bottom: 3px;
 }
 
@@ -22,26 +23,17 @@ ul {
 	margin: 0px;
 }
 
-p {
-	margin: 5px;
-}
-
 a {
 	text-decoration: none;
-	font-size: 18px;
-	@include transition(.4s ease-in-out);
+	font-size: 20px;
+	@include transform(.4s ease-in-out);
 	cursor: pointer;
-	color: $gray !important;
+	color: $anchor-tag-text-color;
 	font-style: normal;
 
 	&:hover {
-		color: $blue !important;
+		color: $anchor-tag-hover !important;
 		text-decoration: none;
-		@include transition(.4s ease-in-out);
+		@include transform(.4s ease-in-out);
 	}
-}
-
-.container-fluid {
-	// margin: 10px;
-	line-height: 24px;
 }

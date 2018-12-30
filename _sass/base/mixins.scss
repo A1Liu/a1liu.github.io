@@ -1,9 +1,0 @@
-@mixin transition($e) {
-	-webkit-transform: $e;
-	-moz-transform: $e;
-		transform: $e;
-}
-
-@mixin translateY($e) {
-	@include transition( translateY($e) );
-}
