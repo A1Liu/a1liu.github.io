@@ -3,12 +3,17 @@ email: al5932@nyu.edu
 description: >-
     This is my homepage!
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://a1liu.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-yikes: This hasn't been made yet! Yikes.
+# the base hostname & protocol for your site, e.g. http://example.com
+url: "http://a1liu.github.io"
+markdown: kramdown
 collections_dir: collections
+
+# Custom settings bc im special
+yikes: This hasn't been made yet! Yikes.
 special_chars:
     newline: "\n"
     tab: "\t"
+# End custom settings
 
 collections:
     main:
@@ -40,6 +45,3 @@ defaults:
             path: ""
         values:
             layout: "page"
-
-# Build settings
-markdown: kramdown
