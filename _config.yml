@@ -2,18 +2,16 @@ title: Albert's Homepage
 email: al5932@nyu.edu
 description: >-
     This is my homepage!
-baseurl: "" # the subpath of your site, e.g. /blog
-# the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # site subpath, e.g. /blog
 url: "http://a1liu.github.io"
 markdown: kramdown
 collections_dir: collections
 exclude: [scripts,env]
-yikes: This hasn't been made yet! Yikes.
 
+yikes: This hasn't been made yet! Yikes.
 special_chars:
     newline: "\n"
     tab: "\t"
-# End custom settings
 
 collections:
     main:
