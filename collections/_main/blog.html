@@ -4,7 +4,7 @@ description: This is my blog! Hi!
 ---
 {% capture page_content %}
 {% for post in site.posts %}
-* [Entry {{ post.entry }}: {{ post.title }} ]( {{ post.url }} )
+* [Entry {{ site.posts.size | minus: forloop.index | plus: 1 }}: {{ post.title }} ]( {{ post.url }} )
 {% endfor %}
 {% endcapture %}
 {{ page_content | markdownify }}
