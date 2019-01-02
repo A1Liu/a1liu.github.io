@@ -7,9 +7,9 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://a1liu.github.io"
 markdown: kramdown
 collections_dir: collections
-
-# Custom settings bc im special
+exclude: [scripts,env]
 yikes: This hasn't been made yet! Yikes.
+
 special_chars:
     newline: "\n"
     tab: "\t"
