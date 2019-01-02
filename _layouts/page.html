@@ -2,12 +2,11 @@
 layout: base
 ---
 <h1>
-	{% if page.nocaps %}
-	{{ page.title }}
-	{% endif %}
+	{% assign title = page.title %}
 	{% unless page.nocaps %}
-	{{ page.title | capitalize }}
+	{% assign title = page.title | capitalize %}
 	{% endunless %}
+	{{ title }}
 </h1>
 {% if page.description %}
 <p>
