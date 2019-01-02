@@ -7,6 +7,7 @@
     transform: $transforms;
 }
 
+// Compatibility shadow mixin
 @mixin shadow($args, $color: #ccc) {
          -moz-box-shadow: $args $color;
       -webkit-box-shadow: $args $color;
@@ -21,11 +22,6 @@
 		@error "Need to specify at least one dimension to bound '"+$dimension+"'";
 	}
 }
-
-//Below code is adapted from the website
-//https://alistapart.com/article/dry-ing-out-your-sass-mixins
-//It models the toolkit from https://github.com/at-import/toolkit
-//Going to add it as a dependency later for now this is enough
 
 // Toolkit License:
 //
@@ -53,23 +49,15 @@ $Private-Toolkit-Placeholders: ();
 
 @mixin dynamic-extend($id) {
 
-    // Get the placeholder ID from a map (it's a key:value system like a python dictionary)
     $placeholder-id: map-get($Private-Toolkit-Placeholders, $id);
 
-    // If the ID wasn't in the map, then add it
     @if $placeholder-id == null {
 
-        // Get a unique id to represent the given id as a scss placeholder
         $placeholder-id: unique-id();
+        $new-map: map-merge( $Private-Toolkit-Placeholders, ($id: $placeholder-id) );
+        $Private-Toolkit-Placeholders: $new-map !global;
 
-        //Add the unique id to the map as key, value = id, unique-id
-        $Private-Toolkit-Placeholders: map-merge($Private-Toolkit-Placeholders, ($id: $placeholder-id)) !global;
-
-        // Add the extendable stuff to the root labeled using the placeholder, with the content provided
-        @at-root %#{$placeholder-id} {
-            @content;//Content block after mixin
-        }
+        @at-root %#{$placeholder-id} { @content; }
     }
-    // Extends the class established by the placeholder
     @extend %#{$placeholder-id};
 }

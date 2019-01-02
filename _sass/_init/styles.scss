@@ -8,10 +8,12 @@
 }
 
 // This sets the width and height of an object to be a square
-@mixin square($size,$bound: null) { // bound is 'min' or 'max' or whatever precedes 'width' and 'height'
-	@if $bound { $bound: $bound+ '-' } // If we should bound the size, then bound it
+@mixin square($size, $bound: null) {
+	// bound is 'min' or 'max' or whatever precedes 'width' and 'height'
+	@if $bound { $bound: $bound+ '-' }
 	@else { $bound: ''; }
-    @include dynamic-extend('square-'+$bound+'-'+$size) {
+
+    @include dynamic-extend('square-'+$bound+$size) {
         #{$bound+'width'}: $size;
     	#{$bound+'height'}: $size;
     }
