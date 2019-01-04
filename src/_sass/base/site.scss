@@ -13,7 +13,6 @@
 
 @mixin bookend {
 	@include dynamic-extend('bookend') {
-		@include zero-spaced;
 		height: 90px;
 		position: relative;
 		display: block;
@@ -46,7 +45,7 @@
 		@include bookend-element;
 
 	}
-	nav, nav * { @include zero-spaced; }
+	nav, nav * { margin-bottom: 0px; }
 	nav {
 		@include bookend-element;
 		float: right;

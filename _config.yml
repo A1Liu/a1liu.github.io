@@ -5,8 +5,14 @@ description: >-
 baseurl: "" # site subpath, e.g. /blog
 url: "http://a1liu.github.io"
 markdown: kramdown
-collections_dir: collections
+strict_front_matter: true
+
 exclude: [scripts,env]
+collections_dir: collections
+includes_dir: src/_includes
+layouts_dir: src/_layouts
+sass: # http://markdotto.com/2014/09/25/sass-and-jekyll/
+  sass_dir: src/_sass
 
 yikes: This hasn't been made yet! Yikes.
 special_chars:

@@ -1,0 +1,23 @@
+html, body {
+    height: 100%;
+	background: $global-background;
+}
+
+body {
+    font-family: $font-family;
+    color: $global-text-color;
+    font-size: $font-size;
+}
+
+code { color: $code-tag-color; }
+
+a {
+	@include transition(.4s);
+	color: $global-text-color-secondary;
+
+	&:hover {
+		color: $anchor-tag-hover;
+		text-decoration: none;
+        @include transition(.4s);
+	}
+}

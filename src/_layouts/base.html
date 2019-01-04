@@ -1,16 +1,9 @@
 <!doctype html>
-<html>
-	<head>
-		<title>{{ site.title }}</title>
-		<link href="{{ site.baseurl }}/favicon.ico" rel="shortcut icon">
-		<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/assets/main.css">
-		<link href="{{ site.baseurl }}/assets/favicon.ico" rel="shortcut icon">
-		<meta charset="utf-8">
-	</head>
-
+<html lang="en">
+	{% include head.html %}
 	<body>
-		<div class="header">
-			<div class="container">
+		<div class="head-boi">
+			<div class="head-container">
 				<div class="logo">
 					<!-- {{ page.title | capitalize }} -->
 					{% if page.logo %}
@@ -28,11 +21,12 @@
 		{% if page.short %}
 		{% assign extra = " short-page" %}
 		{% endif %}
-		<div class="main {{ page.title | replace: " ","-" | downcase }}-page{{ extra }}">
+		<div class="main-boi {{ page.title | replace: " ","-" | downcase }}-page{{ extra }}">
 			{{ content }}
 		</div>
 		<div class="footer">
 			Site by Albert Liu
 		</div>
+	{% include bootstrap/bootstrap.js.html %}
 	</body>
 </html>
