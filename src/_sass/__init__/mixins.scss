@@ -41,10 +41,10 @@
 
 
 // Compatibility shadow mixin
-@mixin shadow($args, $color: #ccc) {
-         -moz-box-shadow: $args $color;
-      -webkit-box-shadow: $args $color;
-              box-shadow: $args $color;
+@mixin shadow($args...) {
+         -moz-box-shadow: $args;
+      -webkit-box-shadow: $args;
+              box-shadow: $args;
 }
 
 // Bounds the object by a dimension i.e. height or width
