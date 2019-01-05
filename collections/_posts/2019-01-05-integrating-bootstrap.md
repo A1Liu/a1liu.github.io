@@ -57,6 +57,7 @@ including the header and footer.
 
 Within this container, the site is laid out in 3 rows:
 
+{% raw %}
 ```html
 <div class="container-fill" style="height:100%;">
     <div class="row header" id="header">
@@ -70,6 +71,7 @@ Within this container, the site is laid out in 3 rows:
     </div>
 </div>
 ```
+{% endraw %}
 {% raw %}
 The values in `{{curly brackets}}` get filled according to page attributes.
 {% endraw %}
