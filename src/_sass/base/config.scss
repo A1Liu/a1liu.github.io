@@ -1,4 +1,4 @@
-html, body {
+html, body, pre {
     height: 100%;
 	background: $global-background;
 }
@@ -9,7 +9,13 @@ body {
     font-size: $font-size;
 }
 
-code { color: $code-tag-color; }
+pre {
+    padding: 10px;
+    border: 10px $global-background;
+    border-radius: 10px;
+}
+
+pre, code { color: $code-tag-color; }
 
 a {
 	@include transition(.4s);
