@@ -14,6 +14,7 @@ layouts_dir: src/_layouts
 sass: # http://markdotto.com/2014/09/25/sass-and-jekyll/
   sass_dir: src/_sass
 
+repo-url: "https://github.com/A1Liu/a1liu.github.io"
 yikes: This hasn't been made yet! Yikes.
 special_chars:
     newline: "\n"
