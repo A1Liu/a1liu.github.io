@@ -2,30 +2,37 @@
 <html lang="en">
 	{% include head.html %}
 	<body>
-		<div class="head-boi">
-			<div class="head-container">
-				<div class="logo">
-					<!-- {{ page.title | capitalize }} -->
-					{% if page.logo %}
-					{{ page.logo }}
-					{% else %}
-					Albert Liu
-					<!-- Albert's {{ page.title | capitalize }} -->
-					{% endif %}
-				</div>
-				<nav>
-					{% include nav_menu.md %}
-				</nav>
+		<div class="container-fill" style="height:100%;">
+			<div class="row header" id="header">
+				<a class="logo" href="/">Albert Liu</a>
+				<nav id="main-nav">{% include nav-menu.md %}</nav>
 			</div>
-		</div>
-		{% if page.short %}
-		{% assign extra = " short-page" %}
-		{% endif %}
-		<div class="main-boi {{ page.title | replace: " ","-" | downcase }}-page{{ extra }}">
-			{{ content }}
-		</div>
-		<div class="footer">
-			Site by Albert Liu
+			{% if page.short %}
+				{% assign extra = " short-page" %}
+			{% endif %}
+			{% assign page-title = page.title | replace: " ","-" | downcase %}
+			{% assign page-title = page-title | append: "-page" | prepend: " " %}
+
+			{% if page.raw %}
+				<div class="row main{{ page-title }}{{ extra }}">{{ content }}</div>
+			{% else %}
+				<div class="row{{ extra }}">
+						<div class="col" id="left-col">
+							{% if page.left %}{% include {{ page.left }} %}{% endif %}
+						</div>
+
+						<div class="col-8 main{{ page-title }}" id="main-col">
+							{{ content }}
+						</div>
+
+						<div class="col" id="right-col">
+							{% if page.right %}{% include {{ page.right }} %}{% endif %}
+						</div>
+				</div>
+			{% endif %}
+			<div class="row footer" id="footer">
+				Site by Albert Liu
+			</div>
 		</div>
 	{% include bootstrap/bootstrap.js.html %}
 	</body>
