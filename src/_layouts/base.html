@@ -8,20 +8,19 @@
 				<nav id="main-nav">{% include nav-menu.md %}</nav>
 			</div>
 			{% if page.short %}
-				{% assign extra = " short-page" %}
+				{% assign extra = "short-page" %}
 			{% endif %}
-			{% assign page-title = page.title | replace: " ","-" | downcase %}
-			{% assign page-title = page-title | append: "-page" | prepend: " " %}
+			{% assign page-title = page.title | strip | replace: " ","-" | downcase | append: "-page" %}
 
 			{% if page.raw %}
-				<div class="row main{{ page-title }}{{ extra }}">{{ content }}</div>
+				<div class="row main {{ extra }} {{ page-title }}">{{ content }}</div>
 			{% else %}
-				<div class="row{{ extra }}">
+				<div class="row {{ extra }}">
 						<div class="col" id="left-col">
 							{% if page.left %}{% include {{ page.left }} %}{% endif %}
 						</div>
 
-						<div class="col-8 main{{ page-title }}" id="main-col">
+						<div class="col-8 main {{ page-title }}" id="main-col">
 							{{ content }}
 						</div>
 
