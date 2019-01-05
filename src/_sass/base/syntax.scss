@@ -1,0 +1,13 @@
+div > pre > code {
+
+	@mixin code_color($class, $color) {
+		span.#{$class} {
+			color: $color;
+		}
+	}
+
+	@include code_color('c',$comment);
+	@include code_color('nt',$normal-text);
+	@include code_color('na',$na);
+	@include code_color('s',$string);
+}

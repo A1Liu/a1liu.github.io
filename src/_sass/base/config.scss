@@ -14,16 +14,16 @@ pre {
     border-radius: 10px;
 }
 
-code {
+:not(pre) > code {
     padding: 3px;
     padding-left: 5px;
     padding-right: 5px;
     border-radius: 5px;
 }
 
-code, pre {
-    background: $code-background-color;
+:not(pre) > code, pre {
     color: $code-tag-color;
+    background: $code-background-color;
 }
 
 a {

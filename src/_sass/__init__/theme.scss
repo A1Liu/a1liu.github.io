@@ -7,9 +7,15 @@ $main-div-background: $atom-one-dark-bg;
 $header-footer-background: $black;
 $shadow-color: $light-gray;
 
+// CODE COLORS
 $code-background-color: $global-background;
 $code-tag-color: $atom-one-dark-green;
 
+// CODE HIGHLIGHTING COLORS
+$comment: $atom-one-dark-mono-2;
+$normal-text: $atom-one-dark-mono-1;
+$na: $atom-one-dark-orange-1; // normal attribute?
+$string: $atom-one-dark-green;
 
 $font-family: $atom-default-fonts;
 $font-size: 20px;

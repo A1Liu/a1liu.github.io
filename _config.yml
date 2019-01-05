@@ -4,8 +4,11 @@ description: >-
     This is my homepage!
 baseurl: "" # site subpath, e.g. /blog
 url: "http://a1liu.github.io"
-markdown: kramdown
 strict_front_matter: true
+
+markdown: kramdown
+# kramdown:
+#   syntax_highlighter: rouge
 
 exclude: [scripts,env]
 collections_dir: collections
