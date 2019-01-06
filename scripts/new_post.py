@@ -2,7 +2,7 @@ import os # import re # escaped = re.escape(a_string)
 from datetime import datetime
 from nltk.corpus import stopwords
 from functools import reduce
-from scripts.utils import PROJECT_DIR,COLLECTIONS_DIR,DRAFTS_DIR,POSTS_DIR
+from scripts.utils import PROJECT_DIR,COLLECTIONS_DIR,DRAFTS_DIR,POSTS_DIR,BLOG_ASSETS_DIR
 
 en_stopwords = set( stopwords.words('english') )
 join = os.path.join
@@ -36,7 +36,7 @@ def make_post(
     is_draft = True, has_assets = True):
 
     # Setting up vars
-    output_dir = drafts_dir if is_draft else POSTS_DIR
+    output_dir = DRAFTS_DIR if is_draft else POSTS_DIR
     date = format_date(datetime.now()) if date is None else date
     title = title.lower().strip()
     if display_title is None: display_title = title
@@ -48,5 +48,5 @@ def make_post(
         f.write('---\n')
         f.write('title: {}\n'.format(display_title))
         f.write('categories: [%s]\n' % ', '.join(categories) )
-        f.write('tags: [ %s ]\n' % ', '.join(tags) )
+        f.write('tags: [%s]\n' % ', '.join(tags) )
         f.write('---\n\n')
