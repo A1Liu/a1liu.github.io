@@ -2,18 +2,28 @@ html, body {
     height: 100%;
 	background: $global-background;
 }
-
 body {
     font-family: $font-family;
     color: $global-text-color;
-    font-size: $font-size;
+    font-size: $normal-text-size;
 }
+
+
+
+h1 {
+
+}
+
+
 
 pre {
     padding: 10px;
     border-radius: 10px;
 }
-
+pre, :not(pre) > code {
+    color: $code-tag-color;
+    background: $code-background-color;
+}
 :not(pre) > code {
     padding: 3px;
     padding-left: 5px;
@@ -21,16 +31,16 @@ pre {
     border-radius: 5px;
 }
 
-:not(pre) > code, pre {
-    color: $code-tag-color;
-    background: $code-background-color;
-}
+
 
 a {
-	@include transition(.4s);
-	color: $global-text-color-secondary;
-
-	&:hover {
+    color: $global-text-color-secondary;
+}
+a, a > * {
+    @include transition(.4s);
+}
+a {
+	&:hover, &:hover > * {
 		color: $anchor-tag-hover;
 		text-decoration: none;
         @include transition(.4s);

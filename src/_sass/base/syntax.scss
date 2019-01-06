@@ -1,4 +1,4 @@
-div > pre > code {
+pre > code {
 
 	@mixin code_color($class, $color) {
 		span.#{$class} {
