@@ -7,10 +7,8 @@ url: "http://a1liu.github.io"
 strict_front_matter: true
 
 markdown: kramdown
-# kramdown:
-#   syntax_highlighter: rouge
 
-exclude: [scripts,env]
+exclude: [scripts,env, build.py, LICENSE, README.md]
 collections_dir: collections
 includes_dir: src/_includes
 layouts_dir: src/_layouts
@@ -18,7 +16,6 @@ sass: # http://markdotto.com/2014/09/25/sass-and-jekyll/
   sass_dir: src/_sass
 
 repo-url: "https://github.com/A1Liu/a1liu.github.io"
-yikes: This hasn't been made yet! Yikes.
 special_chars:
     newline: "\n"
     tab: "\t"
@@ -37,16 +34,17 @@ collections:
 defaults:
     -
         scope:
-            type: "pages"
+            type: "posts"
             path: "" # an empty string here means all files in the project
         values:
             layout: "page"
+            nocaps: true
     -
         scope:
-            type: "posts"
+            type: "pages"
             path: ""
         values:
-            layout: "post"
+            layout: "page"
     -
         scope:
             type: "main"

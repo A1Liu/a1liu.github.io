@@ -27,7 +27,7 @@ def make_assets_folder(title,date):
     reduce(get_dir, [BLOG_ASSETS_DIR, date.year, zero_pad(date.month), title])
 
 def capitalize_title_word(word):
-    if len(word) > 5 or word not in en_stopwords:
+    if (len(word) > 5 or word not in en_stopwords) and word.upper() != word:
         return word.capitalize()
     return word
 

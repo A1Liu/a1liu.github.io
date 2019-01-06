@@ -1,1 +1,1 @@
-<small><a target="_blank" href="{{ site.repo-url }}/commit/{{ include.commit }}">ref commit</a></small>
+<a target="_blank" href="{{ site.repo-url }}/commit/{{ include.commit }}">{% if include.text %}{{ include.text }}{% else %}ref commit{% endif %}</a>
