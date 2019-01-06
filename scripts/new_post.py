@@ -1,22 +1,21 @@
-import os
+import os # import re # escaped = re.escape(a_string)
 from datetime import datetime
 from nltk.corpus import stopwords
 from functools import reduce
-
+from scripts.utils import PROJECT_DIR,COLLECTIONS_DIR,DRAFTS_DIR,POSTS_DIR
 
 en_stopwords = set( stopwords.words('english') )
 join = os.path.join
-dirname = os.path.dirname
-
-project_dir = dirname( dirname(__file__) )
-collections_dir = join(project_dir,'collections')
-drafts_dir = join(collections_dir,'_drafts')
-posts_dir = join(collections_dir,'_posts')
-blog_assets_dir = join(project_dir,'assets','blog')
 
 format_string = '%Y-%m-%d'
-parse_date = lambda string: datetime.strptime(string, format_string)
-format_date = lambda date: date.strftime(format_string)
+def parse_date(string):
+    return datetime.strptime(string, format_string)
+
+def format_date(date):
+    return date.strftime(format_string)
+
+def zero_pad(n):
+    return f'0{n}' if n < 10 else n
 
 def get_dir(root,new):
     new_dir = join(root,str(new))
@@ -25,7 +24,7 @@ def get_dir(root,new):
 
 def make_assets_folder(title,date):
     date = parse_date(date)
-    reduce(get_dir, [blog_assets_dir, date.year, date.month, title])
+    reduce(get_dir, [BLOG_ASSETS_DIR, date.year, zero_pad(date.month), title])
 
 def capitalize_title_word(word):
     if len(word) > 5 or word not in en_stopwords:
@@ -37,7 +36,7 @@ def make_post(
     is_draft = True, has_assets = True):
 
     # Setting up vars
-    output_dir = drafts_dir if is_draft else posts_dir
+    output_dir = drafts_dir if is_draft else POSTS_DIR
     date = format_date(datetime.now()) if date is None else date
     title = title.lower().strip()
     if display_title is None: display_title = title
@@ -48,6 +47,6 @@ def make_post(
     with open(join(output_dir, "%s-%s.md" % (date,title) ), 'x') as f:
         f.write('---\n')
         f.write('title: {}\n'.format(display_title))
-        f.write('categories: [ %s ]\n' % ' ,'.join(categories) )
-        f.write('tags: [ %s ]\n' % ' ,'.join(tags) )
+        f.write('categories: [%s]\n' % ', '.join(categories) )
+        f.write('tags: [ %s ]\n' % ', '.join(tags) )
         f.write('---\n\n')

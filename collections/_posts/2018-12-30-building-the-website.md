@@ -12,7 +12,6 @@ From now on I'm going to separate post writing from building the website, so the
 Here's some images of the first build:
 
 Homepage:
-/blog/2018/12/first-post/
 ![Homepage](/assets{{ page.url }}/homepage.png)
 
 Blog post 1:
