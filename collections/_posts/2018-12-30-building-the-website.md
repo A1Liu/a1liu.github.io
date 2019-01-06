@@ -1,7 +1,7 @@
 ---
 title: Version 0 of this Website
 categories: [projects, homepage]
-tags: [html, css]
+tags: [html, css, sass]
 ---
 It's done! I finished version 0 of this website. It's missing a lot of features, but it's a good enough basic framework that I'm ok with it being done for now.
 In the future I'd like to keep working on it and eventually get it to a point where it looks clean, modern, and professional. Maybe by the time I'm out of college? I hope so at least.

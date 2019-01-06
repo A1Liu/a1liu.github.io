@@ -1,7 +1,7 @@
 ---
 title: Integrating Bootstrap into my Website
 categories: [projects, homepage]
-tags: [html, css, javascript]
+tags: [html, css, js, bootstrap]
 ---
 Bootstrap is a CSS and JS library that makes it a lot faster to build websites.
 Similar to how python packages reduce code redundancy and allow for more complexity
