@@ -10,48 +10,14 @@ layout: base
 	<p>
 		Hi, I'm Albert, and this is my website! I'm a freshman at NYU majoring in Math and Computer Science. This website is mainly for my own personal use, but feel free to use the stuff on here or copy the source code into your own project! (Please read and follow the license though.)
 	</p>
-
 </div>
+
 {% for doc in site.main %}
-	{% if doc.title == 'blog' %}
-		{% assign blog_doc = doc %}
-		{% continue %}
-	{% endif %}
-	{% if doc.title == 'bored' %}
-		{% assign bored_doc = doc %}
-		{% continue %}
-	{% endif %}
-	{% if doc.title == 'resources' %}
-		{% assign resources_doc = doc %}
-		{% continue %}
-	{% endif %}
+<div id="{{ doc.title }}-excerpt">
+	<h2 id="{{ doc.title }}">{{ doc.title | capitalize }}</h2>
+	<p>
+		{{ doc.description }}
+	</p>
+	{{ doc.content }}
+</div>
 {% endfor %}
-<div class="blog-page">
-	<h2 id="blog">
-		Blog
-	</h2>
-	<p>
-		Sometimes I blog!
-	</p>
-	{{ blog_doc.content }}
-</div>
-
-<div class="bored-page">
-	<h2 id="bored">
-		Things to do While Bored
-	</h2>
-	<p>
-		{{ bored_doc.description }}
-	</p>
-	{{ bored_doc.content }}
-</div>
-
-<div class="resources-page">
-	<h2 id="resources">
-		Resources
-	</h2>
-	<p>
-		{{ resources_doc.description }}
-	</p>
-	{{ resources_doc.content }}
-</div>
