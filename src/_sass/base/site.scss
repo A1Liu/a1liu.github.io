@@ -3,41 +3,16 @@
 	background: $main-div-background;
 }
 
-#main-col {
-	$offset: 15px;
-	$blur-radius: 15px;
-	$spread-radius: -15px;
-	$type:inset;
-	@include shadow(
-		$type $offset*-1 0 $blur-radius $spread-radius $shadow-color,
-		$type $offset 0 $blur-radius $spread-radius $shadow-color);
+@include media-breakpoint-up(md) {
+	#main-col {
+		$offset: 15px;
+		$blur-radius: 15px;
+		$spread-radius: -15px;
+		$type:inset;
+		@include shadow(
+			$type $offset*-1 0 $blur-radius $spread-radius $shadow-color,
+			$type $offset 0 $blur-radius $spread-radius $shadow-color);
+	}
 }
 
 .short-page { height: 100%; }
-
-@mixin bookend {
-	@include dynamic-extend('bookend') {
-		height: 90px;
-		background: $header-footer-background;
-		color: $global-text-color-secondary;
-	}
-}
-
-@mixin bookend-element {
-	@include dynamic-extend('bookend-element') {
-		position: absolute; top: 50%;
-		@include transform( translateY(-50%) );
-	}
-}
-
-#header-row {
-	@include bookend;
-	#logo, #main-nav {
-		position: relative;
-		> * { @include bookend-element; }
-	}
-	#logo { font-size: 30px; }
-	#main-nav > * { right: 0px; }
-}
-
-#footer-row { @include bookend;padding-top: 10px; }
