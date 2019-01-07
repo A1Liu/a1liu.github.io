@@ -1,7 +1,16 @@
 .home-page {
 	.bio img {
 		float: right;
-		width: 200px;
-		margin-left: 15px;
+		width: 100px;
+		margin-left: 5px;
+
+		@include media-breakpoint-up(sm) {
+			width: 200px;
+			margin-left: 15px;
+		}
+
+
+
+
 	}
 }
