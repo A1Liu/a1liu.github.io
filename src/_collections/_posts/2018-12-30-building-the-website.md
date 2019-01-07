@@ -12,7 +12,7 @@ From now on I'm going to separate post writing from building the website, so the
 Here's some images of the first build:
 
 Homepage:
-![Homepage](/assets{{ page.url }}/homepage.png)
+![Homepage]({{ page.url | prepend: site.assets_dir | append: "homepage.png" }})
 
 Blog post 1:
-![Post 1](/assets{{ page.url }}/post_1.png)
+![Post 1]({{ page.url | prepend: site.assets_dir | append: "post-1.png" }})
