@@ -3,7 +3,7 @@
 	background: $main-div-background;
 }
 
-@include media-breakpoint-up(md) {
+@include media-breakpoint-up(lg) {
 	#main-col {
 		$offset: 15px;
 		$blur-radius: 15px;
