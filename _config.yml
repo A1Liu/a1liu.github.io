@@ -5,10 +5,9 @@ description: >-
 baseurl: "" # site subpath, e.g. /blog
 url: "http://a1liu.github.io"
 strict_front_matter: true
-
 markdown: kramdown
 
-exclude: [scripts,env, build.py, LICENSE, README.md]
+exclude: [scripts, env, build.py, LICENSE, README.md]
 collections_dir: collections
 includes_dir: src/_includes
 layouts_dir: src/_layouts
