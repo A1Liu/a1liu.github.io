@@ -5,15 +5,26 @@ html, body {
 body {
     font-family: $font-family;
     color: $global-text-color;
-    font-size: $normal-text-size;
+    font-size: $xs-text-size;
+
+    @include media-breakpoint-up(sm) {
+        font-size: $sm-text-size;
+	}
+
+	@include media-breakpoint-up(md) {
+        font-size: $md-text-size;
+	}
 }
 
+
+p {
+    @include transition(0s);
+}
 
 
 h1 {
 
 }
-
 
 
 pre {
