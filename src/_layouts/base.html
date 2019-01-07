@@ -3,15 +3,13 @@
 	{% include head.html %}
 	<body>
 		<div class="container-fluid" style="height:100%;">
-			<div class="row" id="header-row"> <!-- TODO Figure out how to make this responsive -->
-				<div class="col-0 col-md-2"></div>
-				<div class="col-12 col-md-4" id="logo">
+			<div class="row" id="header-row">
+				<div class="col-lg-6" id="logo">
 					<a href="/">Albert Liu</a>
 				</div>
-				<div class="col-12 col-md-4" id="main-nav">
+				<div class="col-lg-6" id="main-nav">
 					<nav class="nav">{% include nav-menu.md %}</nav>
 				</div>
-				<div class="col-0 col-md-2"></div>
 			</div>
 
 			{% if page.collection %}
@@ -21,15 +19,15 @@
 			{% assign page-title = page.title | strip | replace: " ","-" | downcase | append: "-page" %}
 
 			<div class="row {% if page.short %}short-page{% endif %}" id="main-row">
-					<div class="col" id="left-col">
+					<div class="col-md-2" id="left-col">
 						{% if page.left %}{% include {{ page.left }} %}{% endif %}
 					</div>
 
-					<div class="col-8 main {{ page-title }} {{ collection-name }}" id="main-col">
+					<div class="col-12 col-md-8 main {{ page-title }} {{ collection-name }}" id="main-col">
 						{{ content }}
 					</div>
 
-					<div class="col" id="right-col">
+					<div class="col-md-2" id="right-col">
 						{% if page.right %}{% include {{ page.right }} %}{% endif %}
 					</div>
 			</div>
