@@ -19,15 +19,15 @@
 			{% assign page-title = page.title | strip | replace: " ","-" | downcase | append: "-page" %}
 
 			<div class="row {% if page.short %}short-page{% endif %}" id="main-row">
-					<div class="col-md-2" id="left-col">
+					<div class="col-lg-2" id="left-col">
 						{% if page.left %}{% include {{ page.left }} %}{% endif %}
 					</div>
 
-					<div class="col-12 col-md-8 main {{ page-title }} {{ collection-name }}" id="main-col">
+					<div class="col-12 col-lg-8 main {{ page-title }} {{ collection-name }}" id="main-col">
 						{{ content }}
 					</div>
 
-					<div class="col-md-2" id="right-col">
+					<div class="col-lg-2" id="right-col">
 						{% if page.right %}{% include {{ page.right }} %}{% endif %}
 					</div>
 			</div>
