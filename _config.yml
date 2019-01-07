@@ -8,6 +8,7 @@ strict_front_matter: true
 markdown: kramdown
 
 exclude: [scripts, env, build.py, LICENSE, README.md]
+include: [_collections]
 collections_dir: src/_collections
 includes_dir: src/_includes
 layouts_dir: src/_layouts
