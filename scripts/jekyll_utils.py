@@ -1,6 +1,7 @@
 import os, pathlib
 from datetime import datetime
 from scripts.vars import DRAFTS_DIR, POSTS_DIR, BLOG_ASSETS_DIR
+from scripts.utils import similar, listdir_absolute, atom
 
 format_string = '%Y-%m-%d'
 def parse_date(string):
@@ -18,21 +19,34 @@ def format_title(title):
 
 def blog_asset_path(title, date):
     month = f'0{n}' if date.month < 10 else date.month
-    return os.path.join(BLOG_ASSETS_DIR, date.year, month, title)
+    return os.path.join(BLOG_ASSETS_DIR, str(date.year), str(month), title)
 
 def make_blog_assets_folder(title,date):
     path = pathlib.Path( blog_asset_path(title, date) )
     path.mkdir(parents=True, exist_ok=True)
     return path
 
-def search_for_post(title, date=None):
-    pass
+def list_posts(search_key = None, limit = 10):
+    # List files in _collections/_drafts and _collections/_posts, optionally
+    # Sorting by relevance to a keyword
+    results = listdir_absolute(DRAFTS_DIR) + listdir_absolute(POSTS_DIR)
+    if search_key is None: return results
+    key = format_title(search_key)
+    results = sorted(results, key=lambda x: similar(os.path.basename(x),key), reverse=True )
+    return results[:limit]
 
-def get_post_path(title,date=None,is_draft=True, search = True):
+def open_post(post_name):
+    year, month, day, *title = post_name.split('-')
+    title = '-'.join(title)
+    if os.path.exists(os.path.join(POSTS_DIR, post_name)):
+        path = os.path.join(POSTS_DIR, post_name)
+    else:
+        path = os.path.join(DRAFTS_DIR, post_name)
+    assets = blog_asset_path(title.replace('.md',''), datetime(year=int(year), month=int(month), day=int(day)))
+    atom(path, assets)
+
+def get_post_path(title,date=None,is_draft=True):
     title = format_title(title)
-    if search is True:
-        path = search_for_post(title, date)
-        if path is not None: return path
     output_dir = DRAFTS_DIR if is_draft else POSTS_DIR
     date = format_date( datetime.now() if date is None else date )
     return os.path.join(output_dir, "%s-%s.md" % (date,title) )

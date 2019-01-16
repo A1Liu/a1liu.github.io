@@ -1,6 +1,7 @@
-import os, aliu # import re # escaped = re.escape(a_string)
+import os # import re # escaped = re.escape(a_string)
 from nltk.corpus import stopwords
-from scripts.jekyll_utils import get_post_path, make_assets_folder
+from scripts.jekyll_utils import get_post_path, make_assets_folder, open_post
+from scripts.utils import atom
 
 en_stopwords = set( stopwords.words('english') )
 
@@ -14,13 +15,11 @@ def make_post(
     is_draft = True, has_assets = True):
 
     # Setting up vars
+
     if display_title is None: display_title = title
     display_title = ' '.join( [capitalize_title_word(word) for word in display_title.split(' ')] )
     output_path = get_post_path(title,date=date,is_draft=is_draft)
-    aliu.atom('-a',output_path)
-    if has_assets:
-        assets_path = make_blog_assets_folder(title,date)
-        aliu.atom('-a',assets_path)
+    open_post(os.path.basename(output_path))
 
     with open( output_path, 'x') as f:
         f.write('---\n')
