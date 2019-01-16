@@ -17,6 +17,16 @@ body {
 }
 
 
+
+table {
+    font-size: $xs-text-size;
+
+    @include media-breakpoint-up(md) {
+        font-size: $sm-text-size;
+	}
+
+    margin-bottom: 10px;
+}
 p {
     @include transition(0s);
 }

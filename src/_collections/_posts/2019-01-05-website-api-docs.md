@@ -3,7 +3,7 @@ title: HTML and SASS/CSS API Documentation
 categories: [projects, homepage]
 tags: [html, css, sass]
 ---
-Documentation for the webpage as of commit `"{% include ref-commit.html text="moved main.scss in prep for transition to firebase" commit="29e6933aa4512f36e6f85668d28a69b3f58678b8" %}"`.
+Documentation for the webpage as of commit {% include ref-commit.html text="`\"moved main.scss in prep for transition to firebase\"`" commit="29e6933aa4512f36e6f85668d28a69b3f58678b8" %}.
 
 ## HTML
 
