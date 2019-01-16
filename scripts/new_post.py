@@ -1,4 +1,4 @@
-import os # import re # escaped = re.escape(a_string)
+import os, aliu # import re # escaped = re.escape(a_string)
 from nltk.corpus import stopwords
 from scripts.jekyll_utils import get_post_path, make_assets_folder
 
@@ -17,8 +17,11 @@ def make_post(
     if display_title is None: display_title = title
     display_title = ' '.join( [capitalize_title_word(word) for word in display_title.split(' ')] )
     output_path = get_post_path(title,date=date,is_draft=is_draft)
-    if has_assets: make_blog_assets_folder(title,date)
-    
+    aliu.atom('-a',output_path)
+    if has_assets:
+        assets_path = make_blog_assets_folder(title,date)
+        aliu.atom('-a',assets_path)
+
     with open( output_path, 'x') as f:
         f.write('---\n')
         f.write('title: {}\n'.format(display_title))
