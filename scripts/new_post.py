@@ -1,9 +1,23 @@
 import os # import re # escaped = re.escape(a_string)
 from nltk.corpus import stopwords
-from scripts.jekyll_utils import get_post_path, make_assets_folder, open_post
+from scripts.jekyll_utils import get_post_path, open_post
 from scripts.utils import atom
 
 en_stopwords = set( stopwords.words('english') )
+new_post_format = """---
+title: {}
+categories: [%s]
+tags: [%s]
+---
+<!-- {% raw %} -->
+<!-- {% include refc-small.html text="ref commit" commit="3cad965..." %} -->
+<!-- {% include ref-commit.html text="ref commit" commit="3cad965..." %} -->
+<!-- {% endraw %} -->
+"""
+
+def format_new_post(title, categories, tags):
+    return new_post_format.format(
+            title, ', '.join(categories), ', '.join(tags) )
 
 def capitalize_title_word(word):
     if (len(word) > 5 or word not in en_stopwords) and word.upper() != word:
@@ -22,8 +36,4 @@ def make_post(
     open_post(os.path.basename(output_path))
 
     with open( output_path, 'x') as f:
-        f.write('---\n')
-        f.write('title: {}\n'.format(display_title))
-        f.write('categories: [%s]\n' % ', '.join(categories) )
-        f.write('tags: [%s]\n' % ', '.join(tags) )
-        f.write('---\n')
+        f.write(format_new_post(display_title, categories, tags))

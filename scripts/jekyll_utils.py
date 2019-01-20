@@ -18,7 +18,7 @@ def format_title(title):
     return title.strip().lower().replace(' ','-')
 
 def blog_asset_path(title, date):
-    month = f'0{n}' if date.month < 10 else date.month
+    month = f'0{date.month}' if date.month < 10 else date.month
     return os.path.join(BLOG_ASSETS_DIR, str(date.year), str(month), title)
 
 def make_blog_assets_folder(title,date):
@@ -42,7 +42,8 @@ def open_post(post_name):
         path = os.path.join(POSTS_DIR, post_name)
     else:
         path = os.path.join(DRAFTS_DIR, post_name)
-    assets = blog_asset_path(title.replace('.md',''), datetime(year=int(year), month=int(month), day=int(day)))
+    post_date = datetime( year=int(year), month=int(month), day=int(day) )
+    assets = make_blog_assets_folder(title.replace('.md',''), post_date )
     atom(path, assets)
 
 def get_post_path(title,date=None,is_draft=True):
