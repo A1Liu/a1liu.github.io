@@ -1,1 +1,18 @@
-<a target="_blank" href="{{ site.repo-url }}/commit/{{ include.commit }}">{% if include.text %}{{ include.text }}{% else %}ref commit{% endif %}</a>
+{% capture commit %}
+{% unless include.commit %}
+  {{ "You need to specify a commit parameter for include ref-commit" | raise_error }}
+{% endunless %}
+{{ include.commit }}
+{% endcapture %}{% capture url %}
+
+  {{ site.repo-url }}/commit/{{ commit | strip_newlines | strip }}
+
+{% endcapture %}{% capture text %}
+
+  {% if include.text %}
+    {{ include.text }}
+  {% else %}
+    ref commit
+  {% endif %}
+
+{% endcapture %}<a target="_blank" href="{{ url | strip }}">{{ text | strip }}</a>
