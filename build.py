@@ -6,18 +6,18 @@ make_post(
     title, display_title=None,date=None, categories=[], tags=[],
     is_draft = True, has_assets = True)
 """
-title = None # Will raise exception if None
-display_title = None
-date = None
+title = "lang-spec-of-course-prereqs" # Will raise exception if None
+display_title =  "Language Specification and DB Representation of Course Prerequisites"
+date = "2019-02-01"
 categories = [
-    'bugs-nyu','webpage'
+    'bugs-nyu','yacs'
 ]
 
 tags = [
-    'html','css','html','bootstrap'
+    'postgres','sql','lang-spec'
 ]
 
-# make_post(title, display_title=display_title, date=date, categories = categories, tags = tags)
+make_post(title, display_title=display_title, date=date, categories = categories, tags = tags)
 
 #path =
 # gitdiff_convert(path)

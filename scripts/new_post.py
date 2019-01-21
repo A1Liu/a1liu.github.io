@@ -5,18 +5,18 @@ from scripts.utils import atom
 
 en_stopwords = set( stopwords.words('english') )
 new_post_format = """---
-title: {}
+title: %s
 categories: [%s]
 tags: [%s]
 ---
-<!-- {% raw %} -->
-<!-- {% include refc-small.html text="ref commit" commit="3cad965..." %} -->
-<!-- {% include ref-commit.html text="ref commit" commit="3cad965..." %} -->
-<!-- {% endraw %} -->
+<!-- {%% raw %%} -->
+<!-- {%% include refc-small.html text="ref commit" commit="3cad965..." %%} -->
+<!-- {%% include ref-commit.html text="ref commit" commit="3cad965..." %%} -->
+<!-- {%% endraw %%} -->
 """
 
 def format_new_post(title, categories, tags):
-    return new_post_format.format(
+    return new_post_format % (
             title, ', '.join(categories), ', '.join(tags) )
 
 def capitalize_title_word(word):
