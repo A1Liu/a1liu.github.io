@@ -9,13 +9,24 @@ $shadow-color: $light-gray;
 
 // CODE COLORS
 $code-background-color: $global-background;
+$pre-edge-color: $code-background-color;
 $code-tag-color: $atom-one-dark-green;
 
 // CODE HIGHLIGHTING COLORS
 $comment: $atom-one-dark-mono-2;
-$normal-text: $atom-one-dark-mono-1;
+$normal-text: $global-text-color-secondary;
 $na: $atom-one-dark-orange-1; // normal attribute?
 $string: $atom-one-dark-green;
+
+$nf: $atom-one-dark-blue;
+$n: $global-text-color-secondary;
+$p: $global-text-color-secondary;
+$o: $global-text-color-secondary;
+$k: $atom-one-dark-purple;
+$nc: $atom-one-dark-orange-2;
+$bp: $atom-one-dark-orange-1;
+$ow: $atom-one-dark-purple;
+$mi: $atom-one-dark-orange-1;
 
 // TYPOGRAPHY
 $font-family: $atom-default-fonts;

@@ -10,4 +10,15 @@ pre > code {
 	@include code_color('nt',$normal-text);
 	@include code_color('na',$na);
 	@include code_color('s',$string);
+
+	@include code_color('nf',$nf);
+	@include code_color('n',$n);
+	@include code_color('p',$p);
+	@include code_color('o',$o);
+	@include code_color('k',$k);
+	@include code_color('nc',$nc);
+	@include code_color('bp',$bp);
+	@include code_color('ow',$ow);
+	@include code_color('mi',$mi);
+	@include code_color('c1',$comment);
 }

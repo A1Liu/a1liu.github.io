@@ -1,34 +1,34 @@
 html, body {
-    height: 100%;
-	background: $global-background;
+  height: 100%;
+  background: $global-background;
 }
 body {
-    font-family: $font-family;
-    color: $global-text-color;
-    font-size: $xs-text-size;
+  font-family: $font-family;
+  color: $global-text-color;
+  font-size: $xs-text-size;
 
-    @include media-breakpoint-up(sm) {
-        font-size: $sm-text-size;
-	}
+  @include media-breakpoint-up(sm) {
+    font-size: $sm-text-size;
+  }
 
-	@include media-breakpoint-up(md) {
-        font-size: $md-text-size;
-	}
+  @include media-breakpoint-up(md) {
+    font-size: $md-text-size;
+  }
 }
 
 
 
 table {
-    font-size: $xs-text-size;
+  font-size: $xs-text-size;
 
-    @include media-breakpoint-up(md) {
-        font-size: $sm-text-size;
-	}
+  @include media-breakpoint-up(md) {
+    font-size: $sm-text-size;
+  }
 
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 p {
-    @include transition(0s);
+  @include transition(0s);
 }
 
 
@@ -37,33 +37,61 @@ h1 {
 }
 
 
-pre {
-    padding: 10px;
+div.highlight > pre, :not(pre) > code {
+  color: $code-tag-color;
+}
+div.highlight > pre {
+  padding: 15px;
+  border-radius: 10px;
+  overflow: overlay;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  $offset: 15px;
+  $blur-radius: 15px;
+  $spread-radius: -10px;
+  $type:inset;
+  $shadow-color: $pre-edge-color;
+  @include shadow(
+    $type
+    $offset*-1 $offset
+    $blur-radius $spread-radius $shadow-color,
+
+    $type
+    $offset $offset*-1
+    $blur-radius $spread-radius $shadow-color
+  );
+
+  &::-webkit-scrollbar {
+    background: none;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
     border-radius: 10px;
+
+    $top: $global-text-color-secondary;
+    $bottom: $main-div-background;
+    background-image: linear-gradient($top, $bottom);
+  }
 }
-pre, :not(pre) > code {
-    color: $code-tag-color;
-    background: $code-background-color;
-}
+
 :not(pre) > code {
-    padding: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
-    border-radius: 5px;
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  background: $code-background-color;
 }
 
 
-
-a {
-    color: $global-text-color-secondary;
-}
 a, a > * {
-    @include transition(.4s);
+  @include transition(.4s);
 }
 a {
-	&:hover, &:hover > * {
-		color: $anchor-tag-hover;
-		text-decoration: none;
-        @include transition(.4s);
-	}
+  color: $global-text-color-secondary;
+
+  &:hover, &:hover > * {
+    color: $anchor-tag-hover;
+    text-decoration: none;
+    @include transition(.4s);
+  }
 }
