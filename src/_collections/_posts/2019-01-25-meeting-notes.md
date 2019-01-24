@@ -1,5 +1,5 @@
 ---
-title: Meeting Notes
+title: BUGS EBoard Meeting Notes
 categories: [bugs-nyu]
 tags: [yacs, ideas, meeting, eboard]
 ---
