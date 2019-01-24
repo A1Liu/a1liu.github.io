@@ -6,15 +6,15 @@ make_post(
     title, display_title=None,date=None, categories=[], tags=[],
     is_draft = True, has_assets = True)
 """
-title = "lang-spec-of-course-prereqs" # Will raise exception if None
-display_title =  "Language Specification and DB Representation of Course Prerequisites"
-date = "2019-02-01"
+title = "Meeting Notes" # Will raise exception if None
+display_title = None
+date = "2019-01-25"
 categories = [
-    'bugs-nyu','yacs'
+    'bugs-nyu'
 ]
 
 tags = [
-    'postgres','sql','lang-spec'
+    'yacs','ideas','meeting','eboard'
 ]
 
 make_post(title, display_title=display_title, date=date, categories = categories, tags = tags)
