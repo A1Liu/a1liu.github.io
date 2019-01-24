@@ -7,7 +7,6 @@ url: "http://a1liu.github.io"
 strict_front_matter: true
 markdown: kramdown
 
-
 # feat: Add YAML String Concatenation to Jekyll
 exclude: [scripts, env, build.py, LICENSE, README.md]
 include: [_collections]
