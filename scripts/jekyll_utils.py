@@ -1,4 +1,6 @@
-import os, pathlib
+import os
+import pathlib
+import re
 from datetime import datetime
 from scripts.vars import DRAFTS_DIR, POSTS_DIR, BLOG_ASSETS_DIR
 from scripts.utils import similar, listdir_absolute, atom
@@ -14,8 +16,12 @@ def format_date(date):
     except AttributeError:
         return date
 
+multiple_dashes = re.compile('[\s-]+')
+def shorten_title(title):
+    return multiple_dashes.sub('-', title.strip())
+
 def format_title(title):
-    return title.strip().lower().replace(' ','-')
+    return shorten_title(title).lower()
 
 def blog_asset_path(title, date):
     month = f'0{date.month}' if date.month < 10 else date.month

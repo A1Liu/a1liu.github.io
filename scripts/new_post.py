@@ -1,6 +1,6 @@
 import os # import re # escaped = re.escape(a_string)
 from nltk.corpus import stopwords
-from scripts.jekyll_utils import get_post_path, open_post
+from scripts.jekyll_utils import get_post_path, open_post, shorten_title
 from scripts.utils import atom
 
 en_stopwords = set( stopwords.words('english') )
@@ -19,7 +19,7 @@ def format_new_post(title, categories, tags):
     return new_post_format % (
             title, ', '.join(categories), ', '.join(tags) )
 
-def capitalize_title_word(word):
+def capitalize_word(word):
     if len(word) > 1 and (len(word) > 5 or word not in en_stopwords):
         return word[0].upper()+word[1:]
     return word
@@ -30,8 +30,9 @@ def make_post(
 
     # Setting up vars
 
-    if display_title is None: display_title = title
-    display_title = ' '.join( [capitalize_title_word(word) for word in display_title.split(' ')] )
+    if display_title is None:
+        title_words = shorten_title(title).split('-')
+        display_title = ' '.join( [capitalize_word(word) for word in title_words] )
     output_path = get_post_path(title,date=date,is_draft=is_draft)
     open_post(os.path.basename(output_path))
 
