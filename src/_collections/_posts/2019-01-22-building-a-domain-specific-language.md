@@ -18,7 +18,7 @@ co-requisites. Other times courses do not directly depend on a clearly defined
 set of other courses, but a malleable category of courses and subjective
 qualities (i.e. department approval required or 3 relevant courses required).
 Because courses prerequisites are not necessarily easily evaluated, this
-language aims to simply create a simple but expressive ruleset that works for
+language aims to create a simple but expressive ruleset that works for
 essentially any type of prerequisite while still being both machine and human
 readable.
 
@@ -135,14 +135,14 @@ So the principles that we should use to drive the development of this language a
 So in essence, we're writing a declarative language with syntax that models
 the English of boolean logic.
 
-## Language Specification Approach
+## How the Language Spec. Should be Written
 Another thing that I think is important, regardless of the eventual way the syntax
-turns out, is that the **language specification imply the interpreter's implementation.**
-Parser differentials suck. Like they really suck. If the implementation of the
-follows a different control flow from that of the language specification, then
-language implementation becomes harder. When writing the language specification,
-the presentation should imply a very clear approach to its implementation, while
-still remaining implementation agnostic.
+turns out, is that the **description of the language imply the interpreter's implementation.**
+If the implementation of the language uses a different control flow than the language
+specification, language implementation becomes harder. Also, a language spec. that
+makes the order of interpretation clear makes it easier for users to debug their own
+code. When writing the language specification, the presentation should imply a
+very clear approach to its implementation, while still remaining machine agnostic.
 
 ## Language Design
 So we're going to need some way to distinguish names from syntax. I think the
@@ -157,7 +157,7 @@ language, so this should also be acceptable,
 
 <div class="highlight">
 <pre class="highlight">
-<code><span class='n'>Prerequisites:</span> <span class='s'>MATH-UA 123 Calculus III</span> <span class='ow'>and</span> <span class='s'>"MATH-UA 235 Probability and Statistics"</span><span class='n'>.</span></code>
+<code><span class='n'>Prerequisites:</span> <span class='s'>MATH-UA 123 Calculus III</span> <span class='ow'>and</span> <span class='s'>MATH-UA 235 Probability "and" Statistics</span><span class='n'>.</span></code>
 </pre>
 </div>
 
