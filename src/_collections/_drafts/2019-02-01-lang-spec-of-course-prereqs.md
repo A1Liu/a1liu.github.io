@@ -1,5 +1,5 @@
 ---
-title: Language Specification and DB Representation of Course Prerequisites
+title: Language Specification for Course Prerequisites
 categories: [bugs-nyu, yacs]
 tags: [postgres, sql, lang-spec]
 ---
@@ -7,6 +7,12 @@ tags: [postgres, sql, lang-spec]
 <!-- {% include refc-small.html text="ref commit" commit="3cad965..." %} -->
 <!-- {% include ref-commit.html text="ref commit" commit="3cad965..." %} -->
 <!-- {% endraw %} -->
+This post outlines a potential language for describing course prerequisites,
+and the underlying representation of the language's syntax in a database.
+
+
+<!-- https://arxiv.org/ftp/arxiv/papers/1408/1408.5340.pdf
+https://github.com/bitnine-oss/agensgraph -->
 
 ## Special Characters
 ```
