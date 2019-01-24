@@ -10,6 +10,9 @@ def get_dir(root,new):
 def atom(*files, options = []):
     aliu.atom(*files, options=['-a']+options)
 
+def sublime(*files, options = []):
+    aliu.sublime(*files, options=['-a']+options)
+
 replace_str = re.compile(r'(\[1mdiff)')
 def gitdiff_convert(path):
     with open(path,'r') as f:

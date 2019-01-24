@@ -20,8 +20,8 @@ def format_new_post(title, categories, tags):
             title, ', '.join(categories), ', '.join(tags) )
 
 def capitalize_title_word(word):
-    if (len(word) > 5 or word not in en_stopwords) and word.upper() != word:
-        return word.capitalize()
+    if len(word) > 1 and (len(word) > 5 or word not in en_stopwords):
+        return word[0].upper()+word[1:]
     return word
 
 def make_post(
