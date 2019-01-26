@@ -1,35 +1,39 @@
-$global-text-color: $light-gray;//html, body
-$global-text-color-secondary: $atom-one-dark-fg; // Anchor tags, header, footer
-$global-background: $atom-one-dark-gutter;//html, body
+$global-text-color: $black;//html, body
+$global-text-color-secondary: $atom-one-dark-mono-2; // Anchor tags
+$global-text-color-tertiary: $atom-one-dark-mono-2; // header, footer
+$global-background: $light-gray;//html, body
 
 $anchor-tag-hover: $atom-one-dark-blue;
-$main-div-background: $atom-one-dark-bg;
+$main-div-background: white;
 $header-footer-background: $black;
-$shadow-color: $light-gray;
+$shadow-color: $atom-one-dark-bg;
 
 // CODE COLORS
-$code-background-color: $global-background;
-$pre-edge-color: $code-background-color;
-$code-tag-color: $atom-one-dark-green;
+$pre-background-color: $atom-one-dark-bg;
+$pre-edge-color: $atom-one-dark-gutter;
+$pre-scroll-thumb-color-top: $atom-one-dark-mono-2;
+$pre-scroll-thumb-color-bottom: $atom-one-dark-bg;
+$code-background-color: $atom-one-dark-bg;
+$code-text-color: $atom-one-dark-green;
 
 // CODE HIGHLIGHTING COLORS
-$comment: $atom-one-dark-mono-2;
-$normal-text: $global-text-color-secondary;
-$na: $atom-one-dark-orange-1; // normal attribute?
-$string: $atom-one-dark-green;
+$code-normal-text: $atom-one-dark-mono-1;
+$code-comment: $atom-one-dark-mono-2;
+$code-na: $atom-one-dark-orange-1; // normal attribute?
+$code-string: $atom-one-dark-green;
 
-$nf: $atom-one-dark-blue;
-$n: $global-text-color-secondary;
-$p: $global-text-color-secondary;
-$o: $global-text-color-secondary;
-$k: $atom-one-dark-purple;
-$nc: $atom-one-dark-orange-2;
-$bp: $atom-one-dark-orange-1;
-$ow: $atom-one-dark-purple;
-$mi: $atom-one-dark-orange-1;
+$code-nf: $atom-one-dark-blue;
+$code-n: $atom-one-dark-mono-1;
+$code-p: $atom-one-dark-mono-1;
+$code-o: $atom-one-dark-mono-1;
+$code-k: $atom-one-dark-purple;
+$code-nc: $atom-one-dark-orange-2;
+$code-bp: $atom-one-dark-orange-1;
+$code-ow: $atom-one-dark-purple;
+$code-mi: $atom-one-dark-orange-1;
 
 // TYPOGRAPHY
-$font-family: $atom-default-fonts;
+$font-family: $websafe-fonts;
 $xs-text-size: 14px;
 $sm-text-size: 16px;
 $md-text-size: 20px;
