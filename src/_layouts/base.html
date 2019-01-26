@@ -20,7 +20,7 @@
 
 			<div class="row {% if page.short %}short-page{% endif %}" id="main-row">
 					<div class="col-lg-2" id="left-col">
-						{% if page.left %}{% include {{ page.left }} %}{% endif %}
+						{% if page.left %}{% include {{ page.left | prepend: page.url }} %}{% endif %}
 					</div>
 
 					<div class="col-12 col-lg-8 main {{ page-title }} {{ collection-name }}" id="main-col">
