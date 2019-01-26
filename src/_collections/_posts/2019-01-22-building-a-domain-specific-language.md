@@ -1,7 +1,7 @@
 ---
 title: Building a Domain-Specific Language
 categories: [bugs-nyu, yacs]
-tags: [writeup,new-lang]
+tags: [writeup,new-lang,ideas]
 ---
 So I'm trying to build a declarative language to describe course prerequisites.
 Here's my process. Also, I'm doing this while watching [this video][kernighan] on loop.
@@ -127,7 +127,7 @@ So the principles that we should use to drive the development of this language a
   - Operators should also include spaces
 * Simple
   - Shouldn't have weird symbols with important semantic meaning
-  - In general language should have minimal, predictable syntax
+  - In general, language should have minimal, predictable syntax
 * Abstracted
   - Implementation shouldn't be considered when writing in this language
   - The language should just *work*, without the need for anything crazy
@@ -165,44 +165,42 @@ language, so this should also be acceptable,
 whitespace to be *almost meaningless*; the above should mean the same thing even
 if it's written like this:
 
-<div class="highlight">
-<pre class="highlight">
-<code><span class='n'>Prerequisites:</span>
+{% capture code %}
+<span class='n'>Prerequisites:</span>
   <span class='s'>MATH-UA 123 Calculus III</span>
-  <span class='ow'>and</span> <span class='s'>"MATH-UA 235 Probability and Statistics"</span><span class='n'>.</span></code>
-</pre>
-</div>
+  <span class='ow'>and</span> <span class='s'>"MATH-UA 235 Probability and Statistics"</span><span class='n'>.</span>
+{% endcapture %}
+{% include custom-code-block.html code=code %}
 
 because that's how spacing works with text wrapping when we read normally. The
 writer shouldn't have to worry about indentation when writing, it should be handled
 for them. Also, the above should be the same thing as this:
 
-<div class="highlight">
-<pre class="highlight">
-<code><span class='n'>Prerequisites:</span>
+{% capture code %}
+<span class='n'>Prerequisites:</span>
   <span class='s'>MATH-UA 123   Calculus III</span>
-  <span class='ow'>and</span> <span class='s'>MATH-UA  235 Probability "and" Statistics</span><span class='n'> .</span></code>
-</pre>
-</div>
+  <span class='ow'>and</span> <span class='s'>MATH-UA  235 Probability "and" Statistics</span><span class='n'> .</span>
+{% endcapture %}
+{% include custom-code-block.html code=code %}
 
 because it would be the same thing to a reader. Quotes don't have any 'special'
 meaning in this context; they only signal to the interpreter that the word should
 be evaluated as a string instead of an operator. Thus, there should be no problem
 with using single and double quotes liberally:
 
-<div class="highlight">
-<pre class="highlight">
-<code><span class='n'>Prerequisites:</span>
+{% capture code %}
+<span class='n'>Prerequisites:</span>
   <span class='s'>MATH-UA 123   Calculus III</span>
-  <span class='ow'>and</span> <span class='s'>"MATH"-UA  "235" Probability "and" Statistics</span><span class='n'> .</span></code>
-</pre>
-</div>
+  <span class='ow'>and</span> <span class='s'>"MATH"-UA  "235" Probability "and" Statistics</span><span class='n'> .</span>
+{% endcapture %}
+{% include custom-code-block.html code=code %}
+
 With these rules we have an implicit order of execution: the interpreter needs to
 first handle spacing, then parse strings, then it can start looking at words and
 evaluate them as operators or booleans.
 
 Additionally, while we should allow the writer to be fast and loose with spacing,
-there should still be *a little* structure to spacing. For example, sentences rarely
+there should still be *a little* structure to spacing. For example, sentences rarely,
 if ever, start in one paragraph and end in another. So a double newline should
 end an expression in the same way that a period would in a normal sentence:
 
@@ -237,23 +235,27 @@ Prerequisite: two relevant courses.
 To handle this case, we need to add lists, so that we can write the above as
 something like this:
 
-<div class="highlight">
-<pre class="highlight">
-<code><span class='n'>Prerequisites:</span> <span class='mi'>2</span> <span class='ow'>of</span>
+{% capture code %}
+<span class='n'>Prerequisites:</span> <span class='mi'>2</span> <span class='ow'>of</span>
   <span class='n'>(</span>
     <span class='s'>PHIL-UA 1</span><span class='n'>,</span>
     <span class='s'>PHIL-UA 3</span><span class='n'>,</span>
     <span class='s'>PHIL-UA 6</span><span class='n'>,</span>
     <span class='s'>PHIL-UA 7</span>
-  <span class='n'>).</span></code>
+  <span class='n'>).</span>
+{% endcapture %}
+{% include custom-code-block.html code=code %}
+
+<div class="highlight">
+<pre class="highlight">
+<code></code>
 </pre>
 </div>
 
 We should also add in variables so that this would also work:
 
-<div class="highlight">
-<pre class="highlight">
-<code><span class='n'>relevant courses =</span>
+{% capture code %}
+<span class='n'>relevant courses =</span>
   <span class='n'>(</span>
     <span class='s'>PHIL-UA 1</span><span class='n'>,</span>
     <span class='s'>PHIL-UA 3</span><span class='n'>,</span>
@@ -261,9 +263,9 @@ We should also add in variables so that this would also work:
     <span class='s'>PHIL-UA 7</span>
   <span class='n'>);</span>
 <span class='n'>Prerequisites:</span>
-  <span class='mi'>2</span> <span class='ow'>of</span> <span class='s'>relevant courses</span><span class='n'>.</span></code>
-</pre>
-</div>
+  <span class='mi'>2</span> <span class='ow'>of</span> <span class='s'>relevant courses</span><span class='n'>.</span>
+{% endcapture %}
+{% include custom-code-block.html code=code %}
 
 And now our final statement looks almost exactly like the original prerequisite!
 That's exactly what we're going for.
