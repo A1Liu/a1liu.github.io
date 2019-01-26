@@ -37,19 +37,25 @@ h1 {
 }
 
 
-div.highlight > pre, :not(pre) > code {
-  color: $code-tag-color;
+div.highlight > pre,
+:not(pre) > code:not(.no-style) {
+  color: $code-text-color;
 }
 div.highlight > pre {
+  background: $pre-background-color;
   padding: 15px;
   border-radius: 10px;
-  overflow: overlay;
+  overflow: overlay hidden;
   -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  &.pre-scrollable {
+    overflow: overlay;
+  }
 
   $offset: 15px;
   $blur-radius: 15px;
   $spread-radius: -10px;
-  $type:inset;
+  $type: inset;
   $shadow-color: $pre-edge-color;
   @include shadow(
     $type
@@ -68,20 +74,26 @@ div.highlight > pre {
   &:hover::-webkit-scrollbar-thumb {
     border-radius: 10px;
 
-    $top: $global-text-color-secondary;
-    $bottom: $main-div-background;
-    background-image: linear-gradient($top, $bottom);
+    $top: $pre-edge-color;
+    $bottom: $pre-background-color;
+    background-image: linear-gradient(
+                        $pre-scroll-thumb-color-top,
+                        $pre-scroll-thumb-color-bottom);
   }
 }
 
-:not(pre) > code {
+:not(pre) > code:not(.no-style) {
   padding: 3px;
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 5px;
+  white-space: nowrap;
   background: $code-background-color;
 }
 
+code.no-style {
+  color: $global-text-color;
+}
 
 a, a > * {
   @include transition(.4s);
@@ -90,7 +102,7 @@ a {
   color: $global-text-color-secondary;
 
   &:hover, &:hover > * {
-    color: $anchor-tag-hover;
+    color: $anchor-tag-hover !important;
     text-decoration: none;
     @include transition(.4s);
   }
