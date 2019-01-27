@@ -1,5 +1,5 @@
 ---
-title: General Proposal for <br /> Course Prerequisites Language
+title: General&nbsp;Proposal&nbsp;for Course&nbsp;Prerequisites Language
 categories: [bugs-nyu, yacs]
 tags: [ideas, new-lang]
 left: sidebar.md
