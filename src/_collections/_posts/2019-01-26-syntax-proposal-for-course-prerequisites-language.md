@@ -59,7 +59,7 @@ Name assignment should be done using `=`:
 {% endcapture %}
 {% include custom-code-block.html code=code %}
 
-Note that in this example is valid because whitespace is meaningless<sup>\*</sup>.
+Note that this example is valid because whitespace is meaningless<sup>\*</sup>.
 
 <small><sup>\*</sup> see [section 2.3](#sec-2-3) for an exception to this rule.</small>
 

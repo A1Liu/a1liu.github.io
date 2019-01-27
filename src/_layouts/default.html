@@ -1,0 +1,20 @@
+---
+layout: base
+---
+{% if page.collection %}
+  {% assign collection-name = page.collection | prepend: "in-" %}
+{% endif %}
+
+{% assign page-title = page.title | strip | replace: " ","-" | downcase | append: "-page" %}
+
+<div class="col-lg-2" id="left-col">
+  {% if page.left %}{% include {{ page.left | prepend: page.url }} %}{% endif %}
+</div>
+
+<div class="col-12 col-lg-8 main {{ page-title }} {{ collection-name }}" id="main-col">
+  {{ content }}
+</div>
+
+<div class="col-lg-2" id="right-col">
+  {% if page.right %}{% include {{ page.right | prepend: page.url }} %}{% endif %}
+</div>

@@ -1,8 +1,7 @@
-title: Albert's Homepage
+title: Albert Liu
 email: al5932@nyu.edu
 description: >-
     This is my homepage!
-baseurl: &baseurl "" # site subpath, e.g. /blog
 url: "http://a1liu.github.io"
 strict_front_matter: true
 markdown: kramdown
@@ -19,37 +18,47 @@ sass: # http://markdotto.com/2014/09/25/sass-and-jekyll/
 
 repo-url: "https://github.com/A1Liu/a1liu.github.io"
 special_chars:
-    newline: "\n"
-    tab: "\t"
+  newline: "\n"
+  tab: "\t"
 
 collections:
-    main:
-        output: true
-        permalink: /:name
-    posts:
-        output: true
-        permalink: /blog/:year/:month/:title/
-    resources:
-        output: true
-        permalink: /resources/:name
+  main:
+    output: true
+    permalink: /:name/
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:title/
+  resources:
+    output: true
+    permalink: /resources/:name
+  docs:
+    output: true
+    permalink: /docs/:year/:month/:title/
 
 defaults:
-    -
-        scope:
-            type: "posts"
-            path: "" # an empty string here means all files in the project
-        values:
-            layout: "page"
-            nocaps: true
-    -
-        scope:
-            type: "pages"
-            path: ""
-        values:
-            layout: "page"
-    -
-        scope:
-            type: "main"
-            path: ""
-        values:
-            layout: "page"
+  -
+    scope:
+      type: pages
+    values: &default_values
+      layout: page
+      head-include: global/head.html
+      header-include: global/header.html
+      footer-include: global/footer.html
+      scripts-include: global/scripts.html
+  -
+    scope:
+      type: posts
+    values: *default_values
+
+  -
+    scope:
+      type: main
+    values: *default_values
+  -
+    scope:
+      type: docs
+    values:
+      layout: page
+      head-include: docs/head.html
+      footer-include: docs/footer.html
+      scripts-include: global/scripts.html

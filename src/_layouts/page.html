@@ -1,12 +1,8 @@
 ---
-layout: base
+layout: default
 ---
 <h1>
-	{% assign title = page.title %}
-	{% unless page.nocaps %}
-	{% assign title = page.title | capitalize %}
-	{% endunless %}
-	{{ title }}
+	{{ page.title }}
 </h1>
 {% if page.description %}
 <p>

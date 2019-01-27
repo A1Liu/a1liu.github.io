@@ -26,14 +26,14 @@ def capitalize_word(word):
 
 def make_post(
     title, display_title=None,date=None, categories=[], tags=[],
-    is_draft = True, has_assets = True):
+    collection = 'drafts', has_assets = True):
 
     # Setting up vars
 
     if display_title is None:
         title_words = shorten_title(title).split('-')
         display_title = ' '.join( [capitalize_word(word) for word in title_words] )
-    output_path = get_post_path(title,date=date,is_draft=is_draft)
+    output_path = get_post_path(title, date=date, collection=collection)
     open_post(os.path.basename(output_path))
 
     with open( output_path, 'x') as f:

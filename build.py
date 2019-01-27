@@ -9,6 +9,7 @@ make_post(
 title = "Meeting Notes" # Will raise exception if None
 display_title = None
 date = "2019-01-25"
+collection = 'drafts'
 categories = [
     'bugs-nyu'
 ]
@@ -17,7 +18,9 @@ tags = [
     'yacs','ideas','meeting','eboard'
 ]
 
-make_post(title, display_title=display_title, date=date, categories = categories, tags = tags)
+make_post(
+    title, display_title=display_title, date=date,
+    collection=collection, categories = categories, tags = tags)
 
 #path =
 # gitdiff_convert(path)

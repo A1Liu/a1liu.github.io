@@ -1,44 +1,29 @@
 <!doctype html>
 <html lang="en">
-	{% include head.html %}
+	{% if page.head-include %}
+		{% include {{ page.head-include }} %}
+	{% endif %}
 	<body>
 		<div class="container-fluid" style="height:100%;">
+
 			<div class="row" id="header-row">
-				<div class="col-lg-6" id="logo">
-					<a href="/">Albert Liu</a>
-				</div>
-				<div class="col-lg-6" id="main-nav">
-					<nav class="nav">{% include nav-menu.md %}</nav>
-				</div>
+				{% if page.header-include %}
+					{% include {{ page.header-include }} %}
+				{% endif %}
 			</div>
-
-			{% if page.collection %}
-				{% assign collection-name = page.collection | prepend: "in-" %}
-			{% endif %}
-
-			{% assign page-title = page.title | strip | replace: " ","-" | downcase | append: "-page" %}
 
 			<div class="row {% if page.short %}short-page{% endif %}" id="main-row">
-					<div class="col-lg-2" id="left-col">
-						{% if page.left %}{% include {{ page.left | prepend: page.url }} %}{% endif %}
-					</div>
-
-					<div class="col-12 col-lg-8 main {{ page-title }} {{ collection-name }}" id="main-col">
-						{{ content }}
-					</div>
-
-					<div class="col-lg-2" id="right-col">
-						{% if page.right %}{% include {{ page.right }} %}{% endif %}
-					</div>
+					{{ content }}
 			</div>
+
 			<div class="row" id="footer-row">
-				<div class="col-2"></div>
-				<div class="col-10">
-					Site by Albert Liu. Source code can be found on
-					<a href="https://github.com/A1Liu/a1liu.github.io"><strong>Github</strong></a>
-				</div>
+				{% if page.footer-include %}
+					{% include {{ page.footer-include }} %}
+				{% endif %}
 			</div>
 		</div>
-	{% include scripts.html %}
+			{% if page.scripts-include %}
+				{% include {{ page.scripts-include }} %}
+			{% endif %}
 	</body>
 </html>
