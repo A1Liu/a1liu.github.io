@@ -17,7 +17,6 @@ body {
 }
 
 
-
 table {
   font-size: $xs-text-size;
 
@@ -81,7 +80,6 @@ div.highlight > pre {
                         $pre-scroll-thumb-color-bottom);
   }
 }
-
 :not(pre) > code:not(.no-style) {
   padding: 3px;
   padding-left: 5px;
@@ -90,18 +88,19 @@ div.highlight > pre {
   white-space: nowrap;
   background: $code-background-color;
 }
-
 code.no-style {
   color: $global-text-color;
 }
 
-a, a > * {
-  @include transition(.4s);
-}
+
 a {
   color: $global-text-color-secondary;
 
-  &:hover, &:hover > * {
+  &, * {
+    @include transition(.4s);
+  }
+
+  &:hover, &:hover * {
     color: $anchor-tag-hover !important;
     text-decoration: none;
     @include transition(.4s);

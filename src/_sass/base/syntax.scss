@@ -4,6 +4,10 @@ code {
 		span.#{$class} {
 			@include dynamic-extend($code-color) {
 				color: $code-color;
+
+				&:hover {
+					color: auto;
+				}
 			}
 		}
 	}
