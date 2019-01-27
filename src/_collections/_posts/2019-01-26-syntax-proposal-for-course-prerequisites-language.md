@@ -51,7 +51,7 @@ document will use the term "name" to refer to variables.
 
 <a name="sec-1-3"></a>
 #### 1.3 Assignment with `=` {{ to-top }}
-Name assignment should be done like this:
+Name assignment should be done using `=`:
 {% capture code %}
 <span class="n">calc 3 =</span>
   <span class="s">MATH-UA 123
@@ -73,7 +73,7 @@ we instead give `MATH-UA 123 Calculus III` the name `calc 3`.
 <a name="sec-2"></a>
 ### 2. The Punctuation is Almost English {{ to-top }}
 Because this language's target audience isn't necessarily familiar with the idioms
-of computer science, and because more generally plain-text is easier to read, the
+of computer science, and because, more generally, plain-text is easier to read, the
 syntax of this language should be as close as possible to english.
 
 <a name="sec-2-1"></a>
@@ -84,7 +84,7 @@ end of the file.
 
 <a name="sec-2-2"></a>
 #### 2.2 Programs are Organized into Paragraphs {{ to-top }}
-Code is organized into paragraphs, i.e. sections of a program are separated by
+Code is organized into paragraphs; which are groups of sentences separated by
 two or more newline characters. This isn't necessary for 95% of use cases, but
 both simplifies parsing and improves readability.
 
@@ -213,14 +213,14 @@ started down the journalism track at NYU.
 
 <a name="sec-3-2"></a>
 #### 3.2 Plain Text Keywords can Clash with Names {{ to-top }}
-Since names to contain whitespace, the language parser needs to do a lot more work
+Since names can contain whitespace, the language parser needs to do a lot more work
 to prevent names from being misinterpreted. The following subsections propose
 potential solutions to this problem, and the remaining sections will follow all
 of them.
 
 <a name="sec-3-3"></a>
 #### 3.3 Keywords are Uppercase {{ to-top }}
-while words like {{ inline-and | downcase }} and {{ inline-or-keyword | downcase }} are used in course names, their uppercase variants
+while words like {{ inline-and | downcase }} and {{ inline-or | downcase }} are used in course names, their uppercase variants
 really aren't. Thus, requiring keywords to be uppercase prevents namespace clashing.
 
 <a name="sec-3-4"></a>
@@ -231,15 +231,15 @@ valid names, and mean the same thing:
 
 {% capture code %}
 <span class="s">
-  JOUR-"UA" 50 Investigating "Journalism: Ethics and "Practice
+JOUR-"UA" 50 Investigating "Journalism: Ethics and "Practice
 </span><span class="n">.</span>
 
 <span class="s">
-  JOUR-'UA' 50 Investigating 'Journalism: Ethics and 'Practice
+JOUR-'UA' 50 Investigating 'Journalism: Ethics and 'Practice
 </span><span class="n">.</span>
 
 <span class="s">
-  JOUR-UA 50 Investigating 'J'"o"urnalism:'' E'thics 'and' 'Practice
+JOUR-UA 50 Investigating 'J'"o"urnalism:'' E'thics 'and' 'Practice
 </span>
 {% endcapture %}
 {% assign code = code | replace: site.special_chars.newline,'%' %}
@@ -252,10 +252,15 @@ from the previous examples:
 
 {% capture code %}
 <span class="s">
-  "'JOUR-UA 50 Investigating Journalism: "Ethics" and Practice'"
+"'JOUR-UA 50 Investigating Journalism: Ethics"
+</span> {{ and-keyword }} <span class="s">
+"Practice'"
+</span><span class="n">.</span>\n
+<span class="s">
+"'JOUR-UA 50 Investigating Journalism: "Ethics" and Practice'"
 </span>
 {% endcapture %}
-{% assign code = code | strip_newlines %}
+{% assign code = code | strip_newlines | replace: '\n',site.special_chars.newline %}
 {% include custom-code-block.html code=code %}
 
 <a name="sec-3-5"></a>
@@ -294,12 +299,11 @@ Prerequisite: one introductory course
 checks whether the courses that a student has taken contains at least one of
 the introductory courses, and returns true if it does. Because booleans and sets
 are the two types visible to the student, and to the writer, to minimize complexity
-they should be the *only* types in the language. Additionally, order and repetition
-shouldn't matter. The order of taking courses is an emergent feature of the prerequisite
-graph itself; it shouldn't be hard-coded in. It is questionable whether or not
-repetition would be necessary to cover the use cases of this language. To reduce
-complexity, we'll assume that repetition in collections is not a necessary language
-feature.
+they should be the *only* types in the language.
+
+Additionally, we should assume that collection order is irrelevant.
+The order of taking courses is an emergent feature of the prerequisite
+graph itself; it shouldn't be hard-coded in.
 
 <a name="sec-4-1"></a>
 #### 4.1 "List" is the Term for Unordered Sets {{ to-top }}
@@ -334,12 +338,13 @@ The following notation should be used to construct lists:
 <a name="sec-4-3"></a>
 #### 4.3 Names are Duck-Typed {{ to-top }}
 In the above example, we *named* the list <code>{{ intro-courses }}</code>.
-We should allow this kind of behavior; a name should refer to an arbitrary object,
-and errors will be raised at compile/runtime.
+A name can refer to an arbitrary object, in the same sense that a name can be
+given to anything. If it is used incorrectly later, an error will be raised at
+that point.
 
 <a name="sec-5"></a>
 ### 5. Quantifiers Make Lists into Booleans {{ to-top }}
-Quantifiers are a way to specify *how many* things we'd like. They provide a simple
+Quantifiers are a way to specify *how many* courses we'd like. They provide a simple
 way to convert lists into booleans. For example, to give the above list a truth
 value, we might want to use a quantifier such as *has taken at least 2 of the above
 courses.* For the sake of this language, we will use the following quantifiers:
@@ -365,9 +370,9 @@ Similarly, we can also write both of the following:
 {% assign of-intro = '<span class="n"> intro courses</span>' | prepend: of-keyword %}
 {% assign exact-keyword = '<span class="ow">EXACTLY</span>' %}
 {% capture code %}
-<span class="n">intro courses =</span> {{ phil-list | replace: ', ',',' }}.
-<span class="ow">AT MOST</span> <span class='mi'>1</span> {{ of-intro }}.
-{{ exact-keyword }} <span class='mi'>1</span> {{ of-intro }}.
+<span class="n">intro courses =</span> {{ phil-list }}<span class='n'>.</span>
+<span class="ow">AT MOST</span> <span class='mi'>1</span> {{ of-intro }}<span class='n'>.</span>
+{{ exact-keyword }} <span class='mi'>1</span> {{ of-intro }}
 {% endcapture %}
 {% include custom-code-block.html code=code %}
 
@@ -379,8 +384,8 @@ this language. The following sentences are equivalent:
 
 {% assign at-least-keyword = '<span class="ow">AT LEAST</span>' %}
 {% capture code %}
-{{ at-least-keyword }} <span class='mi'>1</span> {{ of-intro }}.\n
-<span class='mi'>1</span> {{ of-intro }}.
+{{ at-least-keyword }} <span class='mi'>1</span> {{ of-intro }}<span class='n'>.</span>\n
+<span class='mi'>1</span> {{ of-intro }}
 {% endcapture %}
 {% assign code = code | strip_newlines | replace: '\n',site.special_chars.newline %}
 {% include custom-code-block.html code= code %}
@@ -419,10 +424,9 @@ is the same thing as
 
 <a name="sec-5-4"></a>
 #### 5.4 Lists Have an Implicit Truth Value {{ to-top }}
-Lists have an implicit truth value. It's questionable whether or not it'd be better
-to have lists with an implicit {{ inline-and }} or {{ inline-or }}, or maybe some
-other value, like whether the majority has been fulfilled. Also, it's unclear how
-that implicit boolean value should interact with boolean expressions.
+Lists implicitly have a truth value equivalent to chaining {{ inline-and }} for
+all of their elements; when at least one course hasn't been taken, the list is false,
+and only when all courses have been taken is the list true.
 
 {% assign inline-exact = exact-keyword | prepend: '<code>' | append: '</code>' %}
 <a name="sec-5-5"></a>
@@ -445,11 +449,12 @@ elements of both lists into a new list.
 For example, the following two lists are identical:
 
 {% capture code %}
-{{ phil-list }}.\n
+{{ phil-list }}<span class="n">.</span>\n
 <span class="n">(</span>
 <span class="s">PHIL-UA 001</span><span class="n">, </span>
 <span class="s">PHIL-UA 003</span>
 <span class="n">)</span> {{ and-keyword }} <span class="n">(</span>
+<span class="s">PHIL-UA 001</span><span class="n">, </span>
 <span class="s">PHIL-UA 006</span><span class="n">, </span>
 <span class="s">PHIL-UA 007</span>
 <span class="n">)</span>
@@ -459,6 +464,7 @@ For example, the following two lists are identical:
 
 {% assign without-keyword = '<span class="ow">WITHOUT</span>' %}
 {% assign inline-without = without-keyword | prepend: '<code>' | append: '</code>' %}
+
 <a name="sec-6-2"></a>
 #### 6.2 {{ inline-without }} Finds List Differences {{ to-top }}
 {{ inline-without }} finds all the names in the list to its left which are not contained
@@ -482,7 +488,7 @@ same can't be said the other way around:
 {% include custom-code-block.html code=code %}
 
 <a name="sec-6-3"></a>
-#### 6.3 {{ inline-and }} Behavior Favors List Evaluation
+#### 6.3 {{ inline-and }} Behavior Favors List Evaluation {{ to-top }}
 When doing performing {{ inline-and }} between a list and a boolean, the result
 is the union of the list and a one-element list containing the boolean.
 For example, the result of
@@ -505,10 +511,10 @@ is the list
 {% include custom-code-block.html code=code %}
 
 <a name="sec-6-4"></a>
-#### 6.4 {{ inline-or }} Behavior Favors Boolean Evaluation
-When performing {{ inline-or }} between a list and a boolean, the list is first
-implicitly turned into a boolean, and then the result is evaluated as a regular
-{{ inline-or }}.
+#### 6.4 {{ inline-or }} Behavior Favors Boolean Evaluation {{ to-top }}
+When performing {{ inline-or }} with a list and another list, or a list and a boolean,
+the list(s) are first implicitly turned into booleans, and then the result is
+evaluated as a regular {{ inline-or }}.
 
 <a name="sec-7"></a>
 ### 7. Miscellaneous {{ to-top }}
@@ -527,31 +533,37 @@ statements are used in a program, they must be in the first paragraph of the pro
 and that paragraph may not contain anything but read statements and comments.
 
 <a name="sec-7-2"></a>
-#### 7.2 System Administrators Use a Different Syntax to Create Meta-Files {{ to-top }}
+#### 7.2 Boolean Literals {{ to-top }}
+The boolean literals are represented as <code><span class="mi">TRUE</span></code>
+and <code><span class="mi">FALSE</span></code>. Determining the semantic meaning
+of each symbol is left as an exercise to the reader.
+
+<a name="sec-7-3"></a>
+#### 7.3 System Administrators Use a Different Syntax to Create Meta-Files {{ to-top }}
 A separate syntax can be used to create name-only programs that only exist to provide
 other users with pre-made lists of courses. The syntax for this will be more technical,
 as its purpose is to create larger pre-made lists from database queries.
 
-<a name="sec-7-3"></a>
-#### 7.3 Name Resolution Can be Customized {{ to-top }}
+<a name="sec-7-4"></a>
+#### 7.4 Name Resolution Can be Customized {{ to-top }}
 The evaluation of a name to a truth value is an implementation detail. Resolving
 names to actual courses in the database should be done through the implementation
 of the language, and specified on a per-school basis.
 
-<a name="sec-7-4"></a>
-#### 7.4 The Final Line of a Prerequisites Program is Visible to Students {{ to-top }}
+<a name="sec-7-5"></a>
+#### 7.5 The Final Line of a Prerequisites Program is Visible to Students {{ to-top }}
 The syntax of this language may be cleaner than that of existing prerequisite descriptions.
 Thus, it may be beneficial to use the last line of the program for a specific course
-as the string printed to students when registering. This printing would also include
-comments.
+as the message displayed to students when registering. This message would also
+include comments (with brackets omitted).
 
-<a name="sec-7-5"></a>
-#### 7.5 Title Comments Give Names to Paragraphs {{ to-top }}
+<a name="sec-7-6"></a>
+#### 7.6 Title Comments Give Names to Paragraphs {{ to-top }}
 Single-line names that begin after a paragraph break and end with a colon and line
 break are title comments. They only differ from normal comments in syntax, and
 the fact that they can only be one line.
 
-<a name="sec-7-6"></a>
-#### 7.6 Generalization of Language to Degree Requirements {{ to-top }}
-By the organizing sections of degree requirements into paragraphs, we may be able
-to use this language to specify degree requirements as well as course requirements.
+<a name="sec-7-7"></a>
+#### 7.7 Generalization of Language to Degree Requirements {{ to-top }}
+By the organizing sections of degree requirements into paragraphs, we can use this
+language to specify degree requirements as well as course requirements.

@@ -51,7 +51,7 @@
 <style>
 #left-navbar {
   position: sticky;
-  top: 5px;
+  top: 10px;
   background: white;
   border-radius: 10px;
   margin-top: 5px;
