@@ -17,7 +17,7 @@ def format_date(date):
         return date
 
 def get_collection_dir(collection):
-    return os.join(COLLECTIONS_DIR,'_'+collection)
+    return os.path.join(COLLECTIONS_DIR,'_'+collection)
 
 multiple_dashes = re.compile('[\s-]+')
 def shorten_title(title):
@@ -59,7 +59,7 @@ def open_post(post_name, collection):
     atom(path, assets)
 
 def get_post_path(title, date=None, collection= 'drafts'):
-    raise Exception('Need to fix to work with arbitrary collection, or make a docs version')
+    # raise Exception('Need to fix to work with arbitrary collection, or make a docs version') \
     title = format_title(title)
     output_dir = get_collection_dir(collection)
     date = format_date( datetime.now() if date is None else date )

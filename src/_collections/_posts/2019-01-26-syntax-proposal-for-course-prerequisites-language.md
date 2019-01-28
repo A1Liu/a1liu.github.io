@@ -4,10 +4,7 @@ categories: [bugs-nyu, yacs]
 tags: [ideas, new-lang]
 left: sidebar.md
 ---
-<!-- {% raw %} -->
-<!-- {% include refc-small.html text="ref commit" commit="3cad965..." %} -->
-<!-- {% include ref-commit.html text="ref commit" commit="3cad965..." %} -->
-<!-- {% endraw %} -->
+<small>Evan Silverman and Albert Liu</small> <br />
 This post proposes syntax and conventions for specifying the prerequisites of a
 course. In some cases the proposals are general, i.e. "the syntax should have *this*
 property", and in other cases it is specific, i.e. "we should use *this* keyword".

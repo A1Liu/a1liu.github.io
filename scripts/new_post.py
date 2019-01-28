@@ -34,7 +34,7 @@ def make_post(
         title_words = shorten_title(title).split('-')
         display_title = ' '.join( [capitalize_word(word) for word in title_words] )
     output_path = get_post_path(title, date=date, collection=collection)
-    open_post(os.path.basename(output_path))
+    open_post(os.path.basename(output_path), collection)
 
     with open( output_path, 'x') as f:
         f.write(format_new_post(display_title, categories, tags))
