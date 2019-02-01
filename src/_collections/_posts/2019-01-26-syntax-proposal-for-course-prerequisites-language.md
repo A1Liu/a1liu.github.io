@@ -33,7 +33,7 @@ For convenience, variable identifiers should include whitespace. For example,
 e.g. <code>MATH-UA &nbsp;123 Calculus &nbsp; III</code> means the same thing
 * ...except as a separator of non-whitespace:<br />
 e.g. `MATH -UA 123 Calculus III` means something different
-* Also identifiers are stripped of additional whitespace:<br />
+* Also, identifiers are stripped of additional whitespace:<br />
 e.g. <code>&nbsp; MATH-UA 123 Calculus III &nbsp;</code> means the same thing
 
 <small><sup>\*</sup> see [section 2.3](#sec-2-3) for an exception to this rule.</small>
@@ -228,15 +228,15 @@ valid names, and mean the same thing:
 
 {% capture code %}
 <span class="s">
-JOUR-"UA" 50 Investigating "Journalism: Ethics and "Practice
+JOUR-"UA" 50 Investigating "Journalism: Ethics AND "Practice
 </span><span class="n">.</span>
 
 <span class="s">
-JOUR-'UA' 50 Investigating 'Journalism: Ethics and 'Practice
+JOUR-'UA' 50 Investigating 'Journalism: Ethics AND 'Practice
 </span><span class="n">.</span>
 
 <span class="s">
-JOUR-UA 50 Investigating 'J'"o"urnalism:'' E'thics 'and' 'Practice
+JOUR-UA 50 Investigating 'J'"o"urnalism:'' E'thics 'AND' 'Practice
 </span>
 {% endcapture %}
 {% assign code = code | replace: site.special_chars.newline,'%' %}
@@ -254,7 +254,7 @@ from the previous examples:
 "Practice'"
 </span><span class="n">.</span>\n
 <span class="s">
-"'JOUR-UA 50 Investigating Journalism: "Ethics" and Practice'"
+"'JOUR-UA 50 Investigating Journalism: "Ethics" AND Practice'"
 </span>
 {% endcapture %}
 {% assign code = code | strip_newlines | replace: '\n',site.special_chars.newline %}
