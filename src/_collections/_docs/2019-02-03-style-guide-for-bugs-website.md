@@ -3,6 +3,7 @@ title: Style Guide for BUGS Website
 author: Albert Liu
 categories: [bugs-nyu, website]
 tags: [css, sass, html]
+published: false
 ---
 <!-- {% raw %} -->
 <!-- {% include refc-small.html text="ref commit" commit="3cad965..." %} -->
@@ -63,4 +64,4 @@ General SASS style is outside the scope of this guide. Please refer to [the SASS
 
 #### Liquid Expressions Are not Used in Asset Files
 
-#### 
+####
