@@ -7,15 +7,15 @@ make_post(
     is_draft = True, has_assets = True)
 """
 title = "Meeting Notes" # Will raise exception if None
-display_title = None
-date = "2019-01-25"
-collection = 'drafts'
+display_title = "2/5/19 Meeting Notes"
+date = "2019-02-05"
+collection = 'docs'
 categories = [
     'bugs-nyu'
 ]
 
 tags = [
-    'yacs','ideas','meeting','eboard'
+    'meeting','eboard'
 ]
 
 make_post(

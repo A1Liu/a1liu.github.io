@@ -14,3 +14,10 @@ Makes it easy to pick colors and then get their hex value
 Converts colors from one format to another
 
 [color-picker]: https://www.w3schools.com/colors/colors_picker.asp?color=80ced6
+
+##### Misc
+* [Oauth in Plain English][oauth-2] - 
+Oauth 2.0 explained in plain english
+
+[oauth-2]: https://www.youtube.com/watch?v=996OiexHze0
+

@@ -14,6 +14,12 @@ process for developing a program step-by-step
 [inlining-code]: http://number-none.com/blow/john_carmack_on_inlined_code.html
 [semantic-compression]: https://caseymuratori.com/blog_0015
 
+##### Community
+* [Future of Programming][future-of-programming] -
+Great talk by Robert Martin about the future of programming, cuturally
+
+[future-of-programming]: https://www.youtube.com/watch?v=ecIWPzGEbFc
+
 ##### Regular Expressions
 * [Regexr](https://regexr.com/) - Great resource for experimenting with regular
 expressions. Also includes a resource for learning regex concepts.

@@ -33,7 +33,7 @@ collections:
     permalink: /resources/:name
   docs:
     output: true
-    permalink: /docs/:year/:month/:title/
+    permalink: /docs/:path/
 
 defaults:
   -
