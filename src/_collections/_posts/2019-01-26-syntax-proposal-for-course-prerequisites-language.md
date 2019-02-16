@@ -379,7 +379,6 @@ When reading the prerequisite `one introductory course`, we assume that having
 taken 2 introductory courses is also perfectly fine; the equivalent is true in
 this language. The following sentences are equivalent:
 
-{% assign at-least-keyword = '<span class="ow">AT LEAST</span>' %}
 {% capture code %}
 {{ at-least-keyword }} <span class='mi'>1</span> {{ of-intro }}<span class='n'>.</span>\n
 <span class='mi'>1</span> {{ of-intro }}
@@ -399,7 +398,7 @@ is the same thing as
 
 {% capture code %}
 {{ at-least-keyword }} <span class='mi'>4</span> {{ of-keyword }}
-<span class="nt"> = </span>{{ phil-list }}
+ {{ phil-list }}
 {% endcapture %}
 {% assign code = code | strip_newlines | replace: '\n',site.special_chars.newline %}
 {% include custom-code-block.html code= code %}
@@ -414,7 +413,7 @@ is the same thing as
 
 {% capture code %}
 {{ at-least-keyword }} <span class='mi'>1</span> {{ of-keyword }}
-<span class="nt"> = </span>{{ phil-list }}
+ {{ phil-list }}
 {% endcapture %}
 {% assign code = code | strip_newlines | replace: '\n',site.special_chars.newline %}
 {% include custom-code-block.html code= code %}
