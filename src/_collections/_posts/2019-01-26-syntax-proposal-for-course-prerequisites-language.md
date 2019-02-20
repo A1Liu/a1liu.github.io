@@ -6,8 +6,8 @@ left: sidebar.md
 ---
 <small>Evan Silverman and Albert Liu</small> <br />
 This post proposes syntax and conventions for specifying the prerequisites of a
-course. In some cases the proposals are general, i.e. "the syntax should have *this*
-property", and in other cases it is specific, i.e. "we should use *this* keyword".
+course. In some cases the proposals are general, i.e. "the syntax should have *this
+property*", and in other cases it is specific, i.e. "we should use *this keyword*".
 Note that the tone used here is mostly declarative; this is just for convenience.
 All of these are suggestions, and the language is not yet defined.
 
