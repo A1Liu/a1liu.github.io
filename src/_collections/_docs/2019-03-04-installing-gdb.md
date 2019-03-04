@@ -41,7 +41,7 @@ a program from arbitrary taking control of another one, we also need to configur
 the mac security features to allow for GDB to work. If we run `gdb <program>` right now,
 we get something like this:
 
-```shell
+```
 Unable to find Mach task port for process-id 57573: (os/kern) failure (0x5).
 (please check gdb is codesigned - see taskgated(8))
 ```
@@ -85,7 +85,7 @@ that GDB is usable.
 ### Ensuring Startup
 If you've been doing everything correctly so far, you might still get an error like this:
 
-```shell
+```
 During startup program terminated with signal ?, Unknown signal.
 ```
 
