@@ -5,6 +5,9 @@ tags: [google]
 ---
 Google hosted a Tech Careers workshop on March 8, 2019.
 This post contains notes on what happened there.
+<!-- THIS WOMAN IS A LIFESAVER
+YOU ARE MY HERO CARRIE
+https://medium.com/@CarrieGuss/how-to-recover-from-a-git-hard-reset-b830b5e3f60c -->
 
 ## Agenda
 * [Meet Fuzzy](#meet-fuzzy)
