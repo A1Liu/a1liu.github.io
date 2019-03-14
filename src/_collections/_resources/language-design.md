@@ -3,7 +3,7 @@ title: Language Design
 nocaps: true
 ---
 - [Jonathan Blow's Talks on a Video Game Language][jai]
-- [Kernighan's Talk on Language Design][[kernighan]
+- [Kernighan's Talk on Language Design][kernighan]
 - [Andrei Alexandrescu's Talk on Error Handling in C++][systematic-error-handling]
 - [Mike Acton's Talk on Data-Oriented Design][data-oriented-design]
 

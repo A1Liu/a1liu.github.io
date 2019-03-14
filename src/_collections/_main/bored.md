@@ -10,12 +10,15 @@ short: true
 * [The Wiki Game](https://thewikigame.com/)
 * [Type Racer](https://play.typeracer.com/)
 * [T-Rex Game](http://www.trex-game.skipser.com/)
-* [Pug Licking Screen](http://www.sanger.dk/)
+* [Mighty Guy](https://www.funbrain.com/games/mighty-guy)
+* [JQueery](http://jqueery.com/)
+* [ShaderToy](https://www.shadertoy.com/)
+* [Pug Licking Screen](https://www.youtube.com/watch?v=megGOXIJBEE)
 * [Snake](http://patorjk.com/games/snake/)
 * [Browser Launchpad](https://intro.novationmusic.com/wonk-pop)
 * [Really funny chats](http://www.bash.org/)
 {% endcapture %}
 
 <div class="bored-list">
-	{{ list | markdownify }}
+   {{ list | markdownify }}
 <div>
