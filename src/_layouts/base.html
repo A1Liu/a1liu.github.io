@@ -4,7 +4,7 @@
 		{% include {{ page.head-include }} %}
 	{% endif %}
 	<body>
-		<div class="container-fluid" style="height:100%;">
+    <div class="container-fluid" id="site-wrapper">
 
 			<div class="row" id="header-row">
 				{% if page.header-include %}
@@ -12,7 +12,7 @@
 				{% endif %}
 			</div>
 
-			<div class="row {% if page.short %}short-page{% endif %}" id="main-row">
+			<div class="row" id="main-row">
 					{{ content }}
 			</div>
 

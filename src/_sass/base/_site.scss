@@ -1,7 +1,14 @@
+#site-wrapper {
+  min-height: 100vh;
+  position: relative;
+}
+
 .main {
 	padding: 50px;
 	background: $main-div-background;
 }
+
+
 
 @include media-breakpoint-up(lg) {
 	#main-col {
