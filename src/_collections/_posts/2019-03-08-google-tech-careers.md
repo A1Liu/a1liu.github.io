@@ -13,7 +13,7 @@ https://medium.com/@CarrieGuss/how-to-recover-from-a-git-hard-reset-b830b5e3f60c
 * [Meet Fuzzy](#meet-fuzzy)
 * [Grow with Google](#grow-with-google)
 * [Intro to Design Thinking](#design-thinking)
-* [Laying hte Fundation to your CS Career](#cs-career)
+* [Laying the Fundation to your CS Career](#cs-career)
 * [Resume Workshop](#resume-workshop)
 
 <a name="meet-fuzzy"></a>
