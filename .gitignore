@@ -1,10 +1,10 @@
-_site/
-archive/
-.sass-cache/
-.jekyll-cache/
+/_site
+/archive
+/.sass-cache
+/.jekyll-cache
 .jekyll-metadata
 .ruby-version
 .DS_Store
 __pycache__/
-env/
+/env
 *.sublime-*
