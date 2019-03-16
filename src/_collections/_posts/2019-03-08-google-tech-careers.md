@@ -17,7 +17,7 @@ https://medium.com/@CarrieGuss/how-to-recover-from-a-git-hard-reset-b830b5e3f60c
 * [Resume Workshop](#resume-workshop)
 
 <a name="meet-fuzzy"></a>
-## Meet Fuzzy {% include back-to-top-small %}
+## Meet Fuzzy {% include back-to-top %}
 Fuzzy Khosrowshahi is an engineering tech-lead manager at Google NYC,
 responsible for the development of Google Docs & Spreadsheets.
 Prior to joining Google, Fuzzy co-founded 2Web Technologies, LLC,
@@ -63,7 +63,7 @@ and is responsible for the technology behind Google Spreadsheets.<sup>[<a href="
    you can do better.
 
 <a name="grow-with-google"></a>
-## Grow with Google {% include back-to-top-small %}
+## Grow with Google {% include back-to-top %}
 This section is a panel of current Google engineers that recently graduated.
 
 **Where are you now?**
@@ -98,7 +98,7 @@ This section is a panel of current Google engineers that recently graduated.
 *  Thank you notes! They're important
 
 <a name="design-thinking"></a>
-## Intro to Design Thinking {% include back-to-top-small %}
+## Intro to Design Thinking {% include back-to-top %}
 Design thinking is a fun way to come up with ideas that focuses on listening
 and brainstorming.
 
@@ -154,7 +154,7 @@ is *1.8% women.* We need to increase female engagement.
 4. ... Out of time
 
 <a name="cs-career"></a>
-## Laying the Fundation to your CS Career {% include back-to-top-small %}
+## Laying the Fundation to your CS Career {% include back-to-top %}
 Focus on the technical interview.
 
 ### Building your skills
@@ -312,7 +312,7 @@ def _section_double_decker(array):
    breaks.
 
 <a name="resume-workshop"></a>
-## Resume Workshop {% include back-to-top-small %}
+## Resume Workshop {% include back-to-top %}
 Apply to google at [google.com/students](https://google.com/students).
 
 **Resume Tips**
