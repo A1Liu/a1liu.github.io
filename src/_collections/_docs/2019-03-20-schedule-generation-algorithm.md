@@ -27,7 +27,18 @@ A schedule is valid if it is not invalid.
 Our question is *how can we find all possible valid schedules that are unions of
 schedules in $$S$$?*
 
-#### Runtime of Schedule Validation
-We can naively check the validity of some schedule $$s$$ with size $$m$$ by comparing
-each event for the f
+### Runtime of Schedule Validation
+We can naively check the validity of some schedule $$s$$ with size $$m$$ by first making
+sure $$b \leq f$$ for all $$(b, f) \in s$$, and then comparing each event in $$s$$
+to all other events in $$s$$, i.e. $$\dfrac{m(m+1)}{2}$$ comparisons. This naive
+implementation runs in $$O(m^2)$$ time.
+
+We can lower that to $$O(m\log m)$$ by sorting the events by their begin times (the $$b$$).
+Then for the $$i^{th}$$ event in the sorted sequence of events, $$e_i = (b_i, f_i)$$,
+we do a binary search through the start times of events $$e_{i}, e_{i+1}, \ldots e_{m}$$
+for the time that is less than or equal to $$f_i$$ with the greatest possible index.
+If we find something besides $$e_i$$, or don't find anything, then schedule $$s$$ is invalid.
+
+Since we do a binary search $$m$$ times, this runs in $$O(m\log m)$$ time.
+
 
