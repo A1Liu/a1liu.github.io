@@ -39,6 +39,25 @@ we do a binary search through the start times of events $$e_{i}, e_{i+1}, \ldots
 for the time that is less than or equal to $$f_i$$ with the greatest possible index.
 If we find something besides $$e_i$$, or don't find anything, then schedule $$s$$ is invalid.
 
-Since we do a binary search $$m$$ times, this runs in $$O(m\log m)$$ time.
+Since we do a binary search over $$O(m)$$ elements $$m$$ times, this runs in $$O(m\log m)$$ time.
+
+### Runtime of Union of Schedules
+Should be constant? Maybe.
+
+### Naive Solution
+Iterate through all elements of the powerset of $$S$$. Check validity for all members.
+So we'll first sort all the schedules' events by start date. Then we validate each one.
+This takes $$O(nm \log m)$$ time. We then iterate through the set of all possible
+combinations of schedules, and check whether each one is valid or not.
+
+Proof of runtime:
 
 
+
+### Faster with DP?
+IDK man it's starting to get harder to figure this out
+Merge sections together?
+
+
+### Faster with Merge-sort-esque implementation?
+IDK dood as i said is hard dood
