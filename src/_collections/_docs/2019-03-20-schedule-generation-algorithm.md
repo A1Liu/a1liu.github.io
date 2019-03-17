@@ -47,17 +47,28 @@ Should be constant? Maybe.
 ### Naive Solution
 Iterate through all elements of the powerset of $$S$$. Check validity for all members.
 So we'll first sort all the schedules' events by start date. Then we validate each one.
-This takes $$O(nm \log m)$$ time. We then iterate through the set of all possible
-combinations of schedules, and check whether each one is valid or not.
+This process takes $$O(nm \log m)$$ time, and sets up the next part of the algorithm.
+We then iterate through the set of all possible combinations of schedules, and validate
+each one. For combinations of 2 schedules, there are $${n \choose 2}$$ possible
+schedule combinations, each with size $$2m$$. To combine them, since they're sorted,
+we can iterate through both of them in tandem, removing the smallest element each
+time and adding it to a new schedule of size $$2m$$, a process that runs linearly, i.e. $$O(m)$$.
+Since the final schedule size is $$2m$$ the validation runs in $$O(2m\log (2m))$$ time.
+Thus, such an operation is $$O\left( {n \choose 2}\left(m + m\log m\right) \right)$$.
 
-Proof of runtime:
+To extend this to combinations of size $$k$$, we first have to rewrite our algorithm
+for combining schedules. We generalize it to a modified version of merge sort,
+where all the schedules are first appended to each other, and then the entire thing
+is sorted. This runs in $$mk log(k)$$ time, where $$k$$ is the number of schedules
+to combine. Then, we can generalize the above formula to
+$$O\left( {n \choose k}\left(mk + mk\log mk\right) \right)$$. Thus, our runtime
+for our naive solution is
 
-
-
-### Faster with DP?
-IDK man it's starting to get harder to figure this out
-Merge sections together?
+$$
+O\left( \sum\limits^n_{i=1} {n \choose i}\left(mi \log i + mi\log(mi)\right) \right)
+$$
 
 
 ### Faster with Merge-sort-esque implementation?
-IDK dood as i said is hard dood
+Since we're doing essentially a bunch of merges on schedules, we can use divide
+and conquer to save some time on the number of merges.
