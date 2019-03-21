@@ -7,7 +7,6 @@ tags: [language-design]
 <!-- {% include refc-small.html text="ref commit" commit="3cad965..." %} -->
 <!-- {% include ref-commit.html text="ref commit" commit="3cad965..." %} -->
 <!-- {% endraw %} -->
-### Explicit Colsure Captures
 In [his second video on a games programming language][jai-video-two],
 Jonathan Blow discusses the concept of C++ captures in its lambda syntax,
 and the potential generalization of the capture syntax to any block.
@@ -37,15 +36,15 @@ existing emphasis on memory safety), for the following reasons:
 The syntax could be implemented using a similar syntax to that discussed in the video:
 
 ```rust
-pb fn long_monolithic_function(state: GlobalState) -> GlobalState {
+pub fn long_monolithic_function(state: GlobalState) -> GlobalState {
    // Here we're using a capture in square brackets
-   // to signify that we only want to operate on
-   // 2 members of the input struct, with mutation on one,
-   // and rename them for easier processing
+   // to say that we only want to operate on 2 members of the input struct,
+   // with mutation on one, and rename them for easier processing
    let mut result: u64 = [&state.data as data, &mut state.other as other] {
+      other += 1;
+
       // We use the empty brackets to state that
       // global/non-local state isn't used here, and its a pure
-      other += 1;
       data.iter().map(|item| [] {
          // Complicated stuff here
          // Lots of logic
