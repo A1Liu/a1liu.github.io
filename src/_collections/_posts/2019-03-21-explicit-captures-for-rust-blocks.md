@@ -10,9 +10,7 @@ tags: [language-design]
 In [his second video on a games programming language][jai-video-two],
 Jonathan Blow discusses the concept of C++ captures in its lambda syntax,
 and the potential generalization of the capture syntax to any block.
-I think that this feature would be useful to implement in Rust,
-(and potentially easier to implement than in other languages because of the
-existing emphasis on memory safety), for the following reasons:
+I think that this feature would be useful to implement in Rust for the following reasons:
 
 [jai-video-two]: https://youtu.be/5Nc68IdNKdg?t=3030
 
@@ -54,10 +52,9 @@ pub fn long_monolithic_function(state: GlobalState) -> GlobalState {
    // do work with result here
    // ...
    // ...
-   result
+   state
 }
 
-```rust
 pub fn my_function(foo: String) -> bool [&bar] {
    // do work on foo, while reading the state of bar
 }
