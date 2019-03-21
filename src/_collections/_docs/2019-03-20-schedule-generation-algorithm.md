@@ -41,6 +41,8 @@ If we find something besides $$e_i$$, or don't find anything, then schedule $$s$
 
 Since we do a binary search over $$O(m)$$ elements $$m$$ times, this runs in $$O(m\log m)$$ time.
 
+<!-- TODO THIS CAN BE LINEAR -->
+
 ### Runtime of Union of Schedules
 Should be constant? Maybe.
 
