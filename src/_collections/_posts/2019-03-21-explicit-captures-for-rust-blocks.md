@@ -35,28 +35,30 @@ The syntax could be implemented using a similar syntax to that discussed in the 
 
 ```rust
 pub fn long_monolithic_function(state: GlobalState) -> GlobalState {
-   // Here we're using a capture in square brackets
-   // to say that we only want to operate on 2 members of the input struct,
-   // with mutation on one, and rename them for easier processing
-   let mut result: u64 = [&state.data as data, &mut state.other as other] {
-      other += 1;
+    // Here we're using a capture in square brackets
+    // to say that we only want to operate on 2 members of the input struct,
+    // with mutation on one, and rename them for easier processing
+    let mut result: u64 = [&state.data as data, &mut state.other as other] {
+        other += 1;
 
-      // We use the empty brackets to state that global/non-local state
-      // isn't used here, and its a pure function
-      data.iter().map(|item| [] {
-         // Complicated stuff here
-         // Lots of logic
-      })
-      .sum()
-   }
-   // do work with result here
-   // ...
-   // ...
-   state
+        // We use the empty brackets to state that global/non-local state
+        // isn't used here, and its a pure function
+        data.iter().map(|item| [] {
+           // Complicated stuff here
+           // Lots of logic
+        })
+        .sum()
+    }
+    // do work with result here
+    // ...
+    // ...
+    state
 }
 
 pub fn my_function(foo: String) -> bool [&bar] {
-   // do work on foo, while reading the state of bar
+    // do work on foo, while reading the state of bar
+    // ...
+    bar.validate(foo)
 }
 ```
 There are a few potential downsides to this idea:
