@@ -41,8 +41,8 @@ pub fn long_monolithic_function(state: GlobalState) -> GlobalState {
    let mut result: u64 = [&state.data as data, &mut state.other as other] {
       other += 1;
 
-      // We use the empty brackets to state that
-      // global/non-local state isn't used here, and its a pure
+      // We use the empty brackets to state that global/non-local state
+      // isn't used here, and its a pure function
       data.iter().map(|item| [] {
          // Complicated stuff here
          // Lots of logic
