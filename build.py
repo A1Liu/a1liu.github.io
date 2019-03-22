@@ -6,16 +6,16 @@ make_post(
     title, display_title=None,date=None, categories=[], tags=[],
     is_draft = True, has_assets = True)
 """
-title = "Explicit Captures for Rust Blocks" # Will raise exception if None
-display_title ="Explicit Captures for Closures and Code Blocks in Rust"
+title = "UX Engineering at Google"
+display_title = None #"Explicit Captures for Closures and Code Blocks in Rust"
 date = "2019-03-21"
 collection = 'posts'
 categories = [
-    'bugs-nyu', 'yacs'
+        'personal'
 ]
 
 tags = [
-    'language-design'
+        'google'
 ]
 
 make_post(
