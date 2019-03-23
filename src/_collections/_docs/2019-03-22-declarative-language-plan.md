@@ -63,17 +63,17 @@ My proposed solution is the following:
 3. A program to convert from an NYU database representation to a strutured text
    representation for display to students (and also YACS)
 
-As Laurie pointed out to me, NYU currently has people working on the third point.
+As Laurie pointed out to me, NYU currently has people working on the third item.
 **As this very closely aligns with my current proposal, I'd like to join this team.**
 By being a part of the conversation, I can ensure that YACS will be compatible with
 the system that this team is currently building, and to me the most useful way
 for me to be part of the conversation is to be on the team making the final
 decisions on the structured text that YACS ultimately consumes.
 
-## Requests
-To acheive the above proposal, I'd like the following from the office of the registrar:
+## Short-term Plan
+To effectively execute the above proposal, I'd like to begin with the following:
 
-1. Strong channel of communication with the team that is currently implementing
+1. A strong channel of communication with the team that is currently implementing
    the translator mentioned above (item 3 in proposal). Ideally this would be
    accomplished by adding me to the team itself; if this isn't possible, I'd still
    like to be able to get a seat at the table somehow.
