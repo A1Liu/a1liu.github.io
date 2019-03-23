@@ -6,7 +6,7 @@ url: "http://a1liu.github.io"
 strict_front_matter: true
 markdown: kramdown
 theme: jekyll-theme-docgen
-remote-theme: a1liu/docgen
+remote-theme: A1Liu/docgen
 
 # feat: Add YAML String Concatenation to Jekyll
 exclude: [scripts, env, build.py, LICENSE, README.md]
