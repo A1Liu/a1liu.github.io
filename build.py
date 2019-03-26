@@ -6,16 +6,16 @@ make_post(
     title, display_title=None,date=None, categories=[], tags=[],
     is_draft = True, has_assets = True)
 """
-title = "UX Engineering at Google"
-display_title = None #"Explicit Captures for Closures and Code Blocks in Rust"
-date = "2019-03-21"
+title = "title_for_file_and_page"
+display_title = None # If not none, this becomes the displayed title
+date = "2019-03-25" # Date of post
 collection = 'posts'
-categories = [
-        'personal'
+categories = [ # Categories of the post, order matters
+        'cat1'
 ]
 
-tags = [
-        'google'
+tags = [ # tags of the post, unordered
+        'tag1'
 ]
 
 make_post(
