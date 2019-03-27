@@ -42,11 +42,34 @@ is pretty great, but here's a few things I learned that weren't mentioned there.
 [mr-chromebox-tech]: https://mrchromebox.tech/#fwscript
 [acer-c720-disassembly]: https://www.youtube.com/watch?v=BG4ZWbimONQ
 
-### Packages
+### Packages and Shell Scripting
+Customizing was fun! I started by updating and upgrading the installed software:
 
-*  Zsh and Oh-my-zsh
-*  NeoVim
-*  GNOME Software
+```bash
+sudo apt dist-upgrade
+sudo apt update
+sudo apt upgrade
+```
+
+Then I installed some stuff I use frequently:
+
+```bash
+sudo apt install software-properties-common
+sudo apt install git snapd
+sudo apt install python3.6 python2.7
+
+# Neovim
+add-apt-repository ppa:neovim-ppa/stable
+apt install neovim
+
+# Z shell
+apt install zsh
+chsh -s /bin/zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+I additionally tried to set up GNOME software, but
+kinda failed in that regard; more on that later.
 
 ### Keyboard Stuff
 The keyboard is set kinda weirdly; I wanted to change it to make the keys a little
@@ -61,14 +84,4 @@ more useful for using Vim.
 *  [GNOME and Ubuntu][integrating-gnome]
 
 [integrating-gnome]: http://www.webupd8.org/2016/03/use-gnome-318-google-drive-integration.html
-
-*  Learning cross platform stuff, and POSIX commands; adding a config repo
-*  Setting up GalliumOS
-   *  Zsh
-   *  Acer C720
-      *  GNOME and terminal, finding answers for questions is hard
-      *  Disassembly, legacy mode, etc
-*  Second time's the charm: linux on a budget
-   *  Acer C710
-   *  DDR3 RAM
 
