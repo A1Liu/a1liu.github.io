@@ -8,9 +8,8 @@ This is a recap of my meeting with Laurie Giannisis on March 22, 2019.
 ## Summary
 1. The current system can be best optimized by **streamlining the communication
    channel between the registrar and the individual departments with which it must
-   communicate.** The status quo currently requires human validation/clarification to ensure that the
-   information in the database agrees with the departments' intentions. Clarification
-   often is slow, because email correspondence in general is slow. Standardizing
+   communicate.** We currently need to use human validation/clarification to ensure that the
+   information in the database agrees with the departments' intentions. Standardizing
    the language used to describe course prerequisites could reduce ambiguity and
    thus the rate at which clarification is required.
 2. If standardized, the same communications that departments have with the registrar
@@ -42,20 +41,20 @@ text into database requisite information. Thus:
 
 The second step, as I understand it, is pretty well streamlined already; the people
 that do the data entry are familar with their tools, and if these tools have shortcomings,
-they seem to be mostly meaningless shortcomings whose solutions have very low return on investment.
+they're low priority.
 However, there currently isn't an automated process for the validation of the
 first step, and so it relies on deliberate validation by the registrar; in the event
 of errors or ambiguity, the registrar ultimately must defer to the departments for clarification
-on the semantic meaning of the information they were sent. This process is slow.
+on the semantic meaning of the information they were sent. This process can be slow.
 The registrar's office needs to wait for departments to respond to its questions
-with clarifications, and because synchronization between officies is difficult,
+with clarifications, and because synchronization between offices is difficult,
 this process can sometimes take a day or two.
 
 ## Proposal
 My proposed solution is the following:
 
 1. A structured language that can be read by a computer program,
-   which department heads can install. Thus, instead of getting an email back
+   which department heads can install. Instead of getting an email back
    from the registrar, department heads get an error notification on their own
    computer.
 2. A program to convert from structured language to a database representation in
@@ -77,7 +76,7 @@ To effectively execute the above proposal, I'd like to begin with the following:
    the translator mentioned above (item 3 in proposal). Ideally this would be
    accomplished by adding me to the team itself; if this isn't possible, I'd still
    like to be able to get a seat at the table somehow.
-2. Interviews with multiple department heads. In order to design the structured
+2. Interviews with a few department heads. In order to design the structured
    language well, I'd like to talk to its target user base; the department heads
    that will have to write in it. If the transition process is more difficult for
    them than the process of explaining in plain english what they'd like a second
