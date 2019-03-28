@@ -75,13 +75,67 @@ kinda failed in that regard; more on that later.
 The keyboard is set kinda weirdly; I wanted to change it to make the keys a little
 more useful for using Vim.
 
+
 *  [Keyboard][keyboard-rebinding]
 
 [keyboard-rebinding]: http://www.fascinatingcaptain.com/projects/remap-keyboard-keys-for-ubuntu/
 
 ### Integrating with GNOME
+I searched the internet for a few hours before figuring this one out, and it all started
+because I wanted to be able to use the same calendar on all my devices. That shouldn't
+be too hard; there's a list of calendar apps for Linux online, and I picked the
+best looking one, GNOME Calendar. Here's the problems that I had after that, and
+how I solved each one:
 
-*  [GNOME and Ubuntu][integrating-gnome]
+*  **GNOME Calendar was unresponsive** - I installed it with `sudo apt-get install gnome-terminal`,
+   but I couldn't *do* anything with it; I'd open it, and then nothing would happen
+   when I'd try to open any of the menus.  
+   *Solution:* GNOME Calendar needs to be installed with a few other things to get
+   its full functionality. I installed `gnome-control-center`
+*  **GNOME Control Center was empty** - I ran `gnome-control-center`, but when
+   I tried to use it, I'd see a window with maybe 2 or 3 settings icons, none of
+   which were "online accounts".  
+   *Solution:* GNOME Control Center by default kinda disables itself if you're not
+   in the GNOME desktop. To fix, you can do one of two things, as described
+   in [this article][integrating-gnome]:
+
+   *  `env XDG_CURRENT_DESKTOP=GNOME gnome-control-center` - If you launch from
+      the command line, you need to prepend the command with an environment to
+      trick the app into thinking you're using GNOME desktop.
+   *  Editing `/usr/share/applications/gnome-control-center.desktop` - For a desktop
+      launcher, first copy the file at `/usr/share/applications/gnome-control-center.desktop`
+      into the folder `~/.local/share/applications/` with
+
+      ```bash
+      cp "/usr/share/applications/gnome-control-center.desktop" "~/.local/share/applications"
+      ```
+
+      This step isn't technically necessary, but if you're using a machine with multiple
+      user you won't mess up their version of the launcher this way. Also I think
+      that you don't need to use `sudo` if you do it this way (not sure though, forgot <!-- TODO check this -->
+      to test that). Next, you want to edit that file. It'll look something like this:
+
+      ```bash
+      Type=Application
+      Name=Settings
+      Exec=gnome-control-center --overview
+      Icon=Software
+      OnlyShowIn=GNOME;Unity;
+      ... # Rest ommitted for brevity
+      ```
+
+      You want to change `Exec=gnome-control-center --overview` to
+      `Exec=env XDG_CURRENT_DESKTOP=GNOME gnome-control-center --overview` so that
+      the application is usable, and delete the line `OnlyShowIn=GNOME;Unity;` to
+      show the icon in the GUI. The end result looks something like this:
+
+      ```bash
+      Type=Application
+      Name=Settings
+      Exec=env XDG_CURRENT_DESKTOP=GNOME gnome-control-center --overview
+      Icon=Software
+      ... # Rest ommitted for brevity
+      ```
 
 [integrating-gnome]: http://www.webupd8.org/2016/03/use-gnome-318-google-drive-integration.html
 
