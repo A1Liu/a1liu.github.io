@@ -73,12 +73,15 @@ kinda failed in that regard; more on that later.
 
 ### Keyboard Stuff
 The keyboard is set kinda weirdly; I wanted to change it to make the keys a little
-more useful for using Vim.
+more useful for using Vim. This took a while, but eventually I found [this article][keyboard-rebinding]
+that explains exactly what to do for the simple stuff.
 
-
-*  [Keyboard][keyboard-rebinding]
+*  I changed the search key to escape, because ViM.
+*  I changed the power key to delete, because I keep accidentally pressing it at
+   annoying times; [exact instructions here][remap-power-key]
 
 [keyboard-rebinding]: http://www.fascinatingcaptain.com/projects/remap-keyboard-keys-for-ubuntu/
+[remap-power-key]: https://www.reddit.com/r/GalliumOS/comments/8e956k/remap_power_key_to_delete/
 
 ### Integrating with GNOME
 I searched the internet for a few hours before figuring this one out, and it all started

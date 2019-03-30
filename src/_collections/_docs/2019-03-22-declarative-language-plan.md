@@ -29,7 +29,7 @@ This is a recap of my meeting with Laurie Giannisis on March 22, 2019.
    I'd like to ensure that the changes we make to the process are measured and meaningful;
    additionally, I'd like for them to be as easy as possible to transition into.
 
-## The Status Quo as I Understand it
+## Current Workflow
 Currently, the workflow for getting prerequisites entered into NYU's database begins
 with department heads and professors, who write documents with specifications for
 courses to be entered to the system, usually written in some variant of plain english.
@@ -50,6 +50,7 @@ The registrar's office needs to wait for departments to respond to its questions
 with clarifications, and because synchronization between offices is difficult,
 this process can sometimes take a day or two.
 
+<div class="page-break"></div>
 ## Proposal
 My proposed solution is the following:
 
