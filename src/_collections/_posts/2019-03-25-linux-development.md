@@ -76,9 +76,9 @@ The keyboard is set kinda weirdly; I wanted to change it to make the keys a litt
 more useful for using Vim. This took a while, but eventually I found [this article][keyboard-rebinding]
 that explains exactly what to do for the simple stuff.
 
-*  I changed the search key to escape, because ViM.
-*  I changed the power key to delete, because I keep accidentally pressing it at
-   annoying times; [exact instructions here][remap-power-key]
+*  I changed the caps-lock to escape, because ViM.
+<!-- *  I changed the power key to delete, because I keep accidentally pressing it at
+   annoying times; [exact instructions here][remap-power-key] -->
 
 [keyboard-rebinding]: http://www.fascinatingcaptain.com/projects/remap-keyboard-keys-for-ubuntu/
 [remap-power-key]: https://www.reddit.com/r/GalliumOS/comments/8e956k/remap_power_key_to_delete/
