@@ -3,7 +3,7 @@ import pathlib
 import re
 from datetime import datetime
 from scripts.vars import COLLECTIONS_DIR, ASSETS_DIR
-from scripts.utils import similar, listdir_absolute, atom
+from scripts.utils import similar, listdir_absolute# , atom
 
 format_string = '%Y-%m-%d'
 def parse_date(string):
@@ -56,7 +56,7 @@ def open_post(post_name, collection):
         day=int(day)
     )
     assets = make_assets_folder(title.replace('.md',''), post_date, collection)
-    atom(path, assets)
+    # atom(path, assets)
 
 def get_post_path(title, date=None, collection= 'drafts'):
     # raise Exception('Need to fix to work with arbitrary collection, or make a docs version') \

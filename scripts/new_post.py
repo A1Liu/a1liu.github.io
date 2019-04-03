@@ -1,7 +1,6 @@
 import os # import re # escaped = re.escape(a_string)
 from nltk.corpus import stopwords
 from scripts.jekyll_utils import get_post_path, open_post, shorten_title
-from scripts.utils import atom
 
 en_stopwords = set( stopwords.words('english') )
 new_post_format = """---
