@@ -139,6 +139,13 @@ how I solved each one:
       Icon=Software
       ... # Rest ommitted for brevity
       ```
+*  **Online Accounts Not Really Loading** - This was pretty confusing;
+   there was a blue bar near the top of the screen that seemed like it
+   was getting larger, kinda like a loading bar, but I wasn't sure. I
+   spent quite a bit of time trying to figure out why there was essentially
+   no UI or anything, and eventually stumbled upon
+   [this AskUbuntu question][ask-ubuntu-wifi] that worked for me.
 
 [integrating-gnome]: http://www.webupd8.org/2016/03/use-gnome-318-google-drive-integration.html
+[ask-ubuntu-wifi]: https://askubuntu.com/questions/1111749/online-accounts-are-very-slow
 
