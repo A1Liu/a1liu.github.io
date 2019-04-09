@@ -90,7 +90,7 @@ be too hard; there's a list of calendar apps for Linux online, and I picked the
 best looking one, GNOME Calendar. Here's the problems that I had after that, and
 how I solved each one:
 
-*  **GNOME Calendar was unresponsive** - I installed it with `sudo apt-get install gnome-terminal`,
+*  **GNOME Calendar was unresponsive** - I installed it with `sudo apt-get install gnome-calendar`,
    but I couldn't *do* anything with it; I'd open it, and then nothing would happen
    when I'd try to open any of the menus.  
    *Solution:* GNOME Calendar needs to be installed with a few other things to get
