@@ -13,5 +13,8 @@ https://medium.com/@damko/a-simple-humble-but-comprehensive-guide-to-xkb-for-lin
 https://askubuntu.com/questions/53038/how-do-i-remap-the-caps-lock-key
 https://www.howtogeek.com/194705/how-to-disable-or-reassign-the-caps-lock-key-on-any-operating-system/
 
+gnome - Gnome didn't help at all; I ended up using gcalcli and conky, which
+work great actually
 
+upgrading to galliumos 3.0 - I'm upgrading my distribution so I'll have another opportunity to test by setup script for my computer!
 
