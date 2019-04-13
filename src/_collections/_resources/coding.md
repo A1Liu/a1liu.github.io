@@ -23,3 +23,9 @@ Great talk by Robert Martin about the future of programming, cuturally
 ##### Regular Expressions
 * [Regexr](https://regexr.com/) - Great resource for experimenting with regular
 expressions. Also includes a resource for learning regex concepts.
+
+##### ViM
+*  [Learn ViM in a Week](https://www.youtube.com/watch?v=_NUO4JEtkDw) - Great intro
+   to ViM, covers quite a bit of stuff that make it easier to get started
+*  [ViM Magic](https://www.youtube.com/watch?v=5r6yzFEXajQ) - Really cool stuff
+   in ViM.
