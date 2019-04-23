@@ -14,11 +14,14 @@ process for developing a program step-by-step
 [inlining-code]: http://number-none.com/blow/john_carmack_on_inlined_code.html
 [semantic-compression]: https://caseymuratori.com/blog_0015
 
-##### Community
+##### Community and People
 * [Future of Programming][future-of-programming] -
 Great talk by Robert Martin about the future of programming, cuturally
+* [Code Review][code-review-for-humans] - Discussion of soft skills that make
+code review easier
 
 [future-of-programming]: https://www.youtube.com/watch?v=ecIWPzGEbFc
+[code-review-for-humans]: https://mtlynch.io/human-code-reviews-1/
 
 ##### Regular Expressions
 * [Regexr](https://regexr.com/) - Great resource for experimenting with regular
