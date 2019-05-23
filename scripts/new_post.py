@@ -37,3 +37,4 @@ def make_post(
 
     with open( output_path, 'x') as f:
         f.write(format_new_post(display_title, categories, tags))
+    print("Output path is:", output_path)
