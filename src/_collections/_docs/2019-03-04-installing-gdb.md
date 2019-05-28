@@ -19,15 +19,20 @@ use it, just type in
 lldb <program name>
 ```
 
-...similar to how you'd use GDB.
+...similar to how you'd use GDB. However, note that `lldb` is built specifically
+for the LLVM and Clang toolchain; there *may* be problems or less features if
+you try to use `lldb` with `g++` or `gcc`.
 
 [lldb-tutorial]: https://lldb.llvm.org/tutorial.html
 
 ### Installing
+You can install using HomeBrew or by downloading the source code manually. I'd
+recommend trying to using HomeBrew first, and then trying to build from source if
+that doesn't work, or if you don't already have HomeBrew installed.
 
 #### From Source
-You can download `gdb` from source using the instructions listed in [this StackOverflow answer][install-gdb-high-sierra].
-The gist is that you need to:
+You can download `gdb` from source using the instructions listed in
+[this StackOverflow answer][install-gdb-high-sierra]. The gist is that you need to:
 
 1. **Download** GDB from https://www.sourceware.org/gdb/download/
 2. **Unpackage** it using `tar`, i.e. `tar xopf gdb-7.12.1.tar.xz`
@@ -39,15 +44,16 @@ The gist is that you need to:
       *note:* you can do the following to run all the above in one line:
       `./configure; make; sudo make install`
 
-<small><i>Note:</i> Anywhere the phrase `gdb-7.12.1` is used, please use the version of GDB that
-you downloaded, indicated by the name of the file that you download in step 1.</small>
+<small><i>Note:</i> Anywhere the phrase `gdb-7.12.1` is used, please use the
+version of GDB that you downloaded, indicated by the name of the file that you
+download in step 1.</small>
 
 This should result in `gdb` being installed in the `/usr/local/bin` folder.
 
-[install-gdb-high-sierra]: https://stackoverflow.com/questions/41966073/how-to-install-gdb-on-macos-terminal-sierra
+[install-gdb-high-sierra]: https://stackoverflow.com/a/41966074
 
 #### With Homebrew
-First install [Homebrew][homebrew]. Once you have it installed, run the following
+First install [HomeBrew][homebrew]. Once you have it installed, run the following
 command:
 
 ```shell

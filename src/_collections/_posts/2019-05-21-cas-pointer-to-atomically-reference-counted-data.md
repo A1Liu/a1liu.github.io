@@ -58,8 +58,10 @@ I discover and use them.
 - [Herb Sutter's Atomic Weapons Talk][atomic-weapons] -
 - [Ticki's Hazard Pointers Post][ticki-blog] -
 - [Andrei Alexandrescu and Maged Michael's Hazard Pointers Paper][hazard-ptrs] -
+- [Peter Bailis's Post on Linearizability][linearizability] -
 
 [atomic-weapons]: https://www.youtube.com/watch?v=A8eCGOqgvH4
 [basics-of-lock-free]: https://www.youtube.com/watch?v=LbOB_moUa94
 [playing-with-razors]: https://www.youtube.com/watch?v=c1gO9aB9nbs
 [hazard-ptrs]: https://www.researchgate.net/publication/252573326_Lock-Free_Data_Structures_with_Hazard_Pointers
+[linearizability]: http://www.bailis.org/blog/linearizability-versus-serializability/
