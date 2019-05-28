@@ -8,6 +8,8 @@ So MacOS has quite a few *interesting* things that prevent GDB from working. Thi
 guide doesn't promise that you'll be able to use it, just that you'll be able to figure
 out the solution faster.
 
+*Updated on 5/28/19:* Added additional information related to installing `gdb`
+
 ##### Shortcut
 If the below steps make you confused, unhappy, or discouraged, just remember that
 MacOS comes with a debugger already installed called [LLDB][lldb-tutorial]! To
@@ -21,13 +23,32 @@ lldb <program name>
 
 [lldb-tutorial]: https://lldb.llvm.org/tutorial.html
 
-### Downloading
-First, please use a package manager. Generally this isn't always necessary, but
-in this case, there are so many problems with the installation process anyways,
-that you might as well have the *first part* handled for you.
+### Installing
 
-More specifically, please use [Homebrew][homebrew] to install GDB. From there you
-can run
+#### From Source
+You can download `gdb` from source using the instructions listed in [this StackOverflow answer][install-gdb-high-sierra].
+The gist is that you need to:
+
+1. **Download** GDB from https://www.sourceware.org/gdb/download/
+2. **Unpackage** it using `tar`, i.e. `tar xopf gdb-7.12.1.tar.xz`
+3. **Open** the folder, e.g. `cd gdb-7.12.1`
+4. Follow the instructions in the `README` file in that folder, or do the following
+   1. Run `./configure`; this might take a while
+   2. Run `make`; this will take quite a bit of time
+   3. Run `sudo make install`  
+      *note:* you can do the following to run all the above in one line:
+      `./configure; make; sudo make install`
+
+<small><i>Note:</i> Anywhere the phrase `gdb-7.12.1` is used, please use the version of GDB that
+you downloaded, indicated by the name of the file that you download in step 1.</small>
+
+This should result in `gdb` being installed in the `/usr/local/bin` folder.
+
+[install-gdb-high-sierra]: https://stackoverflow.com/questions/41966073/how-to-install-gdb-on-macos-terminal-sierra
+
+#### With Homebrew
+First install [Homebrew][homebrew]. Once you have it installed, run the following
+command:
 
 ```shell
 brew install gdb
