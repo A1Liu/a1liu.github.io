@@ -30,7 +30,7 @@ You can install using HomeBrew or by downloading the source code manually. I'd
 recommend trying to using HomeBrew first, and then trying to build from source if
 that doesn't work, or if you don't already have HomeBrew installed.
 
-#### From Source
+##### From Source
 You can download `gdb` from source using the instructions listed in
 [this StackOverflow answer][install-gdb-high-sierra]. The gist is that you need to:
 
@@ -52,7 +52,7 @@ This should result in `gdb` being installed in the `/usr/local/bin` folder.
 
 [install-gdb-high-sierra]: https://stackoverflow.com/a/41966074
 
-#### With Homebrew
+##### With Homebrew
 First install [HomeBrew][homebrew]. Once you have it installed, run the following
 command:
 
