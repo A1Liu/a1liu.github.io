@@ -8,11 +8,11 @@ So MacOS has quite a few *interesting* things that prevent GDB from working. Thi
 guide doesn't promise that you'll be able to use it, just that you'll be able to figure
 out the solution faster.
 
-*Updated on 5/28/19:* Added additional information related to installing `gdb`
+*Updated on 5/28/19:* Added additional information related to installing from source
 
 ##### Shortcut
 If the below steps make you confused, unhappy, or discouraged, just remember that
-MacOS comes with a debugger already installed called [LLDB][lldb-tutorial]! To
+MacOS comes with a debugger already installed called [LLDB][lldb-tutorial]. To
 use it, just type in
 
 ```shell
@@ -37,6 +37,9 @@ command:
 ```shell
 brew install gdb
 ```
+
+This should result in `gdb` being installed in the `/usr/local/bin` folder, or
+a functionally equivalent folder in your own user directory.
 
 [homebrew]: https://brew.sh/
 
