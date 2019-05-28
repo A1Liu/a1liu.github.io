@@ -122,6 +122,7 @@ During startup program terminated with signal ?, Unknown signal.
 To fix this, you'll need to [disable GDB from using a shell command to start up
 the program that you're debugging][dis-gdb-shell]. Create a file called `.gdbinit` in your user
 folder (the path of the file will be `~/.gdbinit`), and add the following line:
+
 [dis-gdb-shell]: https://github.com/Homebrew/homebrew-core/issues/5912
 
 ```shell
