@@ -30,28 +30,6 @@ You can install using HomeBrew or by downloading the source code manually. I'd
 recommend trying to using HomeBrew first, and then trying to build from source if
 that doesn't work, or if you don't already have HomeBrew installed.
 
-##### From Source
-You can download `gdb` from source using the instructions listed in
-[this StackOverflow answer][install-gdb-high-sierra]. The gist is that you need to:
-
-1. **Download** GDB from https://www.sourceware.org/gdb/download/
-2. **Unpackage** it using `tar`, i.e. `tar xopf gdb-7.12.1.tar.xz`
-3. **Open** the folder, e.g. `cd gdb-7.12.1`
-4. Follow the instructions in the `README` file in that folder, or do the following
-   1. Run `./configure`; this might take a while
-   2. Run `make`; this will take quite a bit of time
-   3. Run `sudo make install`  
-      *note:* you can do the following to run all the above in one line:
-      `./configure; make; sudo make install`
-
-<small><i>Note:</i> Anywhere the phrase `gdb-7.12.1` is used, please use the
-version of GDB that you downloaded, indicated by the name of the file that you
-download in step 1.</small>
-
-This should result in `gdb` being installed in the `/usr/local/bin` folder.
-
-[install-gdb-high-sierra]: https://stackoverflow.com/a/41966074
-
 ##### With Homebrew
 First install [HomeBrew][homebrew]. Once you have it installed, run the following
 command:
@@ -61,6 +39,31 @@ brew install gdb
 ```
 
 [homebrew]: https://brew.sh/
+
+##### From Source
+You can download `gdb` from source using the instructions listed in
+[this StackOverflow answer][install-gdb-high-sierra]. The gist is that you need to:
+
+1. **Download** GDB from [sourceware.org/gdb/download][gdb-source-download]
+2. **Unpackage** it using `tar`, i.e. `tar xopf gdb-7.12.1.tar.xz`
+3. **Open** the folder, e.g. `cd gdb-7.12.1`
+4. Follow the instructions in the `README` file in that folder, or do the following
+   1. Run `./configure`; this might take a while
+   2. Run `make`; this will take quite a bit of time
+   3. Run `sudo make install`  
+      You can do the following to run all the above in one line:
+      ```shell
+      ./configure; make; sudo make install
+      ```
+
+<small><i>Note:</i> Anywhere the phrase `gdb-7.12.1` is used, please use the
+version of GDB that you downloaded, indicated by the name of the file that you
+download in step 1.</small>
+
+This should result in `gdb` being installed in the `/usr/local/bin` folder.
+
+[gdb-source-download]: https://www.sourceware.org/gdb/download/
+[install-gdb-high-sierra]: https://stackoverflow.com/a/41966074
 
 ### Setting Permissions
 Usually, the above is all you need to do. However, because Mac security features prevent
