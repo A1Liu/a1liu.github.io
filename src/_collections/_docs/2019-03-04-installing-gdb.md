@@ -27,21 +27,8 @@ you try to use `lldb` with `g++` or `gcc`.
 
 ### Installing
 You can install using HomeBrew or by downloading the source code manually. I'd
-recommend trying to using HomeBrew first, and then trying to build from source if
-that doesn't work, or if you don't already have HomeBrew installed.
-
-##### With Homebrew
-First install [HomeBrew][homebrew]. Once you have it installed, run the following
-command:
-
-```shell
-brew install gdb
-```
-
-This should result in `gdb` being installed in the `/usr/local/bin` folder, or
-a functionally equivalent folder in your own user directory.
-
-[homebrew]: https://brew.sh/
+recommend trying to install from source first, and then try installing using HomeBrew
+if that doesn't work.
 
 ##### From Source
 You can download `gdb` from source using the instructions listed in
@@ -49,9 +36,9 @@ You can download `gdb` from source using the instructions listed in
 
 1. **Download** GDB from [sourceware.org/gdb/download][gdb-source-download]
 2. **Unpackage** it using `tar`, i.e. `tar xopf gdb-7.12.1.tar.xz`
-3. **Open** the folder, e.g. `cd gdb-7.12.1`
+3. **Open** the folder in a terminal, using `cd gdb-7.12.1`
 4. Follow the instructions in the `README` file in that folder, or do the following
-   1. Run `./configure`; this might take a while
+   1. Run `./configure`; this can take a few minutes
    2. Run `make`; this will take quite a bit of time
    3. Run `sudo make install`  
       You can do the following to run all the above in one line:
@@ -67,6 +54,19 @@ This should result in `gdb` being installed in the `/usr/local/bin` folder.
 
 [gdb-source-download]: https://www.sourceware.org/gdb/download/
 [install-gdb-high-sierra]: https://stackoverflow.com/a/41966074
+
+##### With Homebrew
+First install [HomeBrew][homebrew]. Once you have it installed, run the following
+command:
+
+```shell
+brew install gdb
+```
+
+This should result in `gdb` being installed in the `/usr/local/bin` folder, or
+a functionally equivalent folder in your own user directory.
+
+[homebrew]: https://brew.sh/
 
 ### Setting Permissions
 Usually, the above is all you need to do. However, because Mac security features prevent
