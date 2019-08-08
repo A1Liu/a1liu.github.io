@@ -4,11 +4,10 @@
 }
 
 .main {
+  min-height: 100vh;
 	padding: 50px;
 	background: $main-div-background;
 }
-
-
 
 @include media-breakpoint-up(lg) {
 	#main-col {
