@@ -1,5 +1,5 @@
 ---
-title: bored
+title: Bored
 description: The internet is a beautiful place. Here's a list of some of the sites I go on when I'm bored.
 short: true
 ---
