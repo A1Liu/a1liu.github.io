@@ -14,11 +14,13 @@ permalink: /
 </div>
 
 {% for doc in site.main %}
-<div id="{{ doc.title }}-excerpt">
-	<h2 id="{{ doc.title }}">{{ doc.title | capitalize }}</h2>
-	<p>
-		{{ doc.description }}
-	</p>
-	{{ doc.content }}
-</div>
+  {% if doc.title != "Documents" %}
+    <div id="{{ doc.title }}-excerpt">
+      <h2 id="{{ doc.title }}">{{ doc.title | capitalize }}</h2>
+      <p>
+        {{ doc.description }}
+      </p>
+      {{ doc.content }}
+    </div>
+  {% endif %}
 {% endfor %}
