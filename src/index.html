@@ -3,6 +3,13 @@ title: home
 layout: default
 permalink: /
 ---
+{% capture blog_content %}
+{% assign most_recent = site.posts | slice: 0,5 %}
+{% for post in most_recent %}
+* [Entry {{ site.posts.size | minus: forloop.index | plus: 1 }}: {{ post.title }} ]( {{ post.url }} )
+{% endfor %}
+{% endcapture %}
+
 <div class="bio">
 	<img class="profile" src="{{'/img/fb_profile_pic.jpg' | prepend: site.assets_dir }}" />
 	<h2>
@@ -20,7 +27,11 @@ permalink: /
       <p>
         {{ doc.description }}
       </p>
+    {% if doc.title != "Blog" %}
       {{ doc.content }}
+    {% else %}
+      {{ blog_content | markdownify }}
+    {% endif %}
     </div>
   {% endif %}
 {% endfor %}
