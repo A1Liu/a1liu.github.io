@@ -2,6 +2,7 @@
 title: Ideas to Include in a New Programming Language
 categories: [programming]
 tags: [fun]
+published: false
 ---
 <!-- {% raw %} -->
 <!-- {% include refc-small.html text="ref commit" commit="3cad965..." %} -->
