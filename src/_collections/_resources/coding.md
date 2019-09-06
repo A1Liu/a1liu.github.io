@@ -15,17 +15,22 @@ process for developing a program step-by-step
 [semantic-compression]: https://caseymuratori.com/blog_0015
 
 ##### Community and People
-* [Future of Programming][future-of-programming] -
-Great talk by Robert Martin about the future of programming, cuturally
-* [Code Review][code-review-for-humans] - Discussion of soft skills that make
-code review easier
+*  [Future of Programming][future-of-programming] -
+   Great talk by Robert Martin about the future of programming, cuturally
+*  [Code Review][code-review-for-humans] - Discussion of soft skills that make
+   code review easier
 
 [future-of-programming]: https://www.youtube.com/watch?v=ecIWPzGEbFc
 [code-review-for-humans]: https://mtlynch.io/human-code-reviews-1/
 
 ##### Regular Expressions
-* [Regexr](https://regexr.com/) - Great resource for experimenting with regular
+*  [Regexr](https://regexr.com/) - Great resource for experimenting with regular
 expressions. Also includes a resource for learning regex concepts.
+
+##### Getting Started
+*  [Difficulty in Programming](https://www.youtube.com/watch?v=Nm_z1-GNl_0) - 
+   Experienced programmer talking about OS development, then about programming
+   in general.
 
 ##### ViM
 *  [Learn ViM in a Week](https://www.youtube.com/watch?v=_NUO4JEtkDw) - Great intro
