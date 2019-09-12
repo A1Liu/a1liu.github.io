@@ -2,6 +2,7 @@ import os
 import logging
 import re
 import json
+import pprint
 from scripts.vars import COLLECTIONS_DIR
 
 class Collection:
@@ -58,9 +59,17 @@ class Collection:
 
         assert title != ''
 
-        date = date.strftime(Collection.format_string) + '-' if 'date' in entry else ''
-        slug = Collection.multiple_dashes_regex.sub('-', title)
-        path = os.path.join(self.path, date + title + '.md')
+        if 'date' in entry:
+            try:
+                date = entry['date'].strftime(Collection.format_string) + '-'
+            except AttributeError:
+                date = entry['date'] + '-'
+
+        else:
+            date = ''
+
+        slug = date + Collection.multiple_dashes_regex.sub('-', title).lower()
+        path = os.path.join(self.path, slug + '.md')
 
         if os.path.exists(path):
             self.logger.info(f'path `{path}` already exists.')
@@ -73,12 +82,14 @@ class Collection:
 
     def list_items(self):
         items = []
-        for path in os.listdir(self.path):
+        for path in [path for path in os.listdir(self.path) if not path.startswith('.')]:
+            logging.info(f"Opening {path}")
             with open(os.path.join(self.path, path), 'r') as f:
                 txt = f.read()
 
-            (_, yaml, text) = txt.split('---\n')
+            (_, yaml, *text) = txt.split('---\n', 3)
             attributes = json.loads('{"' + yaml.strip().replace(': ', '":"').replace('\n','","') + '"}')
+            attributes = {k:[*v.strip()[1:-1].split(',')] if v.startswith('[') else v for k,v in attributes.items() }
             items.append({"attributes":attributes, "text":text})
         return items
 
@@ -86,8 +97,3 @@ class Collection:
         return f"Collection({self.name})"
 
     add_entry = add_item
-
-logging.basicConfig(level=logging.INFO)
-collection = Collection('hi')
-
-print(collection.list_items())
