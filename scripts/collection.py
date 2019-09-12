@@ -2,7 +2,6 @@ import os
 import logging
 import re
 import json
-import pprint
 from scripts.vars import COLLECTIONS_DIR
 
 class Collection:
