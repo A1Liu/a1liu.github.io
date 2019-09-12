@@ -6,16 +6,17 @@ from scripts.vars import COLLECTIONS_DIR, ASSETS_DIR
 from scripts.utils import similar, listdir_absolute# , atom
 
 format_string = '%Y-%m-%d'
+
+# Parses a Jekyll date string
 def parse_date(string):
     if isinstance(string, date): return string
     return datetime.strptime(string, format_string)
 
+# Formats a date into a jekyll date string
 def format_date(date):
-    try:
-        return date.strftime(format_string)
-    except AttributeError:
-        return date
+    return date.strftime(format_string)
 
+# Gets the path of a collection
 def get_collection_dir(collection):
     return os.path.join(COLLECTIONS_DIR,'_'+collection)
 
