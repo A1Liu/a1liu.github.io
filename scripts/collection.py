@@ -51,7 +51,7 @@ class Collection:
         attributes = ['title', 'date', 'categories', 'tags']
 
         def map(attr_list, func, default):
-             return (func(entry[attribute]) if attribute in entry else default for attribute in attr_list)
+             return (func(entry[attr]) if attr in entry else default for attr in attr_list)
 
         (title,) = map(str_attr, lambda s: s.strip(), '')
         (categories, tags) = map(list_attr, lambda l: ','.join((s.strip() for s in l)), '')

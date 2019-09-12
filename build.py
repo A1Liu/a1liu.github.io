@@ -1,5 +1,4 @@
-from scripts.new_post import make_post
-from scripts.utils import gitdiff_convert
+from scripts.collection import Collection
 
 """
 make_post(
@@ -18,9 +17,5 @@ tags = [ # tags of the post, unordered
         'tag1'
 ]
 
-make_post(
-    title, display_title=display_title, date=date,
-    collection=collection, categories = categories, tags = tags)
-
-#path =
-# gitdiff_convert(path)
+collection = Collection(collection)
+collection.add_item(title=title, date=date,categories=categories,tags=tags)
