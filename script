@@ -1,5 +1,0 @@
-#!/bin/zsh
-
-python3 scripts/collection.py && echo compiled\!
-
-

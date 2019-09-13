@@ -1,17 +1,11 @@
-import os, re, aliu
+import os, re
 from difflib import SequenceMatcher
-from ansi2html import Ansi2HTMLConverter
+from aliu.string import parse_args
 
 def get_dir(root,new):
     new_dir = join(root,str(new))
     if not os.path.isdir(new_dir): os.mkdir(new_dir)
     return new_dir
-
-def atom(*files, options = []):
-    aliu.atom(*files, options=['-a']+options)
-
-def sublime(*files, options = []):
-    aliu.sublime(*files, options=['-a']+options)
 
 replace_str = re.compile(r'(\[1mdiff)')
 def gitdiff_convert(path):
