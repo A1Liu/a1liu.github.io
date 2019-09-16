@@ -2,7 +2,6 @@
 title: Ideas to Include in a New Programming Language
 categories: [programming]
 tags: [fun]
-published: false
 ---
 <!-- {% raw %} -->
 <!-- {% include refc-small.html text="ref commit" commit="3cad965..." %} -->
@@ -10,40 +9,56 @@ published: false
 <!-- {% endraw %} -->
 
 ### Idea: DAG of Programming Language Features
+We model the language as a directed, acyclic graph of programming language features,
+where each feature is the child of all the features it depends on, or whose behavior
+it modifies. Thus, different branches of the graph must be orthogonal, by definition.
 
 ##### Application: Disabling Language Features
 
 ### Idea: Auto-Destructure Structs
+Structs that are destructured into their component parts, and whose methods
+get inlined automatically.
 
 ##### Application: RAII without the Overhead
 
 ### Idea: Scopes as Anonymous Structs
+The namespace of a scope can be accessed as a record (struct without a type name).
 
 ##### Application: Immediately-Invoked Lambdas without the Abstraction Cost
 
-### Idea: Contracts Over Types and Data Fields
+### Idea: Contracts Over Types/Data Fields
+Contracts enforced over data fields in structs, such that each contract must
+hold while the struct is valid. Contracts over types would be a special case, where
+the type doesn't have fields.
 
 ##### Application: Fine-Grained Safety Checks
 
 ### Idea: Associative Scopes
+Scopes where the order of execution is explicitly determined at compile-time.
+Mutability is not allowed, but initialization after declaration is.
 
 ##### Application: Coarse-Grained (i.e. Declarative) Control Flow
 
 ### Idea: Loop Invariant Declaration
+The programmer declares loop invariants natively in the language.
 
 ##### Application: Fine-Grained Safety Checks
 
 ##### Application: Easier Optimization
 
 ### Idea: Orthogonal Pointer Annotations
+Pointer annotations for concepts like mutability, ownership, block-type (single object
+or array of objects), dispatch-style (dynamic or static), etc.
 
 ##### Application: Customizable Safety Checks
 
 ### Idea: Compile-Time Source Edits
+The compiler is allowed to edit your source during compilation.
 
 ##### Application: Cannonicalization Work Can be Saved to Source
 
 ### Idea: Language Support for Allocators
+Allocators are given the same amount of information that garbage collectors are.
 
 ##### Application: Intrusive Allocators
 

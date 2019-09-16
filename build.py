@@ -25,8 +25,14 @@ def help(name='help'):
     else:
         print("No help text available for '" + name + "'.")
 
+def add_item(title, date, categories = [], tags = []):
+    collection = get('collection')
+    categories = categories.split(',') if isinstance(categories, str) else categories
+    tags = tags.split(',') if isinstance(tags, str) else tags
+    collection.add_item(title=title, date=date, categories=categories, tags=tags)
+
 namespace = {
-        'add_item'  : lambda title, date, categories=[], tags=[]: collection.add_item(title=title, date=date,categories=categories,tags=tags),
+        'add_item'  : add_item,
         'quit'      : quit,
         'q'         : quit,
         'set'       : set,
@@ -37,7 +43,10 @@ namespace = {
         'collection': Collection('posts'),
         }
 
+namespace['namespace'] = namespace
+
 help_text = {
+        'add_item':"Add an item to the current collection.",
         }
 
 while True:
