@@ -84,3 +84,22 @@ that could be a security vulnerability. I'd like to be able to, at compile time,
 check that the module I'm importing doesn't copy my entire file system, compress it,
 and post it in a public repo on GitHub.
 
+### Idea: Native Generators
+Using an implicitly passed pointer into the stack, we can check whether or not we're
+in a generator, and basically keep generator code as straight-line code, instead
+of breaking it up into separate pieces first.
+
+Here's how it would work:
+-  Generator code is called with a pointer into the call stack where they were called.
+   When you run the generator, it yields typed objects, along with a pointer into
+   the binary saying which instruction it was on.
+-  Generator code that doesn't yield a value or have no more values to yield will return
+   a null pointer instead. Additionally, when the generator code is called with
+   a null pointer, then it goes to its return value and skips any remaining yields.
+-  Generators themselves are just objects on the stack that are copied in and out
+   of the heap as needed. The first field is always the pointer into the callstack.
+-  An advantage of this style is that any arbitrary function can be trivially turned
+   into a generator by just adding read barriers in the original function and
+   adding a pointer
+
+
