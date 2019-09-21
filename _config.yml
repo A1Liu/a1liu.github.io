@@ -5,8 +5,8 @@ description: >-
 url: "http://a1liu.github.io"
 strict_front_matter: true
 markdown: kramdown
+wearables_url: "/wearables-blog"
 # theme: jekyll-theme-docgen
-
 remote_theme: A1Liu/docgen
 
 # feat: Add YAML String Concatenation to Jekyll
