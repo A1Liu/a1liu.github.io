@@ -10,7 +10,7 @@ wearables_url: "/wearables-blog"
 remote_theme: A1Liu/docgen
 
 # feat: Add YAML String Concatenation to Jekyll
-exclude: [scripts, env, build.py, LICENSE, README.md]
+exclude: [scripts, env, build.py, LICENSE, README.md, wearables]
 include: [_collections]
 assets_dir: "/assets"
 collections_dir: src/_collections
