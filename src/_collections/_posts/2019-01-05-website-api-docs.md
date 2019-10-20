@@ -40,16 +40,17 @@ main | .container-fill > div[2] > div[2] |  Element which contains main content.
 in-`{page.collection}`  | .main  |  Element which contains content of a page in `page.collection`
 
 #### ID's
- ID Name | Description
- --- | ---
- logo | Column containing logo for site
-main-nav  |  Column containing nav for site
-header-row  |  Header
-main-row  |  Bootstrap row for the main content
-left-col  |  Left column in main content
-main-col  |  Main column, where `page.content` is inserted
-right-col |  Right column in main content
-footer-row  |  Footer
+
+ID Name     | Description
+    ---:    | :---
+logo        | Column containing logo for site
+main-nav    | Column containing nav for site
+header-row  | Header
+main-row    | Bootstrap row for the main content
+left-col    | Left column in main content
+main-col    | Main column, where `page.content` is inserted
+right-col   | Right column in main content
+footer-row  | Footer
 
 ## SASS/CSS
 Information is separated into different areas. Selectors are excluded from
