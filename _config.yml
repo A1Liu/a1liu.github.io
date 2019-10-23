@@ -37,6 +37,9 @@ collections:
   docs:
     output: true
     permalink: /docs/:path/
+  career:
+    output: true
+    permalink: /career/:name/
 
 defaults:
   -
@@ -52,7 +55,10 @@ defaults:
     scope:
       type: posts
     values: *default_values
-
+  -
+    scope:
+      type: career
+    values: *default_values
   -
     scope:
       type: main
