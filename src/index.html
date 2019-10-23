@@ -21,7 +21,7 @@ permalink: /
 </div>
 
 {% for doc in site.main %}
-  {% if doc.title != "Documents" %}
+  {% if doc.title == "Blog" %}
     <div id="{{ doc.title }}-excerpt">
       <h2 id="{{ doc.title }}">{{ doc.title | capitalize }}</h2>
       <p>

@@ -32,8 +32,8 @@ expressions. Also includes a resource for learning regex concepts.
    Experienced programmer talking about OS development, then about programming
    in general.
 
-##### ViM
-*  [Learn ViM in a Week](https://www.youtube.com/watch?v=_NUO4JEtkDw) - Great intro
-   to ViM, covers quite a bit of stuff that make it easier to get started
-*  [ViM Magic](https://www.youtube.com/watch?v=5r6yzFEXajQ) - Really cool stuff
-   in ViM.
+##### Vim
+*  [Learn Vim in a Week](https://www.youtube.com/watch?v=_NUO4JEtkDw) - Great intro
+   to Vim, covers quite a bit of stuff that make it easier to get started
+*  [Vim Magic](https://www.youtube.com/watch?v=5r6yzFEXajQ) - Really cool stuff
+   in Vim.

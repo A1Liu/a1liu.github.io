@@ -11,8 +11,9 @@ remote_theme: A1Liu/docgen
 
 # feat: Add YAML String Concatenation to Jekyll
 exclude: [scripts, env, build.py, LICENSE, README.md, wearables]
+# source: src
 include: [_collections]
-assets_dir: "/assets"
+assets_dir: /assets
 collections_dir: src/_collections
 includes_dir: src/_includes
 layouts_dir: src/_layouts
@@ -25,9 +26,6 @@ special_chars:
   tab: "\t"
 
 collections:
-  main:
-    output: true
-    permalink: /:name/
   posts:
     output: true
     permalink: /blog/:year/:month/:title/
@@ -58,10 +56,6 @@ defaults:
   -
     scope:
       type: career
-    values: *default_values
-  -
-    scope:
-      type: main
     values: *default_values
   -
     scope:
