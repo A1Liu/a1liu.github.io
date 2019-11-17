@@ -1,4 +1,4 @@
 ---
-layout: latex-docgen
+layout: latex
 ---
 # Albert Liu
