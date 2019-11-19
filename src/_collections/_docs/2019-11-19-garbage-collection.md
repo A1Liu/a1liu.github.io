@@ -71,7 +71,7 @@ Note that tracing collection calculates the least fix-point of $$f$$, minimizing
 the value of $$\rho(v)$$ for all *v* in *V*, and thus for tracing collection
 $$V_F = V_D$$ after each collection.
 
-## Train Algorithm
+## The Train Algorithm
 The Train Algorithm is a garbage collection algorithm that non-disruptively collects
 garbage. The original paper that describes it can be found [here][train-algorithm].
 
