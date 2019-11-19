@@ -61,6 +61,8 @@ Example:
 while True:
     txt = input("%~ ") + ' '
     func, txt = txt.split(" ", 1)
+    # Make this better with
+    # http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html#user-input
     args = [arg.strip() for arg in parse_args(txt.strip(), sep=',')]
 
     func = get(func)
