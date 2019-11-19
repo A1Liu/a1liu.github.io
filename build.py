@@ -26,7 +26,7 @@ def add_item(title, date, categories = [], tags = []):
     collection = get('collection')
     if date.lower() == 'today':
         date = None
-    categories = categories.split(',') if isinstance(categories, str) else categories
+    categories = categories.split(':') if isinstance(categories, str) else categories
     tags = tags.split(',') if isinstance(tags, str) else tags
     path = collection.add_item(title=title, date=date, categories=categories, tags=tags)
     return os.path.relpath(path)
@@ -49,8 +49,12 @@ namespace = {
 }
 
 help_text = {
-    "add_item"  : "Add an item to the current collection.\
-                    Usage: add_item <title>,<date>,<categories = []>,tags = []>",
+    "add_item"  : """
+Add an item to the current collection.
+Usage:
+    add_item <title>,<date>,<categories>,<tags>
+Example:
+    add_item 'Hello, World!',2019-12-29,meta,first-post:meta""".strip(),
     "help"      : "Get help on something. Usage: help <command-name>",
 }
 
