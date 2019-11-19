@@ -55,8 +55,8 @@ object, and modify reference counting to do decrement operations at "collection 
 
 #### 2.2 Formalisms
 We define a fix-point computation over a function
-$$f: \mathbb{N}_{\vert V \vert}^{\vert V \vert} \rightarrow
-\mathbb{N}_{\vert V \vert}^{\vert V \vert}$$, where
+$$f: \mathbb{N}^{\vert V \vert} \rightarrow
+\mathbb{N}^{\vert V \vert}$$, where
 $$f(\rho_1, \rho_2, \dots \rho_{\vert V \vert})$$ is the computed reference
 counts for the objects in the object graph, as a function of the previous
 computed reference counts, for a given snapshot.
