@@ -36,6 +36,10 @@ h1 {
 
 }
 
+pre > code, pre, code {
+  font-family: $code-font-family;
+}
+
 
 div.highlight > pre,
 :not(pre) > code:not(.no-style) {
