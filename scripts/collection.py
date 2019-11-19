@@ -2,6 +2,7 @@ import os
 import logging
 import re
 import json
+from datetime import datetime
 from scripts.vars import COLLECTIONS_DIR
 
 class Collection:
@@ -42,9 +43,9 @@ class Collection:
 
     # Adds an item to this collection, and returns the path of the new item.
     # Item should not be an element already in the collection.
-    def add_item(self, _strict=True, **entry):
+    def add_item(self, **entry):
         self.logger.info(\
-                f'`add_item` called with\n  _strict=`{_strict}`\n  attributes=`{entry}`')
+                f'`add_item` called with\n  attributes=`{entry}`')
 
         str_attr = ['title']
         list_attr = ['categories', 'tags']
@@ -59,11 +60,13 @@ class Collection:
         assert title != ''
 
         if 'date' in entry:
-            try:
-                date = entry['date'].strftime(Collection.format_string) + '-'
-            except AttributeError:
-                date = entry['date'] + '-'
-
+            entry_date = entry['date']
+            if entry_date is None:
+                date = datetime.now().strftime(Collection.format_string) + '-'
+            elif isinstance(entry_date, datetime):
+                date = entry_date.strftime(Collection.format_string) + '-'
+            else:
+                date = entry_date + '-'
         else:
             date = ''
 
