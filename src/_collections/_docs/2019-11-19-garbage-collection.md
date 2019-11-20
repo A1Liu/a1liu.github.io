@@ -99,7 +99,3 @@ We go down the trains and clean them up like so:
 3. Move objects reachable by other cars to those cars
 4. Repeat process 1-3 for all cars in current train
 5. Move the now empty train to the end and go to next train in line.
-
-```shell
-hi -sa
-```
