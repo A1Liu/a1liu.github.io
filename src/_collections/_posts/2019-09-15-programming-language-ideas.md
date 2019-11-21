@@ -102,4 +102,10 @@ Here's how it would work:
    into a generator by just adding read barriers in the original function and
    adding a pointer
 
+### Idea: Garbage Collector API
+Have an API which the program can use to communicate with the garbage collector
+at runtime.
 
+##### Application: Deterministic Tracing Collector
+If the program is able to communicate with the garbage collector, mark and sweep
+collectors can be deterministically run.
