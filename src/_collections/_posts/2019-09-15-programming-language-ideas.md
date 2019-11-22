@@ -15,12 +15,6 @@ it modifies. Thus, different branches of the graph must be orthogonal, by defini
 
 ##### Application: Disabling Language Features
 
-### Idea: Auto-Destructure Structs
-Structs that are destructured into their component parts, and whose methods
-get inlined automatically.
-
-##### Application: RAII without the Overhead
-
 ### Idea: Scopes as Anonymous Structs
 The namespace of a scope can be accessed as a record (struct without a type name).
 
@@ -109,3 +103,19 @@ at runtime.
 ##### Application: Deterministic Tracing Collector
 If the program is able to communicate with the garbage collector, mark and sweep
 collectors can be deterministically run.
+
+### Idea: Macro Objects
+Objects that are destructured into their comonent parts, and whose methods get
+inlined automatically. Because methods are inlined, recursion is not allowed.
+They're objects during type checking, but then are expanded type-safely during
+compilation.
+
+##### Application: RAII without the Overhead
+RAII can be done without any compile-time or runtime overhead, by just inlining
+the necessary statements.
+
+##### Application: High-level State Transitions
+We can use objects to manage state transitions, without actually creating any
+objects. Things like application state transitions can be done with a state manager
+in global scope, but without having actual objects being constructed.
+
