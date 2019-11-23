@@ -2,14 +2,14 @@
 import sys, os
 from scripts.collection import Collection
 from aliu.string import parse_args
-import readline
+from aliu import repl
 
 def get(name):
     global namespace
     if name in namespace:
         return namespace[name]
     else:
-        print("NamespaceError: '" + name + "' not defined.")
+        return "NamespaceError: '" + name + "' not defined."
 
 def set(name, value):
     global namespace
@@ -19,8 +19,10 @@ def get_help(name='help'):
     global help_text
     if name in help_text:
         return help_text[name]
+    elif name in namespace and namespace[name] in help_text:
+        return help_text[namespace[name]]
     else:
-        print("No help text available for '" + name + "'.")
+        return "No help text available for '" + name + "'."
 
 def add_item(title, date, categories = [], tags = []):
     collection = get('collection')
@@ -32,7 +34,7 @@ def add_item(title, date, categories = [], tags = []):
     return os.path.relpath(path)
 
 def list_namespace():
-    return '\n'.join("%s\n    %s" % (name, get_help(name)) for name in namespace.keys())
+    return str([key for key in namespace.keys()])
 
 namespace = {
     'add_item'  : add_item,
@@ -49,7 +51,7 @@ namespace = {
 }
 
 help_text = {
-    "add_item"  : """
+    add_item  : """
 Add an item to the current collection.
 Usage:
     add_item <title>,<date>,<categories>,<tags>
@@ -58,23 +60,29 @@ Example:
     "help"      : "Get help on something. Usage: help <command-name>",
 }
 
-while True:
-    txt = input("%~ ") + ' '
-    func, txt = txt.split(" ", 1)
-    # Make this better with
-    # http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html#user-input
-    args = [arg.strip() for arg in parse_args(txt.strip(), sep=',')]
+class Repl(repl.Repl):
 
-    func = get(func)
-    result = None
-    if func is None:
-        continue
-    if hasattr(func, '__call__'):
-        try:
-            result = func(*args)
-        except Exception as err:
-            result = err.__class__.__name__ + ": " + err.__str__()
-        if result is not None:
-            print(result)
-    else:
-        print(func)
+    def __init__(self):
+        super().__init__(prompt = "%~ ")
+
+    def parse(self, buffer):
+        # Make this better with
+        # http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html#user-input
+        func, txt = (buffer + ' ').split(" ", 1)
+        if func.strip() == '':
+            return repl.SKIP_EVALUATION
+        return func,[arg.strip() for arg in parse_args(txt.strip(), sep=',')]
+
+    def eval(self, parsed_data):
+        func, args = parsed_data
+        func = get(func)
+        if hasattr(func, '__call__'):
+            try:
+                result = func(*args)
+                return result if result is not None else repl.SKIP_PRINTING
+            except Exception as err:
+                return err.__class__.__name__ + ": " + err.__str__()
+        else:
+            return func
+
+Repl().run()

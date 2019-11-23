@@ -106,9 +106,15 @@ collectors can be deterministically run.
 
 ### Idea: Macro Objects
 Objects that are destructured into their comonent parts, and whose methods get
-inlined automatically. Because methods are inlined, recursion is not allowed.
-They're objects during type checking, but then are expanded type-safely during
-compilation.
+inlined automatically. They're objects during type checking, but then are
+expanded type-safely during compilation.
+
+Macro objects have a few notable downsides:
+-  Because their methods are always inlined, recursion is not allowed.
+-  They have no defined structure at runtime, so things like the `sizeof` function
+   won't work on them
+-  They can only be passed as compile-time parameters to functions that expect
+   macro objects.
 
 ##### Application: RAII without the Overhead
 RAII can be done without any compile-time or runtime overhead, by just inlining
