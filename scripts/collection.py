@@ -88,10 +88,25 @@ class Collection:
             with open(os.path.join(self.path, path), 'r') as f:
                 txt = f.read()
 
-            (_, yaml_data, *text) = txt.split('---\n', 3)
+            (_, yaml_data, text) = txt.split('---\n', 2)
             items.append({'attributes':yaml.safe_load(yaml_data), 'content': text})
-            items.append({"attributes":attributes, "text":text})
         return items
+
+    def categories(self):
+        cats = set()
+        for item in self.list_items():
+            cat = (*item['attributes']['categories'],)
+            idx = 0
+            while idx <= len(cat):
+                cats.add(cat[0:idx])
+                idx += 1
+        return [c for c in sorted(cats) if c != ()]
+
+    def tags(self):
+        tags = set()
+        for item in self.list_items():
+            tags = tags.union(item['attributes']['tags'])
+        return [t for t in sorted(tags)]
 
     def __str__(self):
         return f"Collection({self.name})"
