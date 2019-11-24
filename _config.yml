@@ -14,8 +14,8 @@ exclude: [scripts, env, build.py, LICENSE, README.md, Gemfile]
 include: [../assets]
 source: src/
 assets_dir: /assets
+includes_dir: src/_includes
 # collections_dir: src/_collections
-# includes_dir: src/_includes
 # layouts_dir: src/_layouts
 # sass: # http://markdotto.com/2014/09/25/sass-and-jekyll/
 #   sass_dir: src/_sass
