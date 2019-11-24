@@ -28,12 +28,20 @@ clicked. It's incredible.
 
 ## Pain Point: Pantheon Terminal
 "Natural copy-paste" prevents visual block mode in Vim, and must be disabled with
-a poorly documented setting (`gsettings set io.elementary.terminal.settings natural-copy-paste false`).
+a poorly documented setting
+(`gsettings set io.elementary.terminal.settings natural-copy-paste false`).
 
-## Pain Point: Black Screen on Wakeup
-The OS is essentially unusable because I can't wake it up after closing the lid.
+## Awesome Feature: Alt + Tab
+I know this isn't ElementaryOS exclusive, but it's still really nice. I haven't lost
+any productivity in switching off of mac, because the keyboard shortcuts I used
+to use are either exactly the same or only slightly different.
 
-https://a77db9aa-a-7b23c8ea-s-sites.googlegroups.com/a/chromium.org/dev/chromium-os/developer-information-for-chrome-os-devices/acer-c7-chromebook/acer-c7-bottom-guts.jpg?attachauth=ANoY7crNbs1xdrereQdPZsBTy6R6r7z1yJNUWXdLMxLmjozbMcrXo95s1D6IboBOrcw8c7n3TYhTToppJiou-dFj9WUkcS-Yytf1H5PCJcQrPzc7mMAR0Y9aG0RlNjRRbFsxMuX1wRLUcMZCEIQT7MMqeoaEfBdZZuJAt2W7DrJ-jKjnLMrJ4D8X2Kp-v19EYTRh91ipcEorXwMUS-8nd1Fk7nJywZ9lTYNMMJcaM3cET8g6fxTJMyj6TIoqx1MmOMlRc1hVrvBm3MasYmpd18ImFlqGXMQeVvh02t0Nm7ZOK0LkRmt_dQhwW491hIHpkXCPuK0sQROw&attredirects=1
+## Awesome Feature: Pantheon Terminal
+After having used the terminal for a few weeks, it's actually not that bad. I haven't
+had to make any changes to the terminal to use things like italics. That might be
+because of my configs, but who cares. It works seamlessly, and that's what matters.
+
+<!--
 
 Topics:
 xkb - For some reason doing the previous thing with caps-lock bound to control doesn't
@@ -47,4 +55,5 @@ gnome - Gnome didn't help at all; I ended up using gcalcli and conky, which
 work great actually
 
 upgrading to galliumos 3.0 - I'm upgrading my distribution so I'll have another opportunity to test by setup script for my computer!
+-->
 
