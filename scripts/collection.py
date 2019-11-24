@@ -110,5 +110,3 @@ class Collection:
 
     def __str__(self):
         return f"Collection({self.name})"
-
-    add_entry = add_item
