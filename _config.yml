@@ -46,10 +46,6 @@ defaults:
       type: pages
     values: &default_values
       layout: page
-      head-include: global/head.html
-      header-include: global/header.html
-      footer-include: global/footer.html
-      scripts-include: global/scripts.html
   -
     scope:
       type: posts
@@ -63,6 +59,3 @@ defaults:
       type: docs
     values:
       layout: latex
-      head-include: docs/head.html
-      footer-include: docs/footer.html
-      scripts-include: global/scripts.html

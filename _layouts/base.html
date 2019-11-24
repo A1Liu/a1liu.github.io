@@ -1,16 +1,12 @@
 <!doctype html>
 <html lang="en">
-{% if page.head-include %}
-{% include {{ page.head-include }} %}
-{% endif %}
+{% include global/head.html %}
 
 <body>
     <div class="container-fluid" id="site-wrapper">
 
         <div class="row" id="header-row">
-            {% if page.header-include %}
-            {% include {{ page.header-include }} %}
-            {% endif %}
+            {% include global/header.html %}
         </div>
 
         <div class="row" id="main-row">
@@ -28,10 +24,7 @@
             <div class="col-2"></div>
         </div>
     </div>
-    {% if page.scripts-include %}
-    {% include {{ page.scripts-include }} %}
-    {% endif %}
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    {% include global/scripts.html %}
 </body>
 
 </html>

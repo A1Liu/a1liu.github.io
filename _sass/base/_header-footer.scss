@@ -12,6 +12,18 @@
 @mixin header-element($side) {
     a {
         color: $header-text-color !important;
+
+        &,
+        * {
+            @include transition(.4s);
+        }
+
+        &:hover,
+        &:hover * {
+            color: $header-text-hover !important;
+            text-decoration: none;
+            @include transition(.4s);
+        }
     }
 
     @include media-breakpoint-up(md) {
