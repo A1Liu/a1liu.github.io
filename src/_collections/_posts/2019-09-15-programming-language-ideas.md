@@ -111,6 +111,14 @@ at runtime.
 If the program is able to communicate with the garbage collector, mark and sweep
 collectors can be deterministically run.
 
+##### Deterministic Destruction in GC'd Languages
+With a GC API, programs can manually invalidate references to objects, and thus
+deterministic destruction of resources, like what C++ and Rust have, can be done
+in a GC'd language like Java. On instantiation, the program can tie a specific
+reference's lifetime to the lifetime of the object, and force the GC to do a collection
+of that object when the reference goes out of scope. Then, the GC can deterministically
+destruct objects during that forced collection.
+
 ### Idea: Macro Objects
 Objects that are destructured into their comonent parts, and whose methods get
 inlined automatically. They're objects during type checking, but then are
