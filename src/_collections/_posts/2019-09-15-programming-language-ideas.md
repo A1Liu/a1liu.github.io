@@ -14,11 +14,17 @@ where each feature is the child of all the features it depends on, or whose beha
 it modifies. Thus, different branches of the graph must be orthogonal, by definition.
 
 ##### Application: Disabling Language Features
+Language features aren't always a good thing. Sometimes you want dynamic typing,
+and other times you want static analysis with type inference. With a DAG of language
+features, you can disable features you don't want.
 
 ### Idea: Scopes as Anonymous Structs
 The namespace of a scope can be accessed as a record (struct without a type name).
 
 ##### Application: Immediately-Invoked Lambdas without the Abstraction Cost
+Immediately-invoked lambdas are great, but they require the compiler to jump through
+lots of hoops. Instead, scopes can be used to emulate the scoping rules of lambdas
+without having to do the work of optimizing away the code later.
 
 ### Idea: Contracts Over Types/Data Fields
 Contracts enforced over data fields in structs, such that each contract must
@@ -26,6 +32,9 @@ hold while the struct is valid. Contracts over types would be a special case, wh
 the type doesn't have fields.
 
 ##### Application: Fine-Grained Safety Checks
+We can check invariants at compile-time instead of having to check them at runtime,
+or while debugging. Additionally, in debug mode we can have runtime checks that
+ensure correctness by construction.
 
 ### Idea: Associative Scopes
 Scopes where the order of execution is explicitly determined at compile-time.
@@ -35,8 +44,6 @@ Mutability is not allowed, but initialization after declaration is.
 
 ### Idea: Loop Invariant Declaration
 The programmer declares loop invariants natively in the language.
-
-##### Application: Fine-Grained Safety Checks
 
 ##### Application: Easier Optimization
 
