@@ -1,1 +1,1 @@
-<small>{% include ref-commit.html commit=include.commit text=include.text %}</small>
+<small>{% capture txt %}{% include ref-commit.html commit=include.commit text=include.text %}{% endcapture %}{{ txt | strip }}</small>

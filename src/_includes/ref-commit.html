@@ -7,7 +7,7 @@
 
 {% endcapture %}{% capture url %}
 
-  {{ site.repo-url }}/commit/{{ commit | strip | strip_newlines }}
+  https://github.com/{{ include.project | default: site.github_path }}/commit/{{ commit | strip | strip_newlines }}
 
 {% endcapture %}{% capture text %}
 
