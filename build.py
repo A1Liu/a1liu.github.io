@@ -4,28 +4,84 @@ from scripts.collection import Collection
 from aliu.string import parse_args
 from aliu import repl
 
-def get(name):
-    global namespace
-    if name in namespace:
-        return namespace[name]
+_collection = Collection('posts')
+_assign_overrides = {}
+_namespace = {}
+_help_text = {
+    '=' : "The assignment operator. Example: col= drafts",
+}
+
+def _namespace_set(name, value):
+    if name in _assign_overrides:
+        return _assign_overrides[name](value)
     else:
-        return "NamespaceError: '" + name + "' not defined."
+        _namespace[name] = value
+        return value
 
-def set(name, value):
-    global namespace
-    namespace.__setitem__(name, value)
+def _namespace_get(name, *args):
+    if name in _namespace:
+        return _namespace[name]
+    else:
+        raise NameError(f"Name '{name}' not found.")
 
-def get_help(name='help'):
-    global help_text
-    if name in help_text:
-        return help_text[name]
-    elif name in namespace and namespace[name] in help_text:
-        return help_text[namespace[name]]
+def in_namespace(name, *args):
+    if hasattr(name, '__call__'):
+        _namespace[name.__name__] = name
+        return name
+    elif args:
+        def set_names(func):
+            _namespace_set(name, func)
+            for a in args:
+                _namespace_set(a, func)
+            return func
+        return set_names
+    else:
+        return lambda func: _namespace_set(name, func)
+
+def set_help_text(text):
+    def dec(func):
+        global _help_text
+        _help_text[func] = text
+        return func
+    return dec
+
+def assignment_override(name, *args):
+    if hasattr(name, '__call__'):
+        _assign_overrides[name.__name__] = name
+        return name
+    elif args:
+        def dec(func):
+            _assign_overrides[name] = func
+            for a in args:
+                _assign_overrides[a] = func
+            return func
+        return dec
+    else:
+        def dec(func):
+            _assign_overrides[name] = func
+            return func
+        return dec
+
+@set_help_text("Get help on something. Usage: help <command-name>")
+@in_namespace
+def help(name='help'):
+    global _help_text
+    if name in _help_text:
+        return _help_text[name]
+    elif name in _namespace and _namespace[name] in _help_text:
+        return _help_text[_namespace[name]]
     else:
         return "No help text available for '" + name + "'."
 
+@set_help_text("""Add an item to the current collection.
+Usage:
+    add_item <title>,<date>,<categories>,<tags>
+Example:
+    add_item 'Hello, World!',2019-12-29,meta,first-post:meta
+    add_item 'Hello, World!',today,meta,first-post:meta""")
+@in_namespace
 def add_item(title, date, categories = [], tags = []):
-    collection = get('collection')
+    collection = _namespace_get('col')
     if date.lower() == 'today':
         date = None
     categories = categories.split(':') if isinstance(categories, str) else categories
@@ -33,32 +89,25 @@ def add_item(title, date, categories = [], tags = []):
     path = collection.add_item(title=title, date=date, categories=categories, tags=tags)
     return os.path.relpath(path)
 
-def list_namespace():
-    return str([key for key in namespace.keys()])
+@set_help_text("List all available values and commands.")
+@in_namespace('names', 'namespace')
+def namespace():
+    return [key for key in _namespace]
 
-namespace = {
-    'add_item'  : add_item,
-    'quit'      : exit,
-    'q'         : exit,
-    'set'       : set,
-    'get'       : get,
-    'help'      : get_help,
-    'setcol'    : lambda col: set('collection', col),
-    'getcol'    : lambda: get('collection'),
-    'collection': Collection('posts'),
-    'names'     : list_namespace,
-    'namespace' : list_namespace,
-}
+@set_help_text("The collection we're currently operating on.")
+@in_namespace('col', 'collection')
+def collection():
+    return _collection
 
-help_text = {
-    add_item  : """
-Add an item to the current collection.
-Usage:
-    add_item <title>,<date>,<categories>,<tags>
-Example:
-    add_item 'Hello, World!',2019-12-29,meta,first-post:meta""".strip(),
-    "help"      : "Get help on something. Usage: help <command-name>",
-}
+@in_namespace('q', 'quit')
+def quit_repl():
+    return repl.QUIT_REPL
+
+@assignment_override('col', 'collection')
+def setcol(col):
+    global _collection
+    _collection = Collection(col)
+    return _collection
 
 class Repl(repl.Repl):
 
@@ -68,21 +117,33 @@ class Repl(repl.Repl):
     def parse(self, buffer):
         # Make this better with
         # http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html#user-input
-        func, txt = (buffer + ' ').split(" ", 1)
-        if func.strip() == '':
+        func = ''
+        idx = 0
+        while idx < len(buffer):
+            func += buffer[idx]
+            if buffer[idx] in set(['=', ' ', '\t']):
+                break
+            idx += 1
+        func = func.strip()
+        txt = buffer[idx+1:].strip()
+        if func == '':
             return repl.SKIP_EVALUATION
         return func,[arg.strip() for arg in parse_args(txt.strip(), sep=',')]
 
     def eval(self, parsed_data):
         func, args = parsed_data
-        func = get(func)
-        if hasattr(func, '__call__'):
-            try:
-                result = func(*args)
-                return result if result is not None else repl.SKIP_PRINTING
-            except Exception as err:
-                return err.__class__.__name__ + ": " + err.__str__()
-        else:
-            return func
+        try:
+            if args and not func.endswith('='):
+                result = _namespace_get(func)(*args)
+            elif func.endswith('='):
+                func = func[0:-1]
+                result = _namespace_set(func, (*args,) if len(args) > 1 else args[0])
+            else:
+                result = _namespace_get(func)
+                if hasattr(result, '__call__'):
+                    result = result()
+            return result if result is not None else repl.SKIP_PRINTING
+        except Exception as err:
+            return err.__class__.__name__ + ": " + err.__str__()
 
 Repl().run()

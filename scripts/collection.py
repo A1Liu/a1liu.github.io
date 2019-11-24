@@ -2,6 +2,7 @@ import os
 import logging
 import re
 import json
+import yaml
 from datetime import datetime
 from scripts.vars import COLLECTIONS_DIR
 
@@ -24,9 +25,7 @@ class Collection:
     def __init__(self, name):
         self.name = name
         if not os.path.exists(self.path):
-            logging.info("Collection didn't exist, made empty folder.")
-            os.mkdir(self.path)
-
+            raise NameError("Collection 'name' doesn't exist!")
         self.logger = logging.getLogger(f'collection-{name}')
 
     # Path of the collection
@@ -89,9 +88,8 @@ class Collection:
             with open(os.path.join(self.path, path), 'r') as f:
                 txt = f.read()
 
-            (_, yaml, *text) = txt.split('---\n', 3)
-            attributes = json.loads('{"' + yaml.strip().replace(': ', '":"').replace('\n','","') + '"}')
-            attributes = {k:[*v.strip()[1:-1].split(',')] if v.startswith('[') else v for k,v in attributes.items() }
+            (_, yaml_data, *text) = txt.split('---\n', 3)
+            items.append({'attributes':yaml.safe_load(yaml_data), 'content': text})
             items.append({"attributes":attributes, "text":text})
         return items
 
