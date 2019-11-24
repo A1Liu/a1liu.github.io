@@ -1,59 +1,65 @@
-@mixin header-element($side) {
-	a {
-		color: $global-text-color-tertiary;
-	}
-	@include media-breakpoint-up(md) {
-		position: relative;
-		> * {
-			@include transition(0s);
-			position: absolute;
-			top: 50%;
-			#{$side}: 50%;
-
-			@if $side == left {
-				@include transform( translate(-50%,-50%) );
-			} @else {
-				@include transform( translate(50%,-50%) );
-			}
-		}
-	}
-
-	@include media-breakpoint-up(lg) {
-		> * {
-			@include transform( translateY(-50%) );
-			#{$side}: 33.33%;
-			#{$side}: calc(100% / 3);
-		}
-	}
-}
-
 %bookend {
-	height: 90px;
-	background: $header-footer-background;
-	color: $global-text-color-secondary;
+    height: 90px;
+    background: $header-footer-background;
+    color: $global-text-color-secondary;
 }
 
 #footer-row {
-	@extend %bookend;
-	padding-top: 10px;
+    @extend %bookend;
+    padding-top: 10px;
+}
+
+@mixin header-element($side) {
+    a {
+        color: $header-text-color !important;
+    }
+
+    @include media-breakpoint-up(md) {
+        position: relative;
+
+        >* {
+            @include transition(0s);
+            position: absolute;
+            top: 50%;
+            #{$side}: 50%;
+
+            @if $side==left {
+                @include transform(translate(-50%, -50%));
+            }
+
+            @else {
+                @include transform(translate(50%, -50%));
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        >* {
+            @include transform(translateY(-50%));
+            #{$side}: 33.33%;
+            #{$side}: calc(100% / 3);
+        }
+    }
 }
 
 #header-row {
-	@extend %bookend;
+    @extend %bookend;
 
-	#logo {
-		font-size: 30px;
-		@include header-element(left);
-	}
+    #logo {
+        font-size: 30px;
+        @include header-element(left);
+    }
 
-	#main-nav {
-		p {
-			font-size: $md-text-size;
-			margin: 0px;
-			a {
-				margin-left: 5px;
-			}
-		}
-		@include header-element(right);
-	}
+    #main-nav {
+        p {
+            font-size: $md-text-size;
+            margin: 0px;
+
+            a {
+                margin-left: 5px;
+            }
+        }
+
+        @include header-element(right);
+    }
 }

@@ -1,24 +1,136 @@
+html,
+body {
+    background: $global-background;
+    min-height: 100vh;
+}
+
+body {
+    font-family: $font-family;
+    color: $global-text-color;
+    font-size: $xs-text-size;
+
+    @include media-breakpoint-up(sm) {
+        font-size: $sm-text-size;
+    }
+
+    @include media-breakpoint-up(md) {
+        font-size: $md-text-size;
+    }
+}
+
+
+table {
+    font-size: $xs-text-size;
+
+    @include media-breakpoint-up(md) {
+        font-size: $sm-text-size;
+    }
+
+    margin-bottom: 10px;
+}
+
+p {
+    @include transition(0s);
+}
+
+pre>code,
+pre,
+code {
+    font-family: $code-font-family;
+}
+
+
+div.highlight>pre,
+:not(pre)>code:not(.no-style) {
+    color: $code-text-color;
+}
+
+div.highlight>pre {
+    background: $pre-background-color;
+    padding: 15px;
+    border-radius: 10px;
+    overflow: overlay hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    &.pre-scrollable {
+        overflow: overlay;
+    }
+
+    $offset: 15px;
+    $blur-radius: 15px;
+    $spread-radius: -10px;
+    $type: inset;
+    $shadow-color: $pre-edge-color;
+    @include shadow($type $offset*-1 $offset $blur-radius $spread-radius $shadow-color,
+
+        $type $offset $offset*-1 $blur-radius $spread-radius $shadow-color);
+
+    &::-webkit-scrollbar {
+        background: none;
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+
+        $top: $pre-edge-color;
+        $bottom: $pre-background-color;
+        background-image: linear-gradient($pre-scroll-thumb-color-top,
+                $pre-scroll-thumb-color-bottom);
+    }
+}
+
+:not(pre)>code:not(.no-style) {
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    background: $code-background-color;
+}
+
+code.no-style {
+    color: $global-text-color;
+}
+
+
+a {
+    color: $anchor-tag-color;
+
+    &,
+    * {
+        @include transition(.4s);
+    }
+
+    &:hover,
+    &:hover * {
+        color: $anchor-tag-hover;
+        text-decoration: none;
+        @include transition(.4s);
+    }
+}
+
 #site-wrapper {
-  min-height: 100vh;
-  position: relative;
+    min-height: 100vh;
+    position: relative;
 }
 
 .main {
-  min-height: 100vh;
-	padding: 50px;
-	background: $main-div-background;
+    min-height: 100vh;
+    padding: 50px;
+    background: $main-div-background;
 }
 
 @include media-breakpoint-up(lg) {
-	#main-col {
-		$offset: 15px;
-		$blur-radius: 15px;
-		$spread-radius: -15px;
-		$type:inset;
-		@include shadow(
-			$type $offset*-1 0 $blur-radius $spread-radius $shadow-color,
-			$type $offset 0 $blur-radius $spread-radius $shadow-color);
-	}
+    #main-col {
+        $offset: 15px;
+        $blur-radius: 15px;
+        $spread-radius: -15px;
+        $type: inset;
+        @include shadow($type $offset*-1 0 $blur-radius $spread-radius $shadow-color,
+            $type $offset 0 $blur-radius $spread-radius $shadow-color);
+    }
 }
 
-.short-page { height: 100%; }
+.short-page {
+    height: 100%;
+}

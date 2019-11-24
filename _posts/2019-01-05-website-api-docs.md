@@ -3,30 +3,30 @@ title: HTML and SASS/CSS API Documentation
 categories: [projects, homepage]
 tags: [html, css, sass]
 ---
-Documentation for the webpage as of commit {% include ref-commit.html text="`\"moved main.scss in prep for transition to firebase\"`" commit="29e6933aa4512f36e6f85668d28a69b3f58678b8" %}.
+Documentation for the webpage as of commit {% include ref-commit text="`\"moved main.scss in prep for transition to firebase\"`" commit="29e6933aa4512f36e6f85668d28a69b3f58678b8" %}.
 
 ## HTML
 
 #### General Layout
 ```html
 <html lang="en">
-	<head />
-	<body>
-		<div class="container-fluid" style="height:100%;">
+   <head />
+   <body>
+      <div class="container-fluid" style="height:100%;">
 
-			<div class="row" id="header-row">
-				<div class="col-lg-6" id="logo" />
-				<div class="col-lg-6" id="main-nav"/>
-			</div>
+        <div class="row" id="header-row">
+          <div class="col-lg-6" id="logo" />
+          <div class="col-lg-6" id="main-nav"/>
+        </div>
 
-			<div class="row" id="main-row">
-					<div class="col-lg-2" id="left-col" />
-					<div class="col-12 col-lg-8 main website-api-docs-page in-posts" id="main-col" />
-					<div class="col-lg-2" id="right-col" />
-			</div>
-			<div class="row" id="footer-row" />
-		</div>
-	</body>
+        <div class="row" id="main-row">
+            <div class="col-lg-2" id="left-col" />
+            <div class="col-12 col-lg-8 main website-api-docs-page in-posts" id="main-col" />
+            <div class="col-lg-2" id="right-col" />
+        </div>
+        <div class="row" id="footer-row" />
+      </div>
+   </body>
 </html>
 ```
 
@@ -61,16 +61,16 @@ All folders have an `_init.scss` file which imports all of the files in its dire
 _sass/
 ├── base.scss             - base.scss imports everything
 ├── __init__/             - __init__/ holds the initialization stuff, i.e.
-│   ├── mixins/...          the global mixins, color settings, and theme for the site.
-│   ├── theme.scss
-│   └── vars              - Holds values for use in the site. Should be referenced by
-│       ├── colors.scss     __init__/theme.scss, and by nobody else.
-│       └── fonts.scss
+│   ├── mixins/...          the global mixins, color settings, and theme for the site.
+│   ├── theme.scss
+│   └── vars              - Holds values for use in the site. Should be referenced by
+│       ├── colors.scss     __init__/theme.scss, and by nobody else.
+│       └── fonts.scss
 ├── base/                 - Holds base config settings. config.scss only selects by tag,
-│   ├── config.scss         and site.scss selects by class and id, setting the arrangement
-│   ├── site.scss           of the site. syntax.scss handles class selectors for syntax
-│   ├── header-footer.scss  highlighting of pre > code blocks. header-footer.scss handles
-│   └── syntax.scss         styling of header & footer.
+│   ├── config.scss         and site.scss selects by class and id, setting the arrangement
+│   ├── site.scss           of the site. syntax.scss handles class selectors for syntax
+│   ├── header-footer.scss  highlighting of pre > code blocks. header-footer.scss handles
+│   └── syntax.scss         styling of header & footer.
 └── pages/                - Page specific css stuff.
     ├── home.scss
     ├── post.scss

@@ -1,0 +1,30 @@
+pre>code {
+
+    @mixin code_color($class, $code-color) {
+        span.#{$class} {
+            @include dynamic-extend($code-color) {
+                color: $code-color;
+
+                &:hover {
+                    color: auto;
+                }
+            }
+        }
+    }
+
+    @include code_color('c', $code-comment);
+    @include code_color('nt', $code-normal-text);
+    @include code_color('na', $code-na);
+    @include code_color('s', $code-string);
+
+    @include code_color('nf', $code-nf);
+    @include code_color('n', $code-n);
+    @include code_color('p', $code-p);
+    @include code_color('o', $code-o);
+    @include code_color('k', $code-k);
+    @include code_color('nc', $code-nc);
+    @include code_color('bp', $code-bp);
+    @include code_color('ow', $code-ow);
+    @include code_color('mi', $code-mi);
+    @include code_color('c1', $code-comment);
+}

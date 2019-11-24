@@ -15,7 +15,7 @@ Now that I understand SASS and CSS better, I'm going to switch over to Bootstrap
  to refactor my code to take advantage of the Bootstrap formatting.
 
 #### Jan 3, 2018
-## Library CDN {% include refc-small.html commit="3cad96569b964c415cd98a3b66aed73c01d87113" %}
+## Library CDN {% include refc-small commit="3cad96569b964c415cd98a3b66aed73c01d87113" %}
 I'm using the bootstrap CDN, so I made the files `bootstrap/bootstrap.css.html`
 and `bootstrap/bootstrap.js.html`, which contain the code to load the bootstrap assets from the CDN.
 
@@ -46,7 +46,7 @@ These files are included in the layout `base.html` and the include `head.html`, 
 ```
 
 #### January 5, 2018
-## Rewriting HTML & CSS {% include refc-small.html commit="67e067a2bbc12b836652552137c1eb8a3889c7c9" %}
+## Rewriting HTML & CSS {% include refc-small commit="67e067a2bbc12b836652552137c1eb8a3889c7c9" %}
 I used the [Bootstrap Grid Documentation][bs-grid-docs] and [a tutorial by sentdex][sentdex-bootstrap]
 to help me refactor my original HTML based on Bootstrap standards. The whole page is
 put in a `container-fill` div with `style="height:100%"`, which represents the container for everything,
@@ -112,7 +112,7 @@ Actual source also includes error catching.
 Regardless of whether `raw: true` is set, the page object's CSS styles are applied to the div element
 that its content is inserted into.
 
-#### Rewriting SASS {% include refc-small.html commit="67e067a2bbc12b836652552137c1eb8a3889c7c9" %}
+#### Rewriting SASS {% include refc-small commit="67e067a2bbc12b836652552137c1eb8a3889c7c9" %}
 This stuff is pretty minimal. For the most part I just removed lines that are covered by the bootstrap formatting.
 In addition though, I changed the shadow mixin: now it doesn't have a `$code` argument.
 Besides that, it shouldn't be much more complicated.
