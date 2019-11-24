@@ -26,13 +26,16 @@ $Private-Toolkit-Placeholders: ();
 
     $placeholder-id: map-get($Private-Toolkit-Placeholders, $id);
 
-    @if $placeholder-id == null {
+    @if $placeholder-id==null {
 
         $placeholder-id: unique-id();
-        $new-map: map-merge( $Private-Toolkit-Placeholders, ($id: $placeholder-id) );
+        $new-map: map-merge($Private-Toolkit-Placeholders, ($id: $placeholder-id));
         $Private-Toolkit-Placeholders: $new-map !global;
 
-        @at-root %#{$placeholder-id} { @content; }
+        @at-root %#{$placeholder-id} {
+            @content;
+        }
     }
+
     @extend %#{$placeholder-id};
 }
