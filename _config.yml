@@ -15,10 +15,10 @@ include: [../assets]
 source: src/
 assets_dir: /assets
 includes_dir: src/_includes
+layouts_dir: src/_layouts
+sass: # http://markdotto.com/2014/09/25/sass-and-jekyll/
+  sass_dir: src/_sass
 # collections_dir: src/_collections
-# layouts_dir: src/_layouts
-# sass: # http://markdotto.com/2014/09/25/sass-and-jekyll/
-#   sass_dir: src/_sass
 
 repo-url: "https://github.com/A1Liu/a1liu.github.io"
 github_path: "A1liu/a1liu.github.io"
