@@ -6,19 +6,19 @@ url: "http://a1liu.github.io"
 strict_front_matter: true
 markdown: kramdown
 wearables_url: "/wearables-blog"
-theme: jekyll-theme-docgen
+# theme: jekyll-theme-docgen
 remote_theme: A1Liu/docgen
 
 # feat: Add YAML String Concatenation to Jekyll
 exclude: [scripts, env, build.py, LICENSE, README.md, Gemfile]
 include: [../assets]
-source: src/
+# source: src/
+collections_dir: src/_collections
 assets_dir: /assets
-includes_dir: /_includes
-layouts_dir: /_layouts
+includes_dir: src/_includes
+layouts_dir: src/_layouts
 sass: # http://markdotto.com/2014/09/25/sass-and-jekyll/
-  sass_dir: /_sass
-# collections_dir: src/_collections
+  sass_dir: src/_sass
 
 repo-url: "https://github.com/A1Liu/a1liu.github.io"
 github_path: "A1liu/a1liu.github.io"
