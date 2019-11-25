@@ -140,3 +140,15 @@ We can use objects to manage state transitions, without actually creating any
 objects. Things like application state transitions can be done with a state manager
 in global scope, but without having actual objects being constructed.
 
+### Idea: Constructor Function-Call Restrictions
+Since the body of every constructor by definitly has access to uninitialized state,
+using functions/methods in a constructor can be dangerous. Thus, calling code should
+be limited to instances where the code understands that the object has not been
+initialized yet. So for example, a function that's called in a constructor must
+declare that it's ok with an unitialized instance of an object.
+
+##### Application: Actual Null Safety
+In "null-safe" languages like Kotlin, null pointer exceptions are still possible
+when calling a function in a constructor. Restricting the functions that can be
+called in a constructor would remove this exception to the rule.
+
