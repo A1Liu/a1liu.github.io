@@ -175,3 +175,39 @@ In "null-safe" languages like Kotlin, null pointer exceptions are still possible
 when calling a function in a constructor. Restricting the functions that can be
 called in a constructor would remove this exception to the rule.
 
+
+### Idea: Extended Generic Object Interface
+Many languages have an interface which all objects implement, with code generated
+at compile-time when the interface isn't user-specified; lets take that interface
+a step further, shall we?
+
+-  Parameterized toString method: an overload of the toString method which takes
+   string arguments with names that are the same as your object's fields; each
+   one's value defaults to the value of the toString method of the cooresponding
+   field in your object.
+-  Deduplicating Deep Copy method: a method which performs a deep copy of the
+   object. There are two overloads: one which, given an object, a mutable map of
+   pointer translations, and an allocator, performs a deep copy; another which,
+   given an object, performs a deep copy (potentially by calling the first with
+   an empty map).
+-  Field iterator method: a method which returns tuples of (pointer, type), and
+   gives the user the ability to operate on every field of the object in turn.
+
+##### Application: User-Defined Garbage Collection
+Using just our deduplicating deep copy method, we can compile a moving garbage
+collector into every binary:
+
+1. In our main, we define two buffers, and an allocator that can allocate into either
+   buffer, and swap buffers at runtime.
+2. When we allocate objects, we use our buffer allocator, always allocating into
+   the same buffer.
+3. When we choose to garbage collect, we simply swap the buffer we're allocating into
+   and call the deep copy method on all objects we have a reference to, deep
+   copying them using the global allocator from the buffer.
+
+In this way, the user can do memory safe operations without dealing with the
+unpredictable behavior of garbage collection or having to write extra lifetime
+annotations. Instead, they just specify when they're OK with taking a hit to
+performance to collect garbage, and the program does it.
+
+
