@@ -140,6 +140,29 @@ We can use objects to manage state transitions, without actually creating any
 objects. Things like application state transitions can be done with a state manager
 in global scope, but without having actual objects being constructed.
 
+##### Application: Complex Iterators without the Overhead
+The following code in Rust:
+
+```rust
+return vec.windows(2).map(|w| w[0] + w[1])
+```
+
+should trivially boil down to this:
+
+```rust
+let new_vec = Vec::with_capacity(vec.len() - 1);
+for i in 0..(vec.len() - 1) {
+    new_vec.push(vec[i] + vec[i + 1]);
+}
+return new_vec;
+```
+
+The problem is that the original code uses struct definitions, which the compiler
+doesn't know are intended to be optimized out later. If all their definitions were
+inlined automatically, the above transformation could be done in debug mode, with
+nice error messages when things don't work out, and wouldn't requre any heavy duty
+optimization.
+
 ### Idea: Constructor Function-Call Restrictions
 Since the body of every constructor by definitly has access to uninitialized state,
 using functions/methods in a constructor can be dangerous. Thus, calling code should
