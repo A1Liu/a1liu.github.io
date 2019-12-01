@@ -38,7 +38,7 @@ TODO make a collection of resumes -->
 
 ## Activities and Leadership
 
-#### Webmaster at BUGS
+#### Webmaster of BUGS
 *January 2019 - December 2019*
 -  Organized and presented “Intermediate Git Workshop” on 02/04/19
    -  Reviewed branches, commits, then discussed merge conflicts, logging, and
