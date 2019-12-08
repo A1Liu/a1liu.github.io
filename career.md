@@ -11,8 +11,10 @@ TODO make a collection of resumes -->
 #### Schedge
 *August 2019 - Present*
 
--  Goal is to give students a more intuitive UI to schedule courses
--  API currently hosted on Amazon Lightsail, at [schedge.a1liu.com](https://schedge.a1liu.com)
+-  Current maintainer of open source project to make NYU's course catalog easier
+   to use; repository at [github.com/A1Liu/schedge](https://github.com/A1Liu/schedge)
+-  Built web scraper, data parser, and web server using Java and Kotlin
+-  Hosted an API using Amazon Lightsail at [schedge.a1liu.com](http://schedge.a1liu.com)
 
 #### Yet Another Course Scheduler (YACS)
 *October 2018 - June 2019*
@@ -38,6 +40,12 @@ TODO make a collection of resumes -->
 
 ## Activities and Leadership
 
+<!--
+#### President of BUGS
+*January 2020 - Present*
+-  Current president of BUGS, the open source club at NYU.
+-->
+
 #### Webmaster of BUGS
 *January 2019 - December 2019*
 -  Organized and presented “Intermediate Git Workshop” on 02/04/19
@@ -48,9 +56,4 @@ TODO make a collection of resumes -->
 -  Organized and presented “Web Development with Jekyll” Workshop on 02/19/19 and 09/26/19
    -  Discussed Jekyll as a platform for personal websites and application prototyping
    -  Event slides and repository at [bit.ly/2-19-jekyll-web-dev](bit.ly/2-19-jekyll-web-dev)
-
-
-
-
-
 
