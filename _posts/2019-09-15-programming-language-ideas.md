@@ -140,6 +140,14 @@ We can use objects to manage state transitions, without actually creating any
 objects. Things like application state transitions can be done with a state manager
 in global scope, but without having actual objects being constructed.
 
+##### Application: Abstraction without Additional Indirection
+Typically, organizing members of a class into subsections requires the creation
+of another class; this can hurt performance in garbage collected languages, where
+each field access usually directly cooresponds to a ponter dereference. With macro
+objects, we can have inline structs in GC'd languages, as well as inline members,
+which save us a pointer indirection.
+
+
 ##### Application: Complex Iterators without the Overhead
 The following code in Rust:
 
@@ -151,8 +159,10 @@ should trivially boil down to this:
 
 ```rust
 let new_vec = Vec::with_capacity(vec.len() - 1);
+let mut vec_ptr : *const usize = vec[0];
 for i in 0..(vec.len() - 1) {
-    new_vec.push(vec[i] + vec[i + 1]);
+    new_vec.push(unsafe {*vec_ptr + *(vec_ptr.offset(1))});
+    vec_ptr = vec_ptr.offset(1);
 }
 return new_vec;
 ```
@@ -209,5 +219,19 @@ In this way, the user can do memory safe operations without dealing with the
 unpredictable behavior of garbage collection or having to write extra lifetime
 annotations. Instead, they just specify when they're OK with taking a hit to
 performance to collect garbage, and the program does it.
+
+### Idea: Actual Enum Classes
+A class with multiple algebraic variants; largely has semantics of Rust's enums,
+but with shared fields that all variants have access to, similar to how inheritance
+works in Java.
+
+### Idea: Ergonomic Defaults for Strict and Loose Interfaces, Polymorphism
+
+1. Polymorphism is by default loose/structurally typed, with the option
+   to restrict the type.
+2. Interfaces and types are by default strict/nominally typed, with the option to
+   loosen restriction at use site and at declaration site (where a variable is
+   declared the type vs where the type/interface itself is declared)
+3. Variables are mutable by default
 
 
