@@ -3,11 +3,6 @@ title: Ideas to Include in a New Programming Language
 categories: [programming]
 tags: [fun]
 ---
-<!-- {% raw %} -->
-<!-- {% include refc-small.html text="ref commit" commit="3cad965..." %} -->
-<!-- {% include ref-commit.html text="ref commit" commit="3cad965..." %} -->
-<!-- {% endraw %} -->
-
 ### Idea: DAG of Programming Language Features
 We model the language as a directed, acyclic graph of programming language features,
 where each feature is the child of all the features it depends on, or whose behavior
@@ -233,5 +228,7 @@ works in Java.
    loosen restriction at use site and at declaration site (where a variable is
    declared the type vs where the type/interface itself is declared)
 3. Variables are mutable by default
+4. Untyped variables are type inferred by default, and untyped parameters are
+   structurally polymorphic by default
 
 
