@@ -215,6 +215,13 @@ unpredictable behavior of garbage collection or having to write extra lifetime
 annotations. Instead, they just specify when they're OK with taking a hit to
 performance to collect garbage, and the program does it.
 
+<!-- Problems:
+1. fragmentation of the heap
+2. deadline awareness
+3. multithreading
+4. there's not always a good place in main to do copying
+-->
+
 ### Idea: Actual Enum Classes
 A class with multiple algebraic variants; largely has semantics of Rust's enums,
 but with shared fields that all variants have access to, similar to how inheritance
