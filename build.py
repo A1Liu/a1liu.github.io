@@ -25,7 +25,7 @@ Example:
     add_item 'Hello, World!',today,meta,first-post:meta""")
 @in_namespace
 def add_item(title, date, categories = [], tags = []):
-    collection = _namespace_get('col')
+    collection = _collection
     if date.lower() == 'today':
         date = None
     categories = categories.split(':') if isinstance(categories, str) else categories
