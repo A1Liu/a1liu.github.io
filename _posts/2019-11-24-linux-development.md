@@ -4,7 +4,7 @@ categories: [personal, linux]
 tags: [linux]
 ---
 I'm trying to install ElementaryOS, and it's pretty annoying. Probably easier than
-other linux distros though. I'm running on an ASUS VivoBook F412DA.
+other linux distros though. I'm running on an CHUWI LapBook Pro 14.1.
 
 ## Pain Point: `Could not get lock /var/lib/dpkg/lock-frontend - open`
 Only one instance of the package manager can be running at a time, and this is the
