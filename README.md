@@ -12,3 +12,9 @@ Hopefully it acts as a social media that more accurately reflects the kinds of t
 ### Self-Promotion
 I'd like to get a job, and this could help (I hope?)
 
+## Using the Build REPL
+The only dependency is PyYAML, which can be installed using `pip install yaml`.
+
+The collection we're editing is stored in `col`; to change this, use
+`col= <collection name>`. To get help, do `help <command>`.
+

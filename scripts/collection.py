@@ -108,5 +108,8 @@ class Collection:
             tags = tags.union(item['attributes']['tags'])
         return [t for t in sorted(tags)]
 
+    def __repr__(self):
+        return f"Collection({self.name})"
+
     def __str__(self):
         return f"Collection({self.name})"
