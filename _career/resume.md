@@ -1,4 +1,0 @@
----
-layout: latex
----
-# Albert Liu
