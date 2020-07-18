@@ -35,17 +35,15 @@ These two files provide the following features
 To use these files, first download them (and/or copy-paste them) into your project.
 Usually C projects come with a source folder, often abbreviated `src`, so that's
 where they should go. Then any time you need to use `malloc`, add the following
-lines near the beginning of the file:
+line near the beginning of the file:
 
 ```c
-#include <stdlib.h>
 #include "debug_allocator.h"
 ```
 
-Make sure `stdlib` is included before `debug_allocator.h`! Otherwise your code
-might not compile. Then, just use `malloc` normally! The macros will take care
-of the rest. Please note: don't keep these files in your project! They're useful
-for debugging, but are terrible for performance.
+Then, just use `malloc` normally! The macros will take care of the rest. Please
+note: don't keep these files in your project! They're useful for debugging, but
+are terrible for performance.
 
 ### How it Works
 This allocator doesn't do much, but what it does still might be worth explaining.
