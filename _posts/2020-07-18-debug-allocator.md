@@ -6,10 +6,10 @@ tags: [c,programming]
 I've made a debug allocator for the C; hopefully this will make it easier for
 NYU students to learn C and debug their C programs for CSO. The files are:
 
--  [`debug_allocator.h`](https://raw.githubusercontent.com/A1Liu/config/master/libs/c/debug_allocator.h)
+-  [debug_allocator.h](https://raw.githubusercontent.com/A1Liu/config/master/libs/c/debug_allocator.h)
    This is the file that defines the macros that make the allocator work; you'll
    want to include it in your projects with `#include "debug_allocator.h"`.
--  [`debug_allocator.c`](https://raw.githubusercontent.com/A1Liu/config/master/libs/c/debug_allocator.c)
+-  [debug_allocator.c](https://raw.githubusercontent.com/A1Liu/config/master/libs/c/debug_allocator.c)
    This is the implementation file; it calls `malloc` and `free`, while tracking
    file and line numbers of allocations.
 
