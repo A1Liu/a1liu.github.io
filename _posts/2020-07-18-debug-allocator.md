@@ -44,7 +44,7 @@ lines near the beginning of the file:
 
 Make sure `stdlib` is included before `debug_allocator.h`! Otherwise your code
 might not compile. Then, just use `malloc` normally! The macros will take care
-of the rest. Please note: don't keep these file in your project! They're useful
+of the rest. Please note: don't keep these files in your project! They're useful
 for debugging, but are terrible for performance.
 
 ### How it Works
