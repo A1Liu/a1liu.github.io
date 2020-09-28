@@ -3,12 +3,7 @@ title: Curriculum Vitae
 permalink: /career/
 ---
 Here's a few of the notable projects I've been working on! This document is an
-unabridged version of my CV. Here's a few of my more recent, submitted versions:
-
-{% assign most_recent = site.career | slice: 0,5 %}
-{% for post in most_recent %}
-* [{{ post.date }}]( {{ post.url }} )
-{% endfor %}
+unabridged version of my CV.
 
 <style>
 h5 {

@@ -26,9 +26,6 @@ collections:
   docs:
     output: true
     permalink: /docs/:path/
-  career:
-    output: true
-    permalink: /career/:name/
 
 defaults:
   -
@@ -41,11 +38,6 @@ defaults:
       type: posts
     values:
       layout: page
-  -
-    scope:
-      type: career
-    values:
-      layout: latex_no_title
   -
     scope:
       type: docs
