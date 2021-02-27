@@ -24,7 +24,7 @@ def capitalize_word(word):
     return word
 
 def make_post(
-    title, display_title=None,date=None, categories=[], tags=[],
+    title, display_title=None, date=None, categories=[], tags=[],
     collection = 'drafts', has_assets = True):
 
     # Setting up vars

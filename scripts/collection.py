@@ -25,7 +25,7 @@ class Collection:
     def __init__(self, name):
         self.name = name
         if not os.path.exists(self.path):
-            raise NameError("Collection 'name' doesn't exist!")
+            raise NameError(f"Collection '{name}' doesn't exist!")
         self.logger = logging.getLogger(f'collection-{name}')
 
     # Path of the collection

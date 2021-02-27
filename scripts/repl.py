@@ -3,6 +3,7 @@ import sys, os
 from aliu.string import parse_args
 from aliu import repl
 import pprint
+import traceback
 
 _pp = pprint.PrettyPrinter(indent = 2)
 _namespace = {}
@@ -117,7 +118,11 @@ class Repl(repl.Repl):
                     result = result()
             return result if result is not None else repl.SKIP_PRINTING
         except Exception as err:
-            return err.__class__.__name__ + ": " + err.__str__()
+            name, msg= err.__class__.__name__, err.__str__()
+            # tb = traceback.format_tb(err.__traceback__)
+            # return f"{name}: {msg}\n{''.join(tb).strip()}"
+            return f"{name}: {msg}"
+
 
     def print(self, value):
         if value is not None and not isinstance(value, str):
